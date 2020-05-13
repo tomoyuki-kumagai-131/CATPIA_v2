@@ -1,0 +1,40 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'bin/**'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'vendor/**/**/*'
+    - 'spec/*'
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+
+Airbnb/OptArgParameters:
+  Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Layout/IndentationConsistency:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
