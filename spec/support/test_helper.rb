@@ -1,0 +1,1 @@
+include ApplicationHelper #full_title methodを読み込む
