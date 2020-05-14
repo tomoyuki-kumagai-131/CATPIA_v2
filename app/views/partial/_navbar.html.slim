@@ -12,9 +12,8 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
           span.sr-only
             | (current)
       ul
-      li.nav-item.mt-3.my-2
-        a.nav-link.active[href="/about/"]
-          | ABOUT
+      li.nav-item.mt-3.my-2.a.btn.btn-outline-info
+        = link_to "ABOUT", about_path
 
       ul
       li.nav-item.mt-3.my-2
@@ -22,7 +21,6 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
           | SHOP'S
 
       ul
-      /- if user_signed_in?
 
       li.nav-item.mt-3.my-2
         a.btn.btn-outline-success[href="/shops/new"]
@@ -30,19 +28,16 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
       ul
       
       /li.nav-item.mt-3.my-2.a.btn.btn-outline-dark
-        /= link_to "SIGN OUT", destroy_user_session_path, method: :delete
+        = link_to "SIGN OUT", destroy_user_session_path, method: :delete
       ul
 
-      li.nav-item.mt-3.my-2
-        a.btn.btn-outline-info[href="/users/:id"]
-          |MY PAGE
+      li.nav-item.mt-3.my-2a.btn.btn-outline-info
+        = link_to 'MY PAGE', users_path
       ul
 
-    /- else
-
-      li.nav-item.mt-3.my-2
-        a.btn.btn-outline-info[href="/users/sign_up"]
-          |SIGN UP
+      li.nav-item.mt-3.my-2.a.btn.btn-outline-info
+        = link_to 'SIGN UP', signup_path
+        
       ul
       li.nav-item.mt-3.my-2
         a.btn.btn-outline-warning[href="/users/sign_in"]
