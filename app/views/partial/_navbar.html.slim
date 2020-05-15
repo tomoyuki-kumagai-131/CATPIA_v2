@@ -7,23 +7,18 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
   #navbarCollapse.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       li.nav-item.active.mt-3.my-2
-        a.nav-link[href="/"]
+        nav-link[href="/"]
           | HOME 
-          span.sr-only
-            | (current)
       ul
-      li.nav-item.mt-3.my-2.a.btn.btn-outline-info
+      li.nav-item.mt-3.my-2
         = link_to "ABOUT", about_path
-
       ul
       li.nav-item.mt-3.my-2
-        a.nav-link.active[href="/shops/"]
+        nav-link.active[href="/shops/"]
           | SHOP'S
-
       ul
 
       li.nav-item.mt-3.my-2
-        a.btn.btn-outline-success[href="/shops/new"]
           |投稿
       ul
       
@@ -31,18 +26,16 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
         = link_to "SIGN OUT", destroy_user_session_path, method: :delete
       ul
 
-      li.nav-item.mt-3.my-2a.btn.btn-outline-info
+      li.nav-item.mt-3.my-2
         = link_to 'MY PAGE', users_path
       ul
 
-      li.nav-item.mt-3.my-2a.btn.btn-outline-info
+      li.nav-item.mt-3.my-2
         = link_to 'SIGN UP', signup_path
         
       ul
-      li.nav-item.mt-3.my-2
-        a.btn.btn-outline-warning[href="/users/sign_in"]
+      li.nav-item.mt-3.my-2.[href="/users/sign_in"]
           |LOG IN   
-        ul
 
     form.form-inline.mt-2.mt-md-0
       input.form-control.mr-sm-2.text-center[type="text" placeholder="ねこかふぇを探す" aria-label="Search"]
