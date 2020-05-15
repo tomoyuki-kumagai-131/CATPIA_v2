@@ -1,9 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  before do
-    driven_by(:rack_test)
-  end
+  describe "ユーザー登録ページ" do
+    before do
+      visit signup_path
+    end
 
-  pending "add some scenarios (or delete) #{__FILE__}"
+    context "ページレイアウト" do
+      it "「ユーザー登録」の文字列が存在することを確認" do
+        expect(page).to have_content 'ユーザー登録'
+      end
+
+      it "正しいタイトルが表示されること確認" do
+        expect(page).to have_title full_title('ユーザー登録')
+      end
+    end
+  end
 end
