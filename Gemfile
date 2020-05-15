@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing'
+  gem "factory_bot_rails", "~> 4.10.0"
 end
 
 group :development do
@@ -69,3 +70,4 @@ gem 'bootstrap'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'rubocop-airbnb'
+gem 'faker'
