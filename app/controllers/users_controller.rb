@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])#特定のIDデータを取得する
+    @user = User.new(user_params)
     if @user.save
-      flash[:success] = "CATPIAへようこそ！"
+      flash[:success] = 'CATPIAへようこそ!'
       redirect_to @user
     else
       render 'new'
