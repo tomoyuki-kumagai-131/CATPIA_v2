@@ -1,0 +1,15 @@
+- provide(:title,"プロフィール")
+h2
+  |プロフィール
+=gravatar_for @user
+br
+= @user.id
+|,
+= @user.name
+|,
+= @user.email
+|,
+= @user.created_at
+|,
+= @user.updated_at
+br
