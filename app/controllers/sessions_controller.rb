@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)# Remember me機能をログイン時に有効化させる
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user) #チェックがついている時限定でRemember me有効化
       redirect_to user
     else
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが誤っています'
