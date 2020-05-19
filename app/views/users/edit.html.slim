@@ -1,2 +1,19 @@
-h1 Users#edit
-p Find me in app/views/users/edit.html.slim
+- provide(:title, "プロフィール編集")
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+      .gravatar_edit
+        = gravatar_for(@user, size: 40)
+        = @user.name
+        a[href="http://gravatar.com/emails" target="_blank"]
+          | プロフィール写真を変更
+      p
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control', id: 'user_name'
+      .form-group
+        = f.label :email
+        = f.text_field :email, class: 'form-control', id: 'user_email'
+        
+      = f.submit "更新する", class: "btn btn-primary"
