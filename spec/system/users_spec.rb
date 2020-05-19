@@ -58,7 +58,6 @@ RSpec.describe User, type: :system do
         expect(page).to have_content user.name
       end
     end
-  end
 
   context "バリデーション" do
     it "名前、メールアドレスがあれば有効な状態であること" do
@@ -111,6 +110,12 @@ RSpec.describe User, type: :system do
        user = build(:user, password: "a" * 6, password_confirmation: "a" * 6)
        user.valid?
        expect(user).to be_valid
+    end
+  end
+
+  context "authenticated?method"
+    it "ダイジェストが存在しない場合、falseを返すこと" do
+      expect(user.authenticated?('')).to eq false
     end
   end
 end
