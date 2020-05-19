@@ -4,7 +4,8 @@
     = form_for(@user) do |f|
       = render 'shared/error_messages', object: f.object
       .gravatar_edit
-        = gravatar_for(@user, size: 40)
+        = gravatar_for(@user, size: 50)
+        p
         = @user.name
         a[href="http://gravatar.com/emails" target="_blank"]
           | プロフィール写真を変更
@@ -15,5 +16,5 @@
       .form-group
         = f.label :email
         = f.text_field :email, class: 'form-control', id: 'user_email'
-        
+
       = f.submit "更新する", class: "btn btn-primary"
