@@ -1,4 +1,4 @@
-module SessionsHelper
+module SessionsHelper #全てのコントローラーで読み込み可能
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -10,13 +10,19 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  # 渡されたユーザーがログイン済のユーザーであればtrueを返すメソッド
+  def current_user?(user)
+    user == current_user
+  end
+  
+  #
   def current_user
     if session[:user_id]
       @current_user ||= User.find_by(id: session[:user_id])
     end
   end
 
-  # 記憶トークンcookieに対応するユーザーを返す
+  # 記憶トークンcookieに対応するユーザーを返すメソッド
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)

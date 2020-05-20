@@ -1,8 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :system do
-  let(:user) { create(:user) }
-
+RSpec.describe "Users", type: :system do
+  let!(:user) { create(:user) }
   describe "ユーザー登録ページ" do
     before do
       visit signup_path
@@ -40,9 +39,43 @@ RSpec.describe User, type: :system do
     end
   end
 
+  describe "プロフィール編集ページ" do
+    before do
+      login_for_system(user) # test_helper定義
+      visit user_path(user)
+      click_link "プロフィール編集"
+    end
+
+    context "ページレイアウト" do
+      it "正しいタイトルが表示されることを確認" do
+        expect(page).to have_title full_title('プロフィール編集')
+      end
+    end
+
+    it "有効なプロフィール更新を行うと、更新成功のフラッシュが表示されること" do
+      fill_in "ユーザー名", with: "Edit Example User"
+      fill_in "メールアドレス", with: "edit-user@example.com"
+      click_button "更新する"
+      expect(page).to have_content "プロフィールが更新されました！"
+      expect(user.reload.name).to eq "Edit Example User"
+      expect(user.reload.email).to eq "edit-user@example.com"
+    end
+
+    it "無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること" do
+      fill_in "ユーザー名", with: ""
+      fill_in "メールアドレス", with: ""
+      click_button "更新する"
+      expect(page).to have_content 'ユーザー名を入力してください'
+      expect(page).to have_content 'メールアドレスを入力してください'
+      expect(page).to have_content 'メールアドレスは不正な値です'
+      expect(user.reload.email).not_to eq ""
+    end
+  end
+
   describe "プロフィールページ" do
     context "ページレイアウト" do
       before do
+        login_for_system(user)
         visit user_path(user)
       end
 
@@ -57,66 +90,10 @@ RSpec.describe User, type: :system do
       it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
       end
-    end
 
-  context "バリデーション" do
-    it "名前、メールアドレスがあれば有効な状態であること" do
-      expect(user).to be_valid
-    end
-    
-    it "名前がなければ無効な状態であること" do
-      user = build(:user, name: nil)
-      user.valid?
-      expect(user.errors[:name]).to include("を入力してください")
-    end
-
-    it "名前が50文字以内であること" do
-      user = build(:user, name: "a" * 51)
-      user.valid?
-      expect(user.errors[:name]).to include("は50文字以内で入力してください")
-    end
-
-    it "メールアドレスがなければ無効な状態であること" do
-      user = build(:user, email: nil)
-      user.valid?
-      expect(user.errors[:email]).to include("を入力してください")
-    end
-
-    it "メールアドレスが255文字以内であること" do
-      user = build(:user, email: "#{"a" * 244}@example.com")
-      user.valid?
-      expect(user.errors[:email]).to include("は255文字以内で入力してください")
-    end
-
-    it "重複したメールアドレスなら無効な状態であること" do
-      other_user = build(:user, email: user.email)
-      other_user.valid?
-      expect(other_user.errors[:email]).to include("はすでに存在します")
-    end
-
-    it "メールアドレスは小文字で保存されること" do
-      email = "ExamPle@example.com"
-      user = create(:user, email: email)
-      expect(user.email).to eq email.downcase
-    end
-
-    it "パスワードがなければ無効な状態であること" do
-      user = build(:user, password: nil, password_confirmation: nil)
-      user.valid?
-      expect(user.errors[:password]).to include("を入力してください")
-    end
-
-    it "パスワードが6文字以上であること" do
-       user = build(:user, password: "a" * 6, password_confirmation: "a" * 6)
-       user.valid?
-       expect(user).to be_valid
-    end
-  end
-
-  context "authenticated?method"
-    it "ダイジェストが存在しない場合、falseを返すこと" do
-      expect(user.authenticated?('')).to eq false
+      it "プロフィール編集ページへのリンクが表示されていることを確認" do
+        expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+      end
     end
   end
 end
- 
