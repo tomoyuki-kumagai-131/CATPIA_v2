@@ -22,7 +22,7 @@ module SessionsHelper #全てのコントローラーで読み込み可能
     end
   end
 
-  # 記憶トークンcookieに対応するユーザーを返す
+  # 記憶トークンcookieに対応するユーザーを返すメソッド
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
