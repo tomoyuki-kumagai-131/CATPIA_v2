@@ -37,7 +37,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def index # ユーザー一覧表示アクション
+    @users = User.all
   end
 
   private
