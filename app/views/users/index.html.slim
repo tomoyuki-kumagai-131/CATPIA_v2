@@ -1,6 +1,11 @@
-- provide(:title, 'ユーザー一覧')
+- provide(:title, 'ユーザーリスト')
 .container
-  h２.ml-5
-    | ユーザー一覧
-  ul.users.ml-auto
+  ul.d-flex.justify-content-left.mb-2
+    h2.ml-5
+      | ユーザーリスト
+  ul
+  .users
     = render @users
+  ul
+  .d-flex.justify-content-left.mb-2
+    == pagy_bootstrap_nav(@pagy).html_safe
