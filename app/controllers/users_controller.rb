@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # pagyを読み込む
+  include Pagy::Backend
   # ログインが必要
   before_action :logged_in_user, only: [:index, :show, :edit, :update]
   # 他人の操作は不可にする
@@ -37,8 +39,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def index # ユーザー一覧表示アクション
-    @users = User.all
+  def index # ユーザー一覧表示アクション pagy
+    @pagy, @users = pagy(User.all)
   end
 
   private
