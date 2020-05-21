@@ -1,2 +1,6 @@
-h1 Users#index
-p Find me in app/views/users/index.html.slim
+- provide(:title, 'ユーザー一覧')
+.container
+  h２.ml-5
+    | ユーザー一覧
+  ul.users.ml-auto
+    = render @users

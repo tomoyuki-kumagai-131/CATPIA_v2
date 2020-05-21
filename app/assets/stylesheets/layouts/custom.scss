@@ -85,6 +85,18 @@ input {
   margin-top: 20px;
 }
 
+//ユーザー一覧ページ//
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    margin: 9px;
+    padding: 15px 0;
+    border-bottom: 3px solid;
+  }
+}
+
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {
