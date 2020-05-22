@@ -3,5 +3,6 @@ li
 .img-name
   = link_to user.name, user 
   | 　 |　
-  = link_to "削除", user_path(user), method: :delete, class: 'btn btn-secondary',
-                              data: { confirm: "本当に削除しますか？" }
+  - if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user) 
+    = link_to "削除", user_path(user), method: :delete, class: 'btn btn-secondary',
+                                data: { confirm: "本当に削除しますか？" }
