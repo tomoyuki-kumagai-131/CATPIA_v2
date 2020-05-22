@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-  # pagyを読み込む
-  include Pagy::Backend
   # ログインが必要
-  before_action :logged_in_user, only: [:index, :show, :edit, :update]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   # 他人の操作は不可にする
   before_action :correct_user,   only: [:edit, :update]
   
@@ -39,8 +37,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def index # ユーザー一覧表示アクション pagy
-    @pagy, @users = pagy(User.all)
+  # ユーザー削除処理
+  def destroy
+    User.find(params[:id]).destroy    
+    flash[:success] = "アカウントを削除しました"
+    redirect_to root_url
+  end
+
+  def index # ユーザー一覧表示アクション
+    @users = User.all.order(created_at: :desc)
+    @users = User.page(params[:page]).per(5)
   end
 
   private
