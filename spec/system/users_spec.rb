@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+
+  describe "ユーザー一覧ページ" do
+    it "ページネーション、削除ボタンが表示されることを確認" do
+      create_list(:user, 31)
+      login_for_system(user)
+      visit users_path
+      expect(page).to have_css "div.pagination"
+      expect(page).to have_link '削除', href: user_path(user)
+    end
+  end
+
   describe "ユーザー登録ページ" do
     before do
       visit signup_path
