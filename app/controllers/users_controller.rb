@@ -37,11 +37,23 @@ class UsersController < ApplicationController
     end
   end
 
-  # ユーザー削除処理
+  # ユーザー削除処理 #
   def destroy
-    User.find(params[:id]).destroy    
-    flash[:success] = "アカウントを削除しました"
-    redirect_to root_url
+    @user = User.find(params[:id])
+    # 管理者ユーザーの場合
+    if curren_user.admin?
+      @user.destroy
+      flash[:success] = "ユーザーの削除に成功しました"
+      redirect_to users_url
+    # 管理者ユーザーではなく、自分のアカウントの場合 削除後rootに。
+    elsif current_user?(@user)
+      @user.destroy
+      flash[:succcess] = "自分のアカウントを削除しました"
+      redirect_to root_url
+    else #他人がアカウントを削除しようとした場合
+      flash[:danger] = "他人のアカウントは削除できません"
+      redirect_to root_url
+    end
   end
 
   def index # ユーザー一覧表示アクション
