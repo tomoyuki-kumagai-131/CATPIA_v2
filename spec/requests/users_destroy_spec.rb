@@ -26,14 +26,16 @@ RSpec.describe "ユーザーの削除", type: :request do
     it "自分以外のユーザーアカウントを削除しようとすると、トップページにリダイレクトすること" do
       login_for_request(user)
       expect { delete user_path(other_user) }.not_to change(User, :count)
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to root_url
     end
 
   context "ログインしていないユーザーの場合" do
     it "ユーザーアカウントを削除しようとすると、ログインページへリダイレクトすること" do
       expect { delete user_path(other_user) }.not_to change(User, :count)
       expect(response).to have_http_status "302"
-      expect(response).to redirect_to login_path
+      expect(response).to redirect_to login_url
     end
   end
 end
+
+# 覚え root_url は、redirect_toのときに使う(絶対パス)
