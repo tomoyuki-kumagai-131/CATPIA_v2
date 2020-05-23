@@ -50,4 +50,10 @@ RSpec.describe Shop, type: :model do
       expect(shop.errors[:rating]).to include("は5以下の値にしてください")
     end
   end
+  
+  context "並び順" do
+    it "最も新しい投稿が最初の投稿になっていること" do
+      expect(shop).to eq Shop.first
+    end
+  end
 end
