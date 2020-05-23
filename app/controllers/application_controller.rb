@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     # ログイン済ユーザーかどうか確認
     def logged_in_user
       unless logged_in?
+        store_location # sessions_helperのメソッド
         flash[:danger] = "ログインしてください"
         redirect_to login_url
       end

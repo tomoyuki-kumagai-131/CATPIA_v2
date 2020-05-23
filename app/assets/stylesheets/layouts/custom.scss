@@ -85,6 +85,32 @@ input {
   margin-top: 20px;
 }
 
+//ユーザー一覧ページ//
+.users {
+  list-style: none;
+  margin: 0;
+  padding-left: 30px;
+  li {
+    overflow: auto;
+    margin: 20px;
+    padding: 12px 0;
+    border-bottom: 2px solid;
+  }
+}
+//ユーザー一覧ページ：プロフィール写真と名前の間隔調整//
+.img-name {
+  margin-left: 82px;
+  margin-top: -70px;
+  padding-bottom: 40px;
+}
+
+//ユーザー一覧ページ：プロフィール写真と名前の間隔調整//
+.delete {
+  margin-left: 170px;
+  margin-top: -70px;
+  padding-bottom: 40px;
+}
+
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {

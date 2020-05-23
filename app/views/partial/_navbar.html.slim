@@ -28,15 +28,17 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
               = link_to 'ログアウト', logout_path, method: :delete
 
     - else
-      li.nav-item.mt-3.my-2
-        nav-link.active[href="/shops/"]
-          | SHOP'S
-      ul
-        li.nav-item.mt-3.my-2
-          = link_to 'ユーザー登録', signup_path
-      ul
-        li.nav-item.mt-3.my-2
-          = link_to 'ログイン', login_path
+        br
+        ul
+          nav-item.mt-3.my-2
+            nav-link[href="/shops/"]
+              | SHOP'S
+        ul
+          nav-item.mt-3.my-2
+            = link_to 'ユーザー登録', signup_path
+        ul
+          nav-item.mt-3.my-2
+            = link_to 'ログイン', login_path
 
   /form.form-inline.mt-2.mt-md-0
     /input.form-control.mr-sm-2.text-center[type="text" placeholder="ねこかふぇを探す" aria-label="Search"]

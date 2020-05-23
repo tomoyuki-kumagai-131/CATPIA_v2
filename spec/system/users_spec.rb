@@ -2,6 +2,30 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) }
+
+  describe "ユーザー一覧ページ" do
+    context "管理者ユーザーの場合" do
+      it "ページネーション、自分以外のユーザーに削除ボタンが表示されることを確認" do
+        create_list(:user, 31)
+        login_for_system(admin_user)
+        visit users_path
+        expect(page).to have_css "div.pagination"
+        expect(page).to have_link '削除', href: user_path(user) unless admin_user
+      end
+    end
+
+    context "管理者ユーザー以外の場合" do
+      it "ぺージネーション、自分のアカウントのみ削除ボタンが表示されること" do
+        create_list(:user, 31)
+        login_for_system(user)
+        visit users_path
+        expect(page).to have_css "div.pagination"
+        expect(page).to have_link '削除', href: user_path(user) unless admin_user
+      end
+    end
+  end
+
   describe "ユーザー登録ページ" do
     before do
       visit signup_path

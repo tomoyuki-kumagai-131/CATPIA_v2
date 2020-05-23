@@ -1,2 +1,11 @@
-h1 Users#index
-p Find me in app/views/users/index.html.slim
+- provide(:title, 'ユーザーリスト')
+.container
+  ul.d-flex.justify-content-left.mb-2
+    h2.ml-5
+      | ユーザーリスト
+  ul
+  .users
+    = render @users
+  ul
+    .pagination
+    = paginate @users
