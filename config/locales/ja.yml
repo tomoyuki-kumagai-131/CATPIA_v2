@@ -8,6 +8,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: ユーザー
+      shop: 猫カフェ
     attributes:
       user:
         id: ID
@@ -17,6 +18,15 @@ ja:
         password_confirmation: パスワード(確認)
         created_at: 登録日時
         updated_at: 更新日時
+      shop:
+        id: ID
+        name: 店名
+        user_id: 作成者のiD
+        address: 住所
+        description: 説明
+        recommended_points: おすすめポイント
+        web_page: WEBページ
+        rating: おすすめ度
   date:
     abbr_day_names:
     - 日
