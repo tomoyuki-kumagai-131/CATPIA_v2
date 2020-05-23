@@ -11,5 +11,6 @@ class CreateShops < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :shops, [:user_id, :created_at]
   end
 end
