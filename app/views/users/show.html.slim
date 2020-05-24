@@ -14,3 +14,13 @@
       - if current_user == @user
         .account-edit
           = link_to "プロフィール編集", edit_user_path(@user)
+  .row
+  .col-md-9
+    - if @user.shops.any?
+      h3
+        | ねこカフェ (
+        = @user.shops.count
+        | )
+      ol.shops
+        = render @shops
+      = paginate @shops
