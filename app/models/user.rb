@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :shops, dependent: :destroy
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
