@@ -100,6 +100,7 @@ RSpec.describe "Users", type: :system do
     context "ページレイアウト" do
       before do
         login_for_system(user)
+        create_list(:shop, 10, user: user)
         visit user_path(user)
       end
 
@@ -117,6 +118,24 @@ RSpec.describe "Users", type: :system do
 
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+      end
+
+      it "ねこカフェの件数が表示されていることを確認" do
+        expect(page).to have_content "ねこカフェ (#{user.shops.count})"
+      end
+
+      it "ねこカフェの情報が表示されていることを確認" do
+        Shop.take(5).each do |shop|
+          expect(page).to have_link shop.name
+          expect(page).to have_content shop.description
+          expect(page).to have_content shop.recommended_points
+          expect(page).to have_content shop.user.name
+          expect(page).to have_content shop.rating
+        end
+      end
+
+      it "ねこカフェのページネーションが表示されていることを確認" do
+        expect(page).to have_css ".pagination"
       end
     end
   end
