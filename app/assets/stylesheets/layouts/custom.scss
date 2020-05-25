@@ -157,6 +157,22 @@ span.picture {
   }
 }
 
+//// トップページ（ログイン後） ////
+// 「ねこカフェを投稿する」ボタン
+.btn-record {
+  margin-top: 3em;
+}
+
+//// ねこカフェ登録ページ ////
+.input-need {
+  color: red;
+  font-size: 13px;
+}
+
+.input-unneed {
+  font-size: 13px;
+}
+
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {
