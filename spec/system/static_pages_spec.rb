@@ -14,8 +14,24 @@ RSpec.describe "StaticPages", type: :system do
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title
       end
+
+      context "ねこカフェ投稿フィード", js: true do
+        let!(:user) { create(:user) }
+        let!(:shop) { create(:shop, user: user) }
+
+          it "ねこカフェ投稿のページネーションが表示されること" do
+            login_for_system(user)
+            create_list(:shop, 4, user: user)
+            visit root_path
+            expect(page).to have_content "みんなのねこカフェ (#{user.shops.count})"
+            expect(page).to have_css ".pagination"
+            Shop.take(5).each do |s|
+              expect(page).to have_link s.name
+            end
+          end
+        end
+      end
     end
-  end
 
   describe "アバウトページ" do
     before do
