@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :shops, dependent: :destroy
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
@@ -23,6 +24,11 @@ class User < ApplicationRecord
     end
   end
 
+  #フィード一覧を取得
+  def feed
+    Shop.where("user_id = ?", id)
+  end
+  
   #永続セッションのため、ユーザーをデータベースに保存するメソッド
   def remember
     self.remember_token = User.new_token
