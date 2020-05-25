@@ -24,6 +24,11 @@ class User < ApplicationRecord
     end
   end
 
+  #フィード一覧を取得
+  def feed
+    Shop.where("user_id = ?", id)
+  end
+  
   #永続セッションのため、ユーザーをデータベースに保存するメソッド
   def remember
     self.remember_token = User.new_token
