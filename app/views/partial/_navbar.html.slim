@@ -1,11 +1,13 @@
 nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
-  a.navbar-brand[href="/"]
-    | C A T P I A
-  ul
+  = link_to root_path do
+    = image_tag("/cat_logo2.png")
+  h7.text-center.mr-auto
+    |C A T P I A
+  ul  
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse"]
     span.navbar-toggler-icon
   #navbarCollapse.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto.border-bottom
+    ul.navbar-nav.mr-auto
       ul.nav-item.mt-3.my-2
         = link_to 'HOME', root_path
       ul
