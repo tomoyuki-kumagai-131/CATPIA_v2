@@ -1,10 +1,15 @@
 - if logged_in?
   .container
-    h4.pagination
-      | みんなのねこカフェ (
-      = @feed_items.count
-      | )
-    = render 'shared/feed'
+    .row
+      .col-md-9
+        h3
+          | みんなのねこカフェ (
+          = @feed_items.count
+          | )
+        = render 'shared/feed'
+      .col-md-3
+          = link_to "新規投稿", new_shop_path, class: "btn btn-primary btn-lg btn-record"
+    p
 
 - else    
   main[role="main"]
