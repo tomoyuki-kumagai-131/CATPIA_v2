@@ -3,6 +3,24 @@ body {
   font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic'  
 }
 
+//a {
+  //color:#333333;
+//}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+.icon::before {
+  display: inline-block;
+  margin-right: .5em;
+  font-family: fontawesome;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 // ミックスイン
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -20,7 +38,10 @@ body {
 //ナビゲーションバーと被るため調整
 body {
   padding-top: 80px;
-  
+}
+
+ul.pf {
+  margin-bottom: 5px;
 }
 
 section {
@@ -120,6 +141,11 @@ input {
   margin-left: 170px;
   margin-top: -70px;
   padding-bottom: 40px;
+}
+
+h2-list {
+  margin-top: 12px;
+  margin-bottom: 10px;
 }
 
 /* プロフィールページ：ネコカフェ一覧表示(Shop) */
@@ -255,7 +281,11 @@ h2.shop-name {
 }
 
 //ねこカフェフィード//
-
+  .col-md-9 {
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  
   .name-shop {
     font-size:20px;
   }

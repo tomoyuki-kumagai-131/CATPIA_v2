@@ -1,8 +1,7 @@
 nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
-  = link_to root_path do
-    = image_tag("/cat_logo2.png")
-  h7.text-center.mr-auto
-    |C A T P I A
+  i.fas.fa-cat = link_to root_path do
+    a
+      |  C A T P I A
   ul
   
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse"]
@@ -17,7 +16,10 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
     - if logged_in?
       ul.nav-item.mt-3.my-2
         = link_to 'ユーザー一覧', users_path
+      ul.pf
+        a.nav-item.mt-2.my-1.i.fa.fa-clickable.fa-user-circle.fa-2x href= (user_path(current_user.id))
       ul
+      
       .dropdown.nav-item.mt-3.my-2
         button#btnOpenMenu.dropdown-toggle[data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
           | アカウント
