@@ -18,6 +18,9 @@ RSpec.describe "StaticPages", type: :system do
       context "ねこカフェ投稿フィード", js: true do
         let!(:user) { create(:user) }
         let!(:shop) { create(:shop, user: user) }
+        before do
+          login_for_system(user)
+        end
 
           it "ねこカフェ投稿のページネーションが表示されること" do
             login_for_system(user)
@@ -28,6 +31,11 @@ RSpec.describe "StaticPages", type: :system do
             Shop.take(5).each do |s|
               expect(page).to have_link s.name
             end
+          end
+          
+          it "新規投稿リンクが表示されていること" do
+             visit root_path
+             expect(page).to have_link "新規投稿", href: new_shop_path
           end
         end
       end
