@@ -3,7 +3,8 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
     = image_tag("/cat_logo2.png")
   h7.text-center.mr-auto
     |C A T P I A
-  ul  
+  ul
+  
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse"]
     span.navbar-toggler-icon
   #navbarCollapse.collapse.navbar-collapse
@@ -13,33 +14,28 @@ nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow
       ul
       ul.nav-item.mt-3.my-2
         = link_to "ABOUT", about_path
-      
     - if logged_in?
-        br
-          = link_to 'ユーザー一覧', users_path
-        ul
-        .dropdown
-          button#btnOpenMenu.dropdown-toggle[data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            | アカウント
-
-          ul.dropdown-menu[aria-labelledby="btnOpenMenu"]
-            li
-              = link_to 'プロフィール', current_user
-            li.divider
-            li
-              = link_to 'ログアウト', logout_path, method: :delete
+      ul.nav-item.mt-3.my-2
+        = link_to 'ユーザー一覧', users_path
+      ul
+      .dropdown.nav-item.mt-3.my-2
+        button#btnOpenMenu.dropdown-toggle[data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+          | アカウント
+        .dropdown-menu[aria-labelledby="btnOpenMenu"]
+          .dmenu
+            = link_to 'プロフィール', current_user
+          li.divider
+          li
+            = link_to 'ログアウト', logout_path, method: :delete
 
     - else
         br
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             nav-link[href="/shops/"]
               | SHOP'S
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             = link_to 'ユーザー登録', signup_path
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             = link_to 'ログイン', login_path
 
   /form.form-inline.mt-2.mt-md-0

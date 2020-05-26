@@ -11,9 +11,15 @@ body {
 }
 
 //共通//
+.dropdown {
+  margin-right: 30px;
+}
+.dmenu {
+
+}
 //ナビゲーションバーと被るため調整
 body {
-  padding-top:105px;
+  padding-top: 80px;
   
 }
 
@@ -248,6 +254,24 @@ h2.shop-name {
   }
 }
 
+//ねこカフェフィード//
+
+  .name-shop {
+    font-size:20px;
+  }
+
+
+  .address-shop {
+    margin-left: -150px;
+  }
+
+  .description-shop {
+  
+  }
+
+  .recommended_points {
+    margin-bottom: -15px;
+  }
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {
