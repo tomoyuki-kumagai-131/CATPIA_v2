@@ -1,3 +1,8 @@
+//フォント指定//
+body {
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic'  
+}
+
 // ミックスイン
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -171,6 +176,76 @@ span.picture {
 
 .input-unneed {
   font-size: 13px;
+}
+
+///ねこカフェ詳細ページ///
+.shop-user-name {
+  display: inline-block;
+}
+
+h2.shop-name {
+  border-bottom: 1px solid #bbb;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.shop-description {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 20px;
+}
+
+.shop-web_page {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+}
+
+.shop-address {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+}
+
+.title-recommended_points {
+  border_bottom: solid #bbb;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.points {
+  font-size: 18px;
+  margin-top: 9px;
+  border-bottom: 1px solid #bbb;
+}
+
+.show-shop-other-info {
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.shop-other-info {
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.shop-info {
+  border-bottom: 1px solid #bbb;
+  h5 {
+    font-size: 20px;
+    display: inline-block;
+  }
+  h4 {
+    border-bottom: 1px solid #bbb;
+    font-size: 20px;
+    display: inline-block;
+  }
 }
 
 //.field_with_errors {
