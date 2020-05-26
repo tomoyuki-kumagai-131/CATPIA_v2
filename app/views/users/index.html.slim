@@ -1,11 +1,12 @@
 - provide(:title, 'ユーザーリスト')
 .container
-  ul.d-flex.justify-content-left.mb-2
-    h2.ml-5
-      | ユーザーリスト
+  .d-flex.justify-content-center
+    h2-list
+      h3
+        | ユーザーリスト
+  .card
+    .users
+      = render @users
   ul
-  .users
-    = render @users
-  ul
-    .pagination
-    = paginate @users
+  .pagination
+  = paginate @users
