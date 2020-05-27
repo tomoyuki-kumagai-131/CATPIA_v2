@@ -4,9 +4,9 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: catpiav2_development
+      MYSQL_DATABASE: root
     ports:
-      - "3305:3306"
+      - "3306:3306"
 
   web:
     build: .
