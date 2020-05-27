@@ -10,7 +10,7 @@ jobs:
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
           RAILS_ENV: test
-          MYSQL_HOST: 127.0.0.1
+          MYSQL_HOST: db
           MYSQL_USERNAME: 'root'
           MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
@@ -19,7 +19,7 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_ROOT_PASSWORD: ''
-          MYSQL_DATABASE: catpiav2_test
+          MYSQL_DATABASE: app_name_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
