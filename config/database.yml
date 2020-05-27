@@ -30,7 +30,6 @@ test:
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: 'root'
   port: '3306'
-  password: password
   host: '127.0.0.1'
   database: catpiav2_test
 
