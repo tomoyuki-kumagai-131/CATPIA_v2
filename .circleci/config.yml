@@ -9,13 +9,14 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
+          BUNDLER_VERSION: 2.1.4
           RAILS_ENV: test
-          MYSQL_HOST: '127.0.0.1'
+          MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: 'root'
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
           MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
-          BUNDLER_VERSION: 2.1.0
+
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
