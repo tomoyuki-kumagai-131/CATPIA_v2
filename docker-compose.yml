@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
+      MYSQL_DATABASE: catpiav2_development
     ports:
       - "3306:3306"
 
@@ -12,7 +12,7 @@ services:
     build: .
     command: rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/app_name
+      - .:/catpiav2
     ports:
       - "3000:3000"
     links:
