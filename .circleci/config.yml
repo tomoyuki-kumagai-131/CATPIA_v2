@@ -1,5 +1,7 @@
 # Ruby CircleCI 2.0 configuration file
-
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
 version: 2
 jobs:
   build:
@@ -36,11 +38,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-        name: install dependencies
-        command: |
-          gem install bundler:2.1.0
-          bundle _2.1.0_ install --jobs=4 --retry=3 --path vendor/bundle
+       - run:
+          name: install dependencies
+          command: |
+            gem install bundler:2.1.0
+            bundle _2.1.0_ install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
           paths:
