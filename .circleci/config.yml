@@ -1,74 +1,69 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
-version: 2
-jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/ruby:2.5.3-node-browsers
-        environment:
-          BUNDLER_VERSION: 2.1.4
+version: 2 # use CircleCI 2.0
+jobs: # a collection of steps
+  build: # runs not using Workflows must have a `build` job as entry point
+    parallelism: 3 # run three instances of this job in parallel
+    docker: # run the steps with Docker
+      - image: circleci/ruby:2.5.3-node-browsers # ...with this image as the primary container; this is where all `steps` will run
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USERNAME: 'root'
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-          MYSQL_PASSWORD: ''
-          MYSQL_PORT: 3306
-
       - image: circleci/mysql:5.7
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: catpiav2_test
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ROOT_HOST: '%'
+          MYSQL_USER: root
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
 
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+      # Which version of bundler?
+      - run:
+          name: Which bundler?
+          command: bundle -v
 
-    working_directory: ~/CATPIAv2
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
+      # Restore bundle cache
+      # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
 
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: # Install Ruby dependencies
+          name: Bundle Install
+          command: bundle check --path vendor/bundle || bundle install --deployment
 
+      # Store bundle cache for Ruby dependencies
       - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - vendor/bundle
 
-      # Database setup
       - run:
-          name: waiting for stating database
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+
+      # Store yarn / webpacker cache
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      # run tests!
       - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
                               --out test_results/rspec.xml \
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results

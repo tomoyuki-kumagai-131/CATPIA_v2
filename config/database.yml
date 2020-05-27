@@ -12,22 +12,26 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: root
-  password: 
-  host: 127.0.0.1
+  password: password
 
 development:
   <<: *default
   database: catpiav2_development
-
+  host: db
+  
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: 'root'
+  port: 3306
+  host: '127.0.0.1'
   database: catpiav2_test
-
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
