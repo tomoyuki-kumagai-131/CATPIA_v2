@@ -12,6 +12,7 @@ jobs:
           RAILS_ENV: test
           MYSQL_HOST: '127.0.0.1'
           MYSQL_USERNAME: 'root'
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
           MYSQL_PASSWORD: ''
           MYSQL_PORT: 3306
           BUNDLER_VERSION: 2.1.0
