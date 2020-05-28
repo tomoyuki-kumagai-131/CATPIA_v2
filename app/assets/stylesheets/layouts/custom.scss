@@ -1,3 +1,26 @@
+//フォント指定//
+body {
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+//a {
+  //color:#333333;
+//}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+.icon::before {
+  display: inline-block;
+  margin-right: .5em;
+  font-family: fontawesome;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
 // ミックスイン
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -6,10 +29,19 @@
 }
 
 //共通//
+.dropdown {
+  margin-right: 30px;
+}
+.dmenu {
+
+}
 //ナビゲーションバーと被るため調整
 body {
-  padding-top:105px;
-  
+  padding-top: 80px;
+}
+
+ul.pf {
+  margin-bottom: 5px;
 }
 
 section {
@@ -111,6 +143,11 @@ input {
   padding-bottom: 40px;
 }
 
+h2-list {
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
 /* プロフィールページ：ネコカフェ一覧表示(Shop) */
 .shops {
   list-style: none;
@@ -157,6 +194,114 @@ span.picture {
   }
 }
 
+//// トップページ（ログイン後） ////
+// 「ねこカフェを投稿する」ボタン
+.btn-record {
+  margin-top: 3em;
+}
+
+//// ねこカフェ登録ページ ////
+.input-need {
+  color: red;
+  font-size: 13px;
+}
+
+.input-unneed {
+  font-size: 13px;
+}
+
+///ねこカフェ詳細ページ///
+.shop-user-name {
+  display: inline-block;
+}
+
+h2.shop-name {
+  border-bottom: 1px solid #bbb;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.shop-description {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 20px;
+}
+
+.shop-web_page {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+}
+
+.shop-address {
+  font-size: 18px;
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+}
+
+.title-recommended_points {
+  border_bottom: solid #bbb;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.points {
+  font-size: 18px;
+  margin-top: 9px;
+  border-bottom: 1px solid #bbb;
+}
+
+.show-shop-other-info {
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.shop-other-info {
+  border-bottom: 1px solid #bbb;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.shop-info {
+  border-bottom: 1px solid #bbb;
+  h5 {
+    font-size: 20px;
+    display: inline-block;
+  }
+  h4 {
+    border-bottom: 1px solid #bbb;
+    font-size: 20px;
+    display: inline-block;
+  }
+}
+
+//ねこカフェフィード//
+  .col-md-9 {
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .name-shop {
+    font-size:20px;
+  }
+
+
+  .address-shop {
+    margin-left: -150px;
+  }
+
+  .description-shop {
+  
+  }
+
+  .recommended_points {
+    margin-bottom: -15px;
+  }
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {

@@ -1,10 +1,15 @@
 - if logged_in?
   .container
-    h4.pagination
-      | みんなのねこカフェ (
-      = @feed_items.count
-      | )
-    = render 'shared/feed'
+    .col-md-9
+      .pagination.i.fas.fa-cat.fa-2x
+        |  ねこカフェ一覧 (
+        = @feed_items.count
+        | )
+      p
+      = render 'shared/feed'
+    .col-md-3
+       = link_to "新規投稿", new_shop_path, class: "btn btn-primary btn-lg btn-record"
+  p
 
 - else    
   main[role="main"]
@@ -43,7 +48,7 @@
               p
                 | ここではあなたの知らない猫カフェが、見つかるかもしれません。
               p
-                a.btn.btn-lg.btn-outline-light[href="/posts/" role="button"]
+                a.btn.btn-lg.btn-outline-light[href="/shops/" role="button"]
                   | 猫カフェを探す
         .carousel-item
           img[src="top3.jpg".alt="猫cafe" width="180%"]

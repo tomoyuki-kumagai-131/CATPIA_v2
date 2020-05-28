@@ -1,43 +1,43 @@
 nav.navbar.navbar-expand-md.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
-  a.navbar-brand[href="/"]
-    | C A T P I A
+  i.fas.fa-cat = link_to root_path do
+    a
+      |  C A T P I A
   ul
+  
   button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse"]
     span.navbar-toggler-icon
   #navbarCollapse.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto.border-bottom
+    ul.navbar-nav.mr-auto
       ul.nav-item.mt-3.my-2
         = link_to 'HOME', root_path
       ul
       ul.nav-item.mt-3.my-2
         = link_to "ABOUT", about_path
-      
     - if logged_in?
-        br
-          = link_to 'ユーザー一覧', users_path
-        ul
-        .dropdown
-          button#btnOpenMenu.dropdown-toggle[data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            | アカウント
-
-          ul.dropdown-menu[aria-labelledby="btnOpenMenu"]
-            li
-              = link_to 'プロフィール', current_user
-            li.divider
-            li
-              = link_to 'ログアウト', logout_path, method: :delete
+      ul.nav-item.mt-3.my-2
+        = link_to 'ユーザー一覧', users_path
+      ul.pf
+        a.nav-item.mt-2.my-1.i.fa.fa-clickable.fa-user-circle.fa-2x href= (user_path(current_user.id))
+      ul
+      
+      .dropdown.nav-item.mt-3.my-2
+        button#btnOpenMenu.dropdown-toggle[data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+          | アカウント
+        .dropdown-menu[aria-labelledby="btnOpenMenu"]
+          .dmenu
+            = link_to 'プロフィール', current_user
+          li.divider
+          li
+            = link_to 'ログアウト', logout_path, method: :delete
 
     - else
         br
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             nav-link[href="/shops/"]
               | SHOP'S
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             = link_to 'ユーザー登録', signup_path
-        ul
-          nav-item.mt-3.my-2
+        ul.nav-item.mt-3.my-2
             = link_to 'ログイン', login_path
 
   /form.form-inline.mt-2.mt-md-0

@@ -2,22 +2,22 @@
 = shop.id
 | "> 
 = link_to gravatar_for(shop.user, size: 50), shop.user
-span.name
-  = link_to shop.name, "#"
-span.address
-  = link_to shop.address, "#"
-span.description
+.name-shop
+  = link_to shop.name, shop_path(shop)
+.address-shop
+  = shop.address
+span.web_page
+  = link_to "WEBページ", shop.web_page, target: :_blank  
+.description-shop
   = shop.description
-br
-span.reommended_points
+.recommended_points
   | おすすめポイント：
   = shop.recommended_points
+br
 span.rating
   | 人気度：
   = shop.rating
 br
-span.web_page
-  = link_to "WEBページ", shop.web_page, target: :_blank
-span.timestamp
+.timestamp.text-right
   = time_ago_in_words(shop.created_at)
   | 前に投稿 
