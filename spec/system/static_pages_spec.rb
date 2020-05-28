@@ -21,17 +21,6 @@ RSpec.describe "StaticPages", type: :system do
         before do
           login_for_system(user)
         end
-
-          it "ねこカフェ投稿のページネーションが表示されること" do
-            login_for_system(user)
-            create_list(:shop, 4, user: user)
-            visit root_path
-            expect(page).to have_content "みんなのねこカフェ (#{user.shops.count})"
-            expect(page).to have_css ".pagination"
-            Shop.take(5).each do |s|
-              expect(page).to have_link s.name
-            end
-          end
           
           it "新規投稿リンクが表示されていること" do
              visit root_path
