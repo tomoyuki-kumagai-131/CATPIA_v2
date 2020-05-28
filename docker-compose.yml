@@ -3,8 +3,8 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD:
-
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
     ports:
       - "3306:3306"
 
@@ -15,12 +15,5 @@ services:
       - .:/app_name
     ports:
       - "3000:3000"
-    depends_on:
-      - db
-    volumes:
-      - .:/app_name
-      - bundle:/usr/local/bundle
     links:
       - db
-volumes:
-bundle:
