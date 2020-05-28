@@ -22,13 +22,13 @@ RSpec.describe "ユーザーの削除", type: :request do
       expect { delete user_path(user) }.to change(User, :count).by(-1)
       redirect_to root_url
     end
-  end
 
     it "自分以外のユーザーアカウントを削除しようとすると、トップページにリダイレクトすること" do
       login_for_request(user)
       expect { delete user_path(other_user) }.not_to change(User, :count)
       expect(response).to redirect_to root_url
     end
+  end
 
   context "ログインしていないユーザーの場合" do
     it "ユーザーアカウントを削除しようとすると、ログインページへリダイレクトすること" do
