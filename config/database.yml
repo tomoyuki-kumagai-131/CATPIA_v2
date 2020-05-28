@@ -14,8 +14,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: passwoed
-  host: db
+  password:
+  host: 127.0.0.1
 
 development:
   <<: *default
@@ -27,7 +27,6 @@ development:
 test:
   <<: *default
   database: catpiav2_test
-  host: <%= ENV.fetch("MYSQL_HOST") { "db" } %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
