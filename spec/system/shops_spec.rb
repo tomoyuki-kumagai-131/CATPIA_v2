@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Shops", type: :system do
   let!(:user) { create(:user) }
+  let!(:shop) { create(:shop, user: user) }
 
   describe "ねこカフェ登録ページ" do
     before do
@@ -49,6 +50,28 @@ RSpec.describe "Shops", type: :system do
         fill_in "shop[rating]", with: 5
         click_button "登録する"
         expect(page).to have_content "店名を入力してください"
+      end
+    end
+  end
+
+  describe "ねこカフェ詳細ページ" do
+    context "ページレイアウト" do
+      before do
+        login_for_system(user)
+        visit shop_path(shop)
+      end
+
+      it "正しいタイトルが表示されることを確認" do
+        expect(page).to have_title full_title("#{shop.name}")
+      end
+
+      it "ねこカフェの情報が表示されることを確認" do
+        expect(page).to have_content shop.name
+        expect(page).to have_content shop.description
+        expect(page).to have_content shop.address
+        expect(page).to have_content shop.recommended_points
+        expect(page).to have_content shop.web_page
+        expect(page).to have_content shop.rating
       end
     end
   end
