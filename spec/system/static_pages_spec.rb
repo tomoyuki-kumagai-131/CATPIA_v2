@@ -22,13 +22,13 @@ RSpec.describe "StaticPages", type: :system do
           login_for_system(user)
         end
           
-          it "新規投稿リンクが表示されていること" do
-             visit root_path
-             expect(page).to have_link "新規投稿", href: new_shop_path
-          end
+        it "新規投稿リンクが表示されていること" do
+          visit root_path
+          expect(page).to have_link "新規投稿", href: new_shop_path
         end
       end
     end
+  end
 
   describe "アバウトページ" do
     before do
