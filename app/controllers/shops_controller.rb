@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :logged_in_user # ログインユーザーのみ投稿可能
+  before_action :correct_user, only: [:edit, :update] # 投稿した本人のみがedit,updateを行える
 
   # ねこカフェ投稿アクション
   def new
@@ -41,5 +42,11 @@ class ShopsController < ApplicationController
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
       params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating)
+    end
+
+    def correct_user
+      # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
+      @shop = current_user.shops.find_by(id: params[:id])
+      redirect_to root_url if @shop.nil?
     end
 end
