@@ -38,14 +38,27 @@ class ShopsController < ApplicationController
     end
   end
 
+  # ねこカフェ投稿削除処理
+  def destroy
+    @shop = Shop.find(params[:id])
+    if current_user.admin? || current_user?(@shop.user)
+      @shop.destroy
+      flash[:success] = "投稿が削除されました！"
+      redirect_to request.referrer == user_url(@shop.user) ? user_url(@shop.user) : root_url
+    else
+      flash[:danger] = "他人の投稿は削除できません！"
+      redirect_to root_url
+    end
+  end
+
   private
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
       params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating)
     end
 
+    # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
     def correct_user
-      # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
       @shop = current_user.shops.find_by(id: params[:id])
       redirect_to root_url if @shop.nil?
     end
