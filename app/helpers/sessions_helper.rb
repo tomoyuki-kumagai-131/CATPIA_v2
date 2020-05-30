@@ -14,13 +14,6 @@ module SessionsHelper #全てのコントローラーで読み込み可能
   def current_user?(user)
     user == current_user
   end
-  
-  #
-  def current_user
-    if session[:user_id]
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
-  end
 
   # 記憶トークンcookieに対応するユーザーを返すメソッド
   def current_user

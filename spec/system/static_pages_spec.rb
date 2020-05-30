@@ -26,6 +26,13 @@ RSpec.describe "StaticPages", type: :system do
           visit root_path
           expect(page).to have_link "新規投稿", href: new_shop_path
         end
+
+        it "投稿を削除後、削除成功のフラッシュが表示されること" do
+          visit root_path
+          click_on '削除'
+          page.driver.browser.switch_to.alert.accept
+          expect(page).to have_content '投稿が削除されました！'
+        end
       end
     end
   end

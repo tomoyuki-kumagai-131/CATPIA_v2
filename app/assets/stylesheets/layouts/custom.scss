@@ -11,6 +11,9 @@ a:hover {
   text-decoration: none;
 }
 
+.nav2 {
+  tcolordish:#333333;
+}
 
 .icon::before {
   display: inline-block;
@@ -301,6 +304,14 @@ h2.shop-name {
 
   .recommended_points {
     margin-bottom: -15px;
+  }
+
+  .change-shop {
+    display: inline-block;
+  }
+
+  .edit-shop .delete-shop {
+    font-size: 15px;
   }
 //.field_with_errors {
   //@extend .has-error;

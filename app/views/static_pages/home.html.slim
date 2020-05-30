@@ -1,13 +1,13 @@
 - if logged_in?
   .container
-    .col-md-9
-      .pagination.i.fas.fa-cat.fa-2x
+    .card.card-body.bg-light.col-md-9.mx-auto
+      .pagination.i.fas.fa-cat.fa-2x.text-center
         |  ねこカフェ一覧 (
         = @feed_items.count
         | )
-      p
+      br
       = render 'shared/feed'
-    .col-md-3
+    .col-md-2.mx-auto
        = link_to "新規投稿", new_shop_path, class: "btn btn-primary btn-lg btn-record"
   p
 
