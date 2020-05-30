@@ -5,10 +5,10 @@ RSpec.describe "ねこカフェ編集", type: :request do
   let!(:shop) { create(:shop, user: user) }
 
   context "認可されたユーザーの場合" do
-    it "レスポンスが正常に表示されること" do
-      login_for_request(user)
+    it "レスポンスが正常に表示されること・フレンドリーフォワーディング" do
       get edit_shop_path(shop)
-      expect(response).to render_template('shops/edit')
+      login_for_request(user)
+      expect(response).to redirect_to edit_shop_url(shop)
       patch shop_path(shop), params: { shop: { name: "ひとやすみ",
                                               description: "世界の珍しい猫が集まっています。",
                                               address: "名古屋市中区栄１−１−１",
