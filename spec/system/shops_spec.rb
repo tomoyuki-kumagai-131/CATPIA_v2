@@ -75,4 +75,30 @@ RSpec.describe "Shops", type: :system do
       end
     end
   end
+
+  describe "ねこカフェ投稿編集ページ" do
+    before do
+      login_for_system(user)
+      visit shop_path(shop)
+      click_link "編集"
+    end
+
+    it "入力部分に適切なラベルが表示されること" do
+      expect(page).to have_content '店名'
+      expect(page).to have_content '説明'
+      expect(page).to have_content '住所'
+      expect(page).to have_content 'おすすめポイント'
+      expect(page).to have_content 'WEBページ'
+      expect(page).to have_content 'おすすめ度 [1~5]'
+    end
+
+    context "料理の更新処理" do
+      it "無効な更新" do
+        fill_in "店名", with: ""
+        click_button "更新する"
+        expect(page).to have_content '店名を入力してください'
+        expect(shop.reload.name).not_to eq ""
+      end
+    end
+  end
 end
