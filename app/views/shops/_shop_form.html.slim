@@ -1,4 +1,5 @@
   .container
+  .card.card-body.bg-light.col-md-7.mx-auto
     = form_with model: @shop, local: true do |f|
       = render 'shared/error_messages', object: f.object
       .form-group
@@ -37,5 +38,5 @@
         span.input-unneed
           |　 任意
         = f.text_field :rating, class: 'form-control', id: 'rating'
-
+      br
       = f.submit nil, class: 'btn btn-info'

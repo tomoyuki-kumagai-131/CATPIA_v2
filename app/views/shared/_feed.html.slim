@@ -1,5 +1,6 @@
 - if @feed_items.any?
   ol.shops
-    = render @feed_items
+    .card.bg-light.col-md-10.mx-auto
+      = render @feed_items
   = paginate @feed_items
   
