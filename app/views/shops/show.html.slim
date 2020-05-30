@@ -7,6 +7,10 @@
       .change-shop
         - if current_user == @shop.user
           = link_to "編集", edit_shop_path(@shop), class: 'edit-shop'
+          | 　 
+        - if current_user.admin? || (current_user == @shop.user)
+          = link_to "削除", shop_path(@shop), method: :delete, class: 'delete-shop',
+    	                                       data: { confirm: "本当に削除しますか？" }
       h4.shop-description
         = @shop.description
       h4.shop-web_page
