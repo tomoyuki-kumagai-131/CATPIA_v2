@@ -1,19 +1,17 @@
 //フォント指定//
 body {
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic'  
+  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic';
 }
 
-//a {
-  //color:#333333;
-//}
+a {
+  color:#5c5c5c;
+}
+
 
 a:hover {
   text-decoration: none;
 }
 
-.nav2 {
-  tcolordish:#333333;
-}
 
 .icon::before {
   display: inline-block;
@@ -22,7 +20,6 @@ a:hover {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 // ミックスイン
 @mixin box_sizing {
@@ -79,6 +76,12 @@ input {
     color: red;
     margin: 0 0 30px 0;
   }
+}
+
+.address-shop {
+  font-size: 16px;
+  margin-top: -8px;
+  padding-left: 150px;
 }
 
 //ログイン画面
@@ -313,6 +316,15 @@ h2.shop-name {
   .edit-shop .delete-shop {
     font-size: 15px;
   }
+
+// ねこカフェ投稿画像 //
+  .shop-picture img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+  }
+
+
 //.field_with_errors {
   //@extend .has-error;
   //.form-control {
