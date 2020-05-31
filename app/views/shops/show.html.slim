@@ -2,8 +2,12 @@
 .container
   .row
     .card.card-body.bg-light.col-md-8.mx-auto
-      h2.shop-name
-        = @shop.name
+      .card
+        .picture
+        = link_to((image_tag @shop.picture.thumb400.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
+      .col-md-4
+        h2.shop-name
+         = @shop.name
       .change-shop
         - if current_user == @shop.user
           = link_to "編集", edit_shop_path(@shop), class: 'edit-shop'
@@ -11,22 +15,22 @@
         - if current_user.admin? || (current_user == @shop.user)
           = link_to "削除", shop_path(@shop), method: :delete, class: 'delete-shop',
     	                                       data: { confirm: "本当に削除しますか？" }
-      h4.shop-description
-        = @shop.description
-      h4.shop-web_page
-        | WEBページ：
-        = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
-      h4.shop-address
-        | 住所：
-        = @shop.address
-      h4.shop-recommended_points
-        h5.title-recommended_points
-          | おすすめポイント
-        h5.points
-          = @shop.recommended_points
-      h4.show-shop-other-info
-        .shop-info
-          h5
-            | おすすめ度：
-          h4
-            = @shop.rating
+        h4.shop-description
+          = @shop.description
+        h4.shop-web_page
+          | WEBページ：
+          = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
+        h4.shop-address
+          | 住所：
+          = @shop.address
+        h4.shop-recommended_points
+          h5.title-recommended_points
+            | おすすめポイント
+          h5.points
+            = @shop.recommended_points
+        h4.show-shop-other-info
+          .shop-info
+            h5
+              | おすすめ度：
+            h4
+              = @shop.rating
