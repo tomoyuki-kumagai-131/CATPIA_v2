@@ -21,4 +21,8 @@ FactoryBot.define do
   trait :one_month_ago do
     created_at { 1.month.ago }
   end
+
+  trait :picture do
+    picture { picture { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_shop.jpg')) } }
+  end
 end
