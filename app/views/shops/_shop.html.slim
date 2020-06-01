@@ -2,30 +2,37 @@
 = shop.id
 | "> 
 = link_to gravatar_for(shop.user, size: 50), shop.user
-
+p
 .name-shop
   = link_to shop.name, shop_path(shop)
+li
+  = link_to((image_tag shop.picture.thumb200.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+li
 .address-shop
+  |  所在地：
   = shop.address
-span.web_page
-  = link_to "WEBページ", shop.web_page, target: :_blank
-br
-//管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
-- if current_user.admin? || (current_user == shop.user)
-  = link_to "削除", shop_path(shop), method: :delete,
-                    data: { confirm: "本当に削除しますか？" }
-                    
+li
+  span.web_page
+    = link_to "WEBページ", shop.web_page, target: :_blank
+li
+
 .description-shop
+  | 店舗説明：
   = shop.description
+li
 .recommended_points
   | おすすめポイント：
   = shop.recommended_points
-br
-span.rating
+li
+.rating
   | 人気度：
   = shop.rating
-
-br
+li
+//管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
+- if current_user.admin? || (current_user == shop.user)
+  = link_to "削除", shop_path(shop), method: :delete,
+                    data: { confirm: "本当に削除しますか？" }     
+li               
 .timestamp.text-right
   = time_ago_in_words(shop.created_at)
   | 前に投稿 
