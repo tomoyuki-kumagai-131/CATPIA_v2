@@ -6,7 +6,7 @@ p
 .name-shop
   = link_to shop.name, shop_path(shop)
 li
-  = link_to((image_tag shop.picture.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+  = link_to((image_tag shop.picture.thumb200.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
 li
 .address-shop
   |  所在地：
