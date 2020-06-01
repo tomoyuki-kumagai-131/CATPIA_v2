@@ -4,8 +4,8 @@ RSpec.describe "ねこカフェ編集", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
-  let(:picture2_path) { File.join(Rails.root, 'spec/fixtures/test-shop2.jpg') }  # 追記
-  let(:picture2) { Rack::Test::UploadedFile.new(picture2_path) }  # 追記
+  let(:picture2_path) { File.join(Rails.root, 'spec/fixtures/test-shop2.jpg') }  # 追記/写真投稿
+  let(:picture2) { Rack::Test::UploadedFile.new(picture2_path) }  # 追記/写真投稿
 
   context "認可されたユーザーの場合" do
     it "レスポンスが正常に表示されること・フレンドリーフォワーディング" do
