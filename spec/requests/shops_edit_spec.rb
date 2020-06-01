@@ -4,6 +4,8 @@ RSpec.describe "ねこカフェ編集", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
+  let(:picture2_path) { File.join(Rails.root, 'spec/fixtures/test-shop2.jpg') }  # 追記
+  let(:picture2) { Rack::Test::UploadedFile.new(picture2_path) }  # 追記
 
   context "認可されたユーザーの場合" do
     it "レスポンスが正常に表示されること・フレンドリーフォワーディング" do
@@ -15,7 +17,8 @@ RSpec.describe "ねこカフェ編集", type: :request do
                                               address: "名古屋市中区栄１−１−１",
                                               recommended_points: "黒猫の「くろくん」が可愛いですよ。",
                                               web_page: "https://google.com",
-                                              rating: 5 } }
+                                              rating: 5,
+                                              picure: picture2 } }
       redirect_to shop
       follow_redirect!
       expect(response).to render_template('shops/show')
