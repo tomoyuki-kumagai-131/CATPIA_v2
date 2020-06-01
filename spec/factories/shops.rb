@@ -23,6 +23,6 @@ FactoryBot.define do
   end
 
   trait :picture do
-    picture { picture { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test_shop.jpg')) } }
+    picture { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test-shop.jpg')) }
   end
 end
