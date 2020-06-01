@@ -4,6 +4,14 @@
     .card.card-body.bg-light.col-md-7.mx-auto
       = form_for(@shop) do |f|
         = render 'shared/error_messages', object: f.object
+        span.picture
+        = f.label :picture
+        | 　
+        span.input-unneed
+          | ※任意
+        = f.file_field :picture, accept: 'image/jpg,image/png', class: 'form-control', id: 'shop-picture'
+        = link_to((image_tag @shop.picture.thumb400.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
+        p
         h3.text-center
           | ねこカフェ情報の編集
         .form-group
@@ -17,7 +25,7 @@
           |　
           span.input-unneed
             | 　任意
-          = f.text_field :description, size: "60x4", class: 'form-control', id: 'shop_description'
+          = f.text_field :description, class: 'form-control', id: 'shop_description'
         .form-group
           = f.label :address
           |  
@@ -29,7 +37,7 @@
           |
           span.input-unneed
             | 　任意
-          = f.text_field :recommended_points, size: "30x4", class: 'form-control', id: 'shop_recommended_points'
+          = f.text_field :recommended_points, class: 'form-control', id: 'shop_recommended_points'
         .form-group
           = f.label :web_page
           | 
