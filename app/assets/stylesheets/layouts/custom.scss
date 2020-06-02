@@ -115,11 +115,13 @@ input {
 
 .show-user-name {
   display: inline-block;
+  padding-top: 10px;
 }
 
 .account-edit {
   margin-top: 20px;
 }
+
 
 //ユーザー一覧ページ//
 .users {
@@ -327,6 +329,10 @@ h2.shop-name {
     box-sizing: border-box;
   }
 
+// フォロー・フォロワー数表示部
+   .stats {
+     margin: 5px 0;
+   }
 
 //.field_with_errors {
   //@extend .has-error;
