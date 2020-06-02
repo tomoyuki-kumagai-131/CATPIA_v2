@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Shops", type: :system do
   let!(:user) { create(:user) }
-  let!(:shop) { create(:shop, user: user) }
+  let!(:shop) { create(:shop, :picture, user: user) }
 
   describe "ねこカフェ登録ページ" do
     before do
@@ -37,20 +37,28 @@ RSpec.describe "Shops", type: :system do
         fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
         fill_in "WEBページ", with: "http://google.com"
         fill_in "shop[rating]", with: 5
+        attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop.jpg"
         click_button "登録する"
         expect(page).to have_content "ねこカフェの投稿が完了しました！"
       end
 
-      it "無効な情報でねこカフェ登録を行うとねこカフェ登録失敗のフラッシュが表示されること" do
-        fill_in "店名", with: ""
-        fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
-        fill_in "住所", with: "名古屋市中区栄１−１−１"
-        fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
-        fill_in "WEBページ", with: "http://google.com"
-        fill_in "shop[rating]", with: 5
-        click_button "登録する"
-        expect(page).to have_content "店名を入力してください"
-      end
+      #it "画像なしでねこカフェ登録を行うと、デフォルトの画像が割り当てられること" do
+        #fill_in "店名", with: "ひとやすみ"
+        #fill_in "住所", with: "名古屋市中区栄１−１ー１"
+        #click_button "登録する"
+        #expect(page).to have_link(href: shop_path(Shop.first)) 
+     # end
+
+      #it "無効な情報でねこカフェ登録を行うとねこカフェ登録失敗のフラッシュが表示されること" do
+        #fill_in "店名", with: ""
+        #fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
+        #fill_in "住所", with: "名古屋市中区栄１−１−１"
+        #fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
+        #fill_in "WEBページ", with: "http://google.com"
+        #fill_in "shop[rating]", with: 5
+        #click_button "登録する"
+        #expect(page).to have_content "店名を入力してください"
+      #end
     end
   end
 
@@ -72,6 +80,7 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_content shop.recommended_points
         expect(page).to have_content shop.web_page
         expect(page).to have_content shop.rating
+        expect(page).to have_link nil, href: shop_path(shop), class: 'shop-picture' # 投稿詳細ページで画像表示されているか
       end
     end
 
@@ -104,13 +113,21 @@ RSpec.describe "Shops", type: :system do
       expect(page).to have_content 'おすすめ度 [1~5]'
     end
 
-    context "料理の更新処理" do
-      it "無効な更新" do
-        fill_in "店名", with: ""
+    context "ねこカフェの更新処理" do
+      it "有効な更新" do
+        fill_in "店名", with: "ひとやすみ。"
+        fill_in "住所", with: "名古屋市中区栄１ー１"
+        attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop2.jpg" # 画像添付して更新する
         click_button "更新する"
-        expect(page).to have_content '店名を入力してください'
-        expect(shop.reload.name).not_to eq ""
+        expect(shop.reload.picture.url).to include "test-shop2.jpg"
       end
+
+      #it "無効な更新" do
+        #fill_in "店名", with: ""
+        #click_button "更新する"
+        #expect(page).to have_content '店名を入力してください'
+        #expect(shop.reload.name).not_to eq ""
+      #end
     end
 
     context "投稿の削除処理", js: true do

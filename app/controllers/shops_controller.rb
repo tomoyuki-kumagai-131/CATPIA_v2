@@ -54,7 +54,7 @@ class ShopsController < ApplicationController
   private
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
-      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating)
+      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture)
     end
 
     # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
