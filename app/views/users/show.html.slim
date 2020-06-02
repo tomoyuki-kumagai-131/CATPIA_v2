@@ -6,21 +6,24 @@
     .col-md-4
       .user-picture-box
         = gravatar_for @user, size: 120, cl: "gravatar user-picture"
-      br
+    br
     .col-md-8
       h4.show-user-name
         = @user.name
-
-      - if current_user == @user
-        .account-edit
-          = link_to "プロフィール編集", edit_user_path(@user)
+      .stats
+        = render 'shared/stats'
+        - if current_user == @user
+          .account-edit
+            = link_to "プロフィール編集", edit_user_path(@user)
+        p.follow-button    
+        = render 'follow_form' if logged_in?
   .row
-  .col-md-9
-    - if @user.shops.any?
-      h3
-        | ねこカフェ (
-        = @user.shops.count
-        | )
-      ol.shops
-        = render @shops
-      = paginate @shops
+    .col-md-9
+      - if @user.shops.any?
+        h3
+          | ねこカフェ (
+          = @user.shops.count
+          | )
+        ol.shops
+          = render @shops
+        = paginate @shops
