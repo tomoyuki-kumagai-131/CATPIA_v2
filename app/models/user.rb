@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :shops, dependent: :destroy
+
+  # フォロー機能
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
