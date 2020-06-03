@@ -10,6 +10,7 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites,  dependent: :destroy # お気に入り機能実装により追記
 
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
