@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:admin_user) { create(:user, :admin) }
+  let!(:other_user) { create(:user) }
 
   describe "ユーザー一覧ページ" do
     context "管理者ユーザーの場合" do
@@ -136,6 +137,18 @@ RSpec.describe "Users", type: :system do
 
       it "ねこカフェのページネーションが表示されていることを確認" do
         expect(page).to have_css ".pagination"
+      end
+    end
+
+    context "ユーザーのフォロー・アンフォロー処理", js: true do
+      it "ユーザーのフォロー・アンフォローができること" do
+        login_for_system(user)
+        visit user_path(other_user)
+        expect(page).to have_button 'フォローする'
+        click_button 'フォローする'
+        expect(page).to have_button 'フォロー中'
+        click_button 'フォロー中'
+        expect(page).to have_button 'フォローする'
       end
     end
   end

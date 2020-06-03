@@ -1,5 +1,16 @@
 class User < ApplicationRecord
   has_many :shops, dependent: :destroy
+
+  # フォロー機能
+  has_many :active_relationships, class_name: "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed # 能動的なフォロー
+  has_many :passive_relationships, class_name: "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :follower
+
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
@@ -24,9 +35,12 @@ class User < ApplicationRecord
     end
   end
 
-  #フィード一覧を取得
+  #フィード一覧を取得(自分の投稿・フォロー中のユーザーの投稿を表示するようにする)
   def feed
-    Shop.where("user_id = ?", id)
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id"
+    Shop.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
   end
   
   #永続セッションのため、ユーザーをデータベースに保存するメソッド
@@ -46,9 +60,29 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  # 他者をフォローする
+  def follow(other_user)
+    following << other_user
+  end
+
+  # 他者をアンフォローする
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがフォローしていたらtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
+  # 現在のユーザーがフォローされていたらtruew返す
+  def followed_by?(other_user)
+    followers.include?(other_user)
+  end
+
   private
 
-    def downcase_email
-      self.email = email.downcase
-    end
+  def downcase_email
+    self.email = email.downcase
+  end
 end

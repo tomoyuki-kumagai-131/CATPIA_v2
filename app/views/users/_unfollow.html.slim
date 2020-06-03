@@ -1,0 +1,5 @@
+// フォロー解除ボタン //
+= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+              html: { method: :delete },
+              remote: true) do |f| # Ajax実装により追記
+  = f.submit "フォロー中", class: "btn"

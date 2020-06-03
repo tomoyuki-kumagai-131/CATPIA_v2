@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # ログインが必要
-  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
   # 他人の操作は不可にする
   before_action :correct_user,   only: [:edit, :update]
   
@@ -37,6 +37,23 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  # フォロー
+  def following
+    @title = "フォロー中"
+    @user = User.find(params[:id])
+    @users = @user.following.page(params[:page])
+    render 'show_follow'
+  end
+
+  # フォロワー
+  def followers
+    @title = "フォロワー"
+    @user = User.find(params[:id])
+    @users = @user.followers.page(params[:page])
+    render 'show_follow'
+  end
+
 
   # ユーザー削除処理 #
   def destroy

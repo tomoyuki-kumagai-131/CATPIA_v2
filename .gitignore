@@ -32,3 +32,6 @@
 
 # Ignore unnecessary pictures
 /public/uploads/*
+
+# Ignore Byebug command history file.
+.env
