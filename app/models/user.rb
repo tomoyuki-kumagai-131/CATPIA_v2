@@ -29,26 +29,11 @@ class User < ApplicationRecord
                                                     BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
-    
+
     # ランダムにトークンを返す
     def new_token
       SecureRandom.urlsafe_base64
     end
-
-    ## お気に入り登録機能 ##
-    # ねこカフェをお気に入り登録する
-    def favorite(shop)
-      Favorite.create!(user_id: id, shop_id: shop.id)
-    end
-    # ねこカフェのお気に入り登録を解除する
-    def unfavorite(shop)
-      Favorite.find_by(user_id: id, shop_id:).destroy
-    end
-    # カレントユーザーがお気に入り登録していたらtrueを返すメソッド
-    def favorite?(shop)
-      !Favorite.find_by(user_id: id, dish_id: dish.id).nil?
-    end
-
   end
 
   #フィード一覧を取得(自分の投稿・フォロー中のユーザーの投稿を表示するようにする)
@@ -96,6 +81,21 @@ class User < ApplicationRecord
     followers.include?(other_user)
   end
 
+
+  ## お気に入り登録機能 ##
+  # ねこカフェをお気に入り登録する
+  def favorite(shop)
+    Favorite.create!(user_id: id, shop_id: shop.id)
+  end
+  # ねこカフェのお気に入り登録を解除する
+  def unfavorite(shop)
+    Favorite.find_by(user_id: id, shop_id: shop.id).destroy
+  end
+  # カレントユーザーがお気に入り登録していたらtrueを返すメソッド
+  def favorite?(shop)
+    !Favorite.find_by(user_id: id, shop_id: shop.id).nil?
+  end
+  
   private
 
   def downcase_email
