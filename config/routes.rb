@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  post "favorites/:shop_id/create" => "favorites#create" # shop_idを入れ、お気に入り登録の識別をする。
+  delete "favorites/:shop_id/destroy" => "favorites#destroy"
 
   # フォロー機能について追記
   resources :users do
