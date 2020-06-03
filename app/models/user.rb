@@ -35,9 +35,12 @@ class User < ApplicationRecord
     end
   end
 
-  #フィード一覧を取得
+  #フィード一覧を取得(自分の投稿・フォロー中のユーザーの投稿を表示するようにする)
   def feed
-    Shop.where("user_id = ?", id)
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id"
+    Shop.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
   end
   
   #永続セッションのため、ユーザーをデータベースに保存するメソッド
