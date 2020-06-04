@@ -18,13 +18,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top.border-bottom.shadow
           
       - if logged_in?
         ul
-        a.nav-item.i.fa.fa-users.fa-2x href= (users_path)
+        a.nav-item.i.far.fa-heart.fa-lg href= (favorites_path)
         ul
-        a.nav-item.i.fa.fa-clickable.fa-user-circle.fa-2x href= (user_path(current_user.id))
+        a.nav-item.i.fa.fa-users.fa-lg href= (users_path)
+        ul
+        a.nav-item.i.fa.fa-clickable.fa-user-circle.fa-lg href= (user_path(current_user.id))
         ul
         .dropdown.nav-item
           #dropdownMenuButton[type="text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            i.fa.fa-user.fa-2x
+            i.fa.fa-user.fa-lg
           .dropdown-menu[aria-labelledby="dropdownMenuButton"]
             a.dropdown-item
               =link_to "プロフィール", current_user
