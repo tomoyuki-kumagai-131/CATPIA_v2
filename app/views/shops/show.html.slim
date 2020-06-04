@@ -1,12 +1,15 @@
 - provide(:title, "#{@shop.name}")
 .container
   .card.card-body.bg-light.col-md-8.mx-auto
-    .shop-picture
+    .shop-picture 
       = link_to((image_tag @shop.picture.thumb400.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
     p  
     .col-md-6
       h2.shop-name-show
         = @shop.name
+    .fav-shop-show
+      = render 'users/favorite_form'
+    hr
     .change-shop
       - if current_user == @shop.user
         = link_to "編集", edit_shop_path(@shop), class: 'edit-shop'
