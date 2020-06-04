@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-12
+      h3.text-center
+        |  MY FAVORITES CAT CAFE'S (
+        = @favorites.count
+        | )
+    - if @favorites.present?
+      ol.favorites
+        = render @favorites
