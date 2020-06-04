@@ -1,14 +1,14 @@
 - if logged_in?
   .container
-    .card.card-body.bg-light.col-md-9.mx-auto
+    .card.bg-info.col-md-5.text-center.mx-auto
       .pagination.i.fas.fa-cat.fa-2x.text-center
         |  CAT CAFE'S (
         = @feed_items.count
         | )
-      br
+    br
       = render 'shared/feed'
     .col-md-2.mx-auto
-       = link_to "新規投稿", new_shop_path, class: "btn btn-primary btn-lg btn-record"
+       = link_to "新規投稿", new_shop_path, class: "btn btn-info btn-lg btn-record"
   p
 
 - else    
