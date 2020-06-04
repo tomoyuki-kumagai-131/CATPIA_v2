@@ -153,17 +153,55 @@ RSpec.describe "Users", type: :system do
       end
     end
 
+    ### お気に入り登録機能に関するテスト ###
+
     context "お気に入り登録/解除" do
       before do
         login_for_system(user)
-      end
+      end #まずはユーザーにログイン
 
-      it "ねこカフェのお気に入り登録/解除ができること" do
+      it "ねこカフェのお気に入り登録/解除ができること" do # ユーザーが投稿をお気に入り登録する流れを再現する
         expect(user.favorite?(shop)).to be_falsey
         user.favorite(shop)
         expect(user.favorite?(shop)).to be_truthy
         user.unfavorite(shop)
         expect(user.favorite?(shop)).to be_falsey
+      end
+
+      it "トップページからお気に入り登録/解除ができること", js: true do
+        visit root_path
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
+      end
+
+      it "ユーザー詳細ページからお気に入り登録/解除ができること", js: true do
+        visit user_path(user)
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
+      end
+
+      it "ねこ詳細ページからお気に入り登録/解除ができること", js: true do
+        visit shop_path(shop)
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/favorites/#{shop.id}/create"
       end
     end
   end
