@@ -291,10 +291,13 @@ h2.shop-name {
   }
 }
 
+.web_page {
+  margin-top: -14px;
+}
+
 //ねこカフェフィード//
-  .col-md-9 {
-    margin-top: 10px;
-    padding-bottom: 10px;
+.card.bg-info.col-md-5.text-center.mx-auto {
+    color: white;
   }
   
   .name-shop {
@@ -329,10 +332,30 @@ h2.shop-name {
     box-sizing: border-box;
   }
 
-// フォロー・フォロワー数表示部
+// フォロー・フォロワー数表示部 //
    .stats {
      margin: 5px 0;
    }
+
+
+// フィード画面・お気に入り登録部分 //
+.favorite-form {
+  position: relative;
+  vertical-align: bottom;
+}
+
+a.like, a.unlike {
+  text-decoration: none;
+}
+
+.favorites {
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
 
 //.field_with_errors {
   //@extend .has-error;
