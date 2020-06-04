@@ -1,0 +1,7 @@
+// お気に入り登録ボタン //
+= link_to "/favorites/#{@shop.id}/create",
+          method: :post,
+          class: 'like',
+          remote: true do
+  .btn-outline-info.fa.fa-heart
+    |  お気に入り登録
