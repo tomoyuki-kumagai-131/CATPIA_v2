@@ -1,0 +1,7 @@
+// お気に入り登録解除ボタン //
+= link_to "/favorites/#{@shop.id}/destroy",
+          method: :delete,
+          class: 'unlike',
+          remote: true do
+    .btn-outline-danger.i.fa.fa-heart
+      | お気に入り登録済み

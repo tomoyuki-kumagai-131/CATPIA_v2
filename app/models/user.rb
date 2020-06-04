@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+  # ユーザーモデル
   has_many :shops, dependent: :destroy
-
   # フォロー機能
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
@@ -10,6 +10,7 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites,  dependent: :destroy # お気に入り機能実装により追記
 
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
@@ -78,6 +79,22 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローされていたらtruew返す
   def followed_by?(other_user)
     followers.include?(other_user)
+  end
+
+  ## お気に入り登録機能 ##
+  # ねこカフェをお気に入りに登録する
+  def favorite(shop)
+    Favorite.create!(user_id: id, shop_id: shop.id)
+  end
+
+  # ねこカフェをお気に入り解除する
+  def unfavorite(shop)
+    Favorite.find_by(user_id: id, shop_id: shop.id).destroy
+  end
+
+  # 現在のユーザーがお気に入り登録してたらtrueを返す
+  def favorite?(shop)
+    !Favorite.find_by(user_id: id, shop_id: shop.id).nil?
   end
 
   private
