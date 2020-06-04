@@ -1,21 +1,27 @@
+- @shop = shop
+
 | <li id="shop-
 = shop.id
 | "> 
+
 = link_to gravatar_for(shop.user, size: 50), shop.user
 p
 .name-shop
   = link_to shop.name, shop_path(shop)
 li
+.shop-image
   = link_to((image_tag shop.picture.thumb200.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+li
+.favorite-form
+  = render 'users/favorite_form'
 li
 .address-shop
   |  所在地：
   = shop.address
 li
-  span.web_page
+.web_page
     = link_to "WEBページ", shop.web_page, target: :_blank
 li
-
 .description-shop
   | 店舗説明：
   = shop.description
