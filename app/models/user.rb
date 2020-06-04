@@ -81,21 +81,22 @@ class User < ApplicationRecord
     followers.include?(other_user)
   end
 
-
   ## お気に入り登録機能 ##
-  # ねこカフェをお気に入り登録する
+  # ねこカフェをお気に入りに登録する
   def favorite(shop)
     Favorite.create!(user_id: id, shop_id: shop.id)
   end
-  # ねこカフェのお気に入り登録を解除する
+
+  # ねこカフェをお気に入り解除する
   def unfavorite(shop)
     Favorite.find_by(user_id: id, shop_id: shop.id).destroy
   end
-  # カレントユーザーがお気に入り登録していたらtrueを返すメソッド
+
+  # 現在のユーザーがお気に入り登録してたらtrueを返す
   def favorite?(shop)
     !Favorite.find_by(user_id: id, shop_id: shop.id).nil?
   end
-  
+
   private
 
   def downcase_email
