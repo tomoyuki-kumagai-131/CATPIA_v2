@@ -1,24 +1,27 @@
 - provide(:title, "ログイン")
-h2.text-center
-  | ログイン
-.row
-  .col-md-6.col-md-offset-3.mx-auto
-    = form_for(:session, url: login_path, local: true) do |f|
-      .form-group
-        = f.label 'メールアドレス'
-        = f.email_field :email, class: 'form-control', id: 'user_email'
-      .form-group
-        = f.label 'パスワード'
-        = f.password_field :password, class: 'form-control', id: 'user_password'
-      .form-group  
-        = f.label :remember_me, class: "checkbox inline" do
-          = f.check_box :remember_me
-          span
-          |ログインしたままにする
-          = f.submit 'ログイン', class: 'btn btn-info'
+.container
+  br
+  h2.text-center
+    |ログイン
+  br
+  .container
+    .col-md-6.col-md-offset-3.mx-auto
+      = form_for(:session, url: login_path, local: true) do |f|
+        .form-group
+          = f.label 'メールアドレス'
+          = f.email_field :email, class: 'form-control', id: 'user_email'
+        .form-group
+          = f.label 'パスワード'
+          = f.password_field :password, class: 'form-control', id: 'user_password'
+        .form-group.text-center
+          = f.label :remember_me, class: "checkbox inline" do
+            = f.check_box :remember_me
+            span
+            |ログインしたままにする
+            = f.submit 'ログイン', class: 'btn btn-info'
     
-    | ユーザー登録されていない方は
-    = link_to 'こちら', signup_path
-    br
-    | パスワードをお忘れの方は
-    = link_to 'こちら', '#'
+        | ユーザー登録されていない方は
+        = link_to 'こちら', signup_path
+        br
+        | パスワードをお忘れの方は
+        = link_to 'こちら', '#'
