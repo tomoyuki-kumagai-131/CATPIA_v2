@@ -1,15 +1,13 @@
 - if logged_in?
   .container
-    .card.bg-info.col-md-5.text-center.mx-auto
-      .pagination.i.fas.fa-cat.fa-2x.text-center
-        |  CAT CAFE'S (
-        = @feed_items.count
-        | )
-    br
-      = render 'shared/feed'
-    .col-md-2.mx-auto
-       = link_to "新規投稿", new_shop_path, class: "btn btn-info btn-lg btn-record"
-  p
+    h4.text-center.feed
+      |  みんなのねこカフェ (
+      = @feed_items.count
+      |)
+  br
+    = render 'shared/feed'
+  .col-md-2.mx-auto
+    = link_to "新規投稿", new_shop_path, class: "btn btn-info btn-lg btn-record"
 
 - else    
   main[role="main"]
@@ -22,8 +20,6 @@
       .carousel-inner
         .carousel-item.active
           img src="top1.jpg".alt="猫cafe" width="180%"
-          /svg.bd-placeholder-img[width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"]
-            rect[width="100%" height="100%" fill="#ffffff"]
           .container
             .carousel-caption.text-center
               h1
@@ -37,8 +33,6 @@
                   | はじめる
         .carousel-item
           img[src="top2.jpg".alt="猫cafe" width="190%"]
-          /svg.bd-placeholder-img[width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"]
-            rect[width="100%" height="100%" fill="#ffffff"]
           .container
             .carousel-caption.text-center
               h1
@@ -52,8 +46,6 @@
                   | 猫カフェを探す
         .carousel-item
           img[src="top3.jpg".alt="猫cafe" width="180%"]
-          /svg.bd-placeholder-img[width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="xMidYMid slice" focusable="false" role="img"]
-            rect[width="100%" height="100%" fill="#ffffff"]
           .container
             .carousel-caption.text-center
               h1

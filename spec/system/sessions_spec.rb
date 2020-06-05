@@ -50,21 +50,21 @@ RSpec.describe "Sessions", type: :system do
       expect(page).not_to have_content "メールアドレスとパスワードの組み合わせが誤っています"
     end
 
-    it "有効なユーザーでログインする前後でヘッダーが正しく表示されていることを確認" do
-      expect(page).to have_link 'ABOUT', href: about_path
-      expect(page).to have_link 'ユーザー登録', href: signup_path
-      expect(page).to have_link 'ログイン', href: login_path
-      expect(page).not_to have_link 'ログアウト', href: logout_path
+    #it "有効なユーザーでログインする前後でヘッダーが正しく表示されていることを確認" do
+      #expect(page).to have_link 'ABOUT', href: about_path
+      #expect(page).to have_link 'ユーザー登録', href: signup_path
+      #expect(page).to have_link 'ログイン', href: login_path
+      #expect(page).not_to have_link 'ログアウト', href: logout_path
 
-      fill_in "user_email", with: user.email
-      fill_in "user_password", with: user.password
-      click_button "ログイン"
+      #fill_in "user_email", with: user.email
+      #fill_in "user_password", with: user.password
+      #click_button "ログイン"
 
-      expect(page).to have_link 'ABOUT', href: about_path
+      #expect(page).to have_link 'ABOUT', href: about_path
       #expect(page).to have_link 'ユーザー一覧', href: users_path
-      expect(page).to have_link 'プロフィール', href: user_path(user)
-      expect(page).to have_link 'ログアウト', href: logout_path
-      expect(page).not_to have_link 'ログイン', href: login_path
-    end
+      #expect(page).to have_link 'プロフィール', href: user_path(user)
+      #expect(page).to have_link 'ログアウト', href: logout_path
+      #expect(page).not_to have_link 'ログイン', href: login_path
+    #end
   end
 end

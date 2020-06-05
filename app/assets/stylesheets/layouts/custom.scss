@@ -1,6 +1,14 @@
-//フォント指定//
-body {
-  font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック','YuGothic','Yu Gothic','メイリオ', 'Meiryo','ＭＳ Ｐゴシック','MS PGothic';
+body {  
+  background-color: #ffffff;  
+  color: #5c5c5c;
+  font-family: Arial,
+    "ヒラギノ角ゴ Pro W3",
+    "Osaka,
+    "メイリオ,
+    "Meiryo,
+    "ＭＳ Ｐゴシック,
+    "MS PGothic,
+    sans-serif";
 }
 
 a {
@@ -30,12 +38,12 @@ a:hover {
 
 //共通//
 .dropdown {
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 //ナビゲーションバーと被るため調整
 body {
-  padding-top: 80px;
+  padding-top: 75px;
 }
 
 ul.pf {
@@ -90,10 +98,6 @@ input {
     margin-left: 20px;
     font-weight: normal;
   }
- }
-  #session_remember_me {
-  width: auto;
-  margin-left: 0;
  }
 
  //ユーザー編集画面
@@ -200,7 +204,7 @@ span.picture {
   }
 }
 
-//// トップページ（ログイン後） ////
+//// -----------------トップページ（ログイン後） -------------------- /////
 // 「ねこカフェを投稿する」ボタン
 .btn-record {
   margin-top: 3em;
@@ -296,6 +300,15 @@ h2.shop-name {
 }
 
 //ねこカフェフィード//
+
+.container-top-font {
+  font-size: 29px;
+  padding: 61px;          
+  color: white;
+  text-align:  center;
+  height: 100px; 
+}
+
 .card.bg-info.col-md-5.text-center.mx-auto {
     color: white;
   }
@@ -356,10 +369,33 @@ a.like, a.unlike {
   }
 }
 
+ul.nav-item-home {
+  padding-left: 30px;
+  padding-top: 4px;
+  margin-bottom: -5px;
+}
 
-//.field_with_errors {
-  //@extend .has-error;
-  //.form-control {
-    //color: $state-danger-text;
-  //}
-//}
+ul.nav-item-about {
+  padding-left: 30px;
+  margin-top: 4px;
+  margin-bottom: -5px;
+}
+
+ul.navbar-nav.icons {
+  padding-top: 5px;
+}
+
+// ログイン後画面 //
+
+.navbar-toggler {
+  border-radius: 0px;
+}
+
+.dropdown-toggle {
+  padding: 0;
+}
+
+//タイトル// 
+.title-head {
+  padding-top: 5px;
+}

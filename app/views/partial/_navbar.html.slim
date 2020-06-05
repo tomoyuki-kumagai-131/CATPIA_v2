@@ -1,49 +1,38 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
-  = link_to "/" do
-    i.fas.fa-cat
-    |  C A T P I A
-  ul
-  
+nav.navbar.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
   .container
-    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse"]
+    .title-head
+      = link_to "/" do
+        h6  
+          i.fas.fa-cat
+          |  C A T P I A
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navigation"]
       span.navbar-toggler-icon
-    #navbarCollapse.collapse.navbar-collapse
-      ul.navbar-nav.mx-auto
-        a.nav2
-          ul
-            = link_to 'HOME', root_path
-          ul
-          ul.nav-item
-            = link_to "ABOUT", about_path
-          
-      - if logged_in?
-        ul
-        a.nav-item.i.far.fa-heart.fa-lg href= (favorites_path)
-        ul
-        a.nav-item.i.fa.fa-users.fa-lg href= (users_path)
-        ul
-        a.nav-item.i.fa.fa-clickable.fa-user-circle.fa-lg href= (user_path(current_user.id))
-        ul
-        .dropdown.nav-item
-          #dropdownMenuButton[type="text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-            i.fa.fa-user.fa-lg
-          .dropdown-menu[aria-labelledby="dropdownMenuButton"]
-            a.dropdown-item
-              =link_to "プロフィール", current_user
-            a.dropdown-item
-              =link_to "ログアウト", logout_path, method: :delete
-
-      - else
-          br
-          ul.nav-item.mt-3.my-2
-              nav-link[href="/shops/"]
-                | SHOP'S
-          ul.nav-item.mt-3.my-2
-              = link_to 'ユーザー登録', signup_path
-          ul.nav-item.mt-3.my-2
-              = link_to 'ログイン', login_path
-
-  /form.form-inline.mt-2.mt-md-0
-    /input.form-control.mr-sm-2.text-center[type="text" placeholder="ねこかふぇを探す" aria-label="Search"]
-   / button.btn.btn-outline-dark.my-3.my-sm-0[type="submit"]
-      /|Search
+    #navigation.collapse.navbar-collapse.text-right
+      ul.navbar-nav
+        p
+        - if logged_in?
+          li.nav-item
+            = link_to "\uf015 HOME", root_path, class: "nav-link fa"
+          li
+          li.nav-item
+            = link_to "\uf05a ABOUT", about_path, class: "nav-link fa"
+          li
+          li.nav-item
+            = link_to "\uf0c0 MEMBERS", users_path, class: "nav-link fa"
+          li
+          li.nav-item
+            = link_to "\uf2f5 LOG OUT", logout_path, method: :delete, class: "nav-link fa"
+          li
+          li.nav-item
+            = link_to "\uf118 MY PAGE", user_path(@current_user), class: "nav-link fa"
+          li
+          li.nav-item
+            = link_to "\uf013 EDIT", edit_user_path(@current_user), class: "nav-link fa"
+          li
+        - else
+          li.nav-item
+            = link_to "\uf015 ホーム", root_path, class: "nav-link fa"
+          li.nav-item
+            = link_to "\uf2f6 ログイン", login_path, class: "nav-link fa"
+          li.nav-item
+            = link_to "\uf234 新規登録", signup_path, class: "nav-link fa"
