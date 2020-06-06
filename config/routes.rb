@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   root 'static_pages#home'
   get 'about' => 'static_pages#about'
   get 'signup' => 'users#new'
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
   get :favorites, to: 'favorites#index' # お気に入り一覧表示アクション
   post   "favorites/:shop_id/create"  => "favorites#create" # shop_idを入れ、お気に入り登録の識別をする
   delete "favorites/:shop_id/destroy" => "favorites#destroy"
+  resources :comments, only: [:create, :destroy] # Commentsコントローラ・create・destroyアクション追記
 end
