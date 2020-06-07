@@ -18,6 +18,11 @@ class Shop < ApplicationRecord
             allow_nil: true
   validate :picture_size
   
+  # ねこカフェ投稿に附するコメントのフィードを作成 #
+  def feed_comment(shop_id)
+    Comment.where("shop_id = ?", shop_id)
+  end
+
   private
     
     # アップロード画像の容量を制限する
