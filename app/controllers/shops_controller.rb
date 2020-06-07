@@ -20,6 +20,7 @@ class ShopsController < ApplicationController
   # ねこカフェ投稿詳細ページへ
   def show
     @shop = Shop.find(params[:id])
+    @comment = Comment.new # コメント機能
   end
 
   # ねこカフェ投稿編集処理

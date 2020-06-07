@@ -247,38 +247,35 @@ h2.shop-name {
 .shop-web_page {
   font-size: 18px;
   border-bottom: 1px solid #bbb;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .shop-address {
   font-size: 18px;
   border-bottom: 1px solid #bbb;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .title-recommended_points {
-  border-bottom: 1px solid #bbb;
   font-size: 18px;
   font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 0;
 }
 
 .points {
+  padding-top: -15px;
   font-size: 18px;
-  margin-top: 9px;
+  margin-top: 5px;
+  padding-bottom: 6px;
   border-bottom: 1px solid #bbb;
 }
 
 .show-shop-other-info {
-  border-bottom: 1px solid #bbb;
-  margin-top: 30px;
+  margin-top: 9px;
   margin-bottom: 30px;
 }
 
 .shop-other-info {
-  border-bottom: 1px solid #bbb;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -289,7 +286,6 @@ h2.shop-name {
     display: inline-block;
   }
   h4 {
-    border-bottom: 1px solid #bbb;
     font-size: 20px;
     display: inline-block;
   }
@@ -325,10 +321,6 @@ h2.shop-name {
   .description-shop {
     margin-top: -10px;
   }
-
-  //.recommended_points {
-
-  //}
 
   .change-shop {
     display: inline-block;

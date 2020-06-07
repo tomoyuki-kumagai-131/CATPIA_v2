@@ -9,7 +9,7 @@ p
 .name-shop
   = link_to shop.name, shop_path(shop)
 li
-.shop-image
+.shop-image.text-center
   = link_to((image_tag shop.picture.thumb200.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
 li
 .favorite-form
@@ -42,3 +42,4 @@ li
 .timestamp.text-right
   = time_ago_in_words(shop.created_at)
   | 前に投稿 
+

@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy # お気に入り機能実装により追記
+  has_many :comments,   dependent: :destroy # コメント機能実装による追記
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -17,6 +18,11 @@ class Shop < ApplicationRecord
             allow_nil: true
   validate :picture_size
   
+  # ねこカフェ投稿に附するコメントのフィードを作成 #
+  def feed_comment(shop_id)
+    Comment.where("shop_id = ?", shop_id)
+  end
+
   private
     
     # アップロード画像の容量を制限する

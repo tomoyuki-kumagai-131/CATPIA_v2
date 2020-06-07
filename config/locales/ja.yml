@@ -9,6 +9,7 @@ ja:
     models:
       user: ユーザー
       shop: 猫カフェ
+      comment: コメント
     attributes:
       user:
         id: ID
@@ -28,6 +29,10 @@ ja:
         web_page: WEBページ
         rating: おすすめ度
         picture: ねこカフェの写真
+      comment:
+        user_id: コメント投稿者のID
+        shop_id: コメントされたねこカフェのID
+        content: コメント
   date:
     abbr_day_names:
     - 日

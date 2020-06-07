@@ -1,0 +1,10 @@
+// フィード一覧コメント部分 // 
+.row
+  .col-md-12
+    h4.title-comment
+      | コメント (
+      = "#{@shop.comments.count}"
+      | )
+  - if @comments.any?
+    ul.comments
+      = render @comments

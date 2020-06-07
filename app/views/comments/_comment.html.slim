@@ -1,0 +1,21 @@
+- comment_user = User.find(comment.user_id)
+|  <li id="comment-
+= comment.id
+| "> 
+.row
+  .col-md-15
+    span.user
+      = link_to comment_user.name, comment_user
+.row
+  .col-md-19
+    span.comment
+      = comment.content
+  .col-md-19-destroy
+    - if current_user.id == comment.user_id
+      = link_to "　| 削除", comment_path(comment), method: :delete, data: { confirm: "本当に削除しますか？" }
+.row
+  .col-md-19.text-right
+    span.comment-create-at
+      = time_ago_in_words(comment.created_at)
+      | 前
+   
