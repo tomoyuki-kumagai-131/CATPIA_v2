@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Shops", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, :picture, user: user) }
+  let!(:comment) { create(:comment, user_id: user.id, shop: shop) } # コメント機能作成により追記
 
   describe "ねこカフェ登録ページ" do
     before do
@@ -61,7 +63,7 @@ RSpec.describe "Shops", type: :system do
       #end
     end
   end
-
+#----------------------------------------------------------------------------#
   describe "ねこカフェ詳細ページ" do
     context "ページレイアウト" do
       before do
@@ -96,7 +98,7 @@ RSpec.describe "Shops", type: :system do
       end
     end
   end
-
+#----------------------------------------------------------------------------#
   describe "ねこカフェ投稿編集ページ" do
     before do
       login_for_system(user)
@@ -133,8 +135,35 @@ RSpec.describe "Shops", type: :system do
     context "投稿の削除処理", js: true do
       it "削除成功のフラッシュが表示されること" do
         click_on '削除'
-        page.driver.browser.switch_to.alert.accept
+        page.driver.browser.switch_to.alert.accept #js
         expect(page).to have_content '投稿が削除されました！'
+      end
+    end
+#----------------------------------------------------------------------------#
+    context "コメントの登録処理・削除" do
+      it "自分のねこカフェ投稿に対するコメントの登録・削除が正常に行えること" do
+        login_for_system(user)
+        visit shop_path(shop)
+        fill_in "comment_content", with: "かわいいネコがいますよね"
+        click_button "コメント"
+        within find("#comment-#{Comment.last.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', 'かわいいネコがいますよね'
+        end
+        expect(page).to have_content "コメントを投稿しました！"
+        click_link "削除", href: comment_path(Comment.last)
+        expect(page).not_to have_selector 'span', text: 'かわいいネコがいますよね' 
+        expect(page).to have_content "コメントを削除しました！"
+      end
+
+      it "別ユーザーのねこカフェのコメントには削除リンクがないこと" do
+        login_for_system(other_user)
+        visit shop_path(shop)
+        within find("#comment-#{comment.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', text: comment.content
+          expect(page).not_to have_link '削除', href: shop_path(shop)
+        end
       end
     end
   end
