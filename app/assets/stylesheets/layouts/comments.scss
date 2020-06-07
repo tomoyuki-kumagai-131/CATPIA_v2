@@ -1,12 +1,13 @@
 .title-comment {
+  padding-top: -10px;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .comments {
   list-style: none;
   li {
-    font-size: 14px;
+    font-size: 12px;
     padding: 12px 0;
     border-top: 1px solid #e8e8e8;
     .comment {
@@ -17,4 +18,8 @@
 
 .comment-create-at {
   color: rgb(139, 139, 139);
+}
+
+.col-md-19-destroy {
+  padding-top: 3px;
 }

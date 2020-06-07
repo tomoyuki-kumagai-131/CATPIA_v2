@@ -10,7 +10,7 @@
   .col-md-19
     span.comment
       = comment.content
-  .col-md-19
+  .col-md-19-destroy
     - if current_user.id == comment.user_id
       = link_to "　| 削除", comment_path(comment), method: :delete, data: { confirm: "本当に削除しますか？" }
 .row
