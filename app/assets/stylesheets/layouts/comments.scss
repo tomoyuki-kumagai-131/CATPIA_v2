@@ -1,0 +1,20 @@
+.title-comment {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.comments {
+  list-style: none;
+  li {
+    font-size: 14px;
+    padding: 12px 0;
+    border-top: 1px solid #e8e8e8;
+    .comment {
+      font-size: 16px;
+    }
+  }
+}
+
+.comment-create-at {
+  color: rgb(139, 139, 139);
+}
