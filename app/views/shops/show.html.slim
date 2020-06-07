@@ -1,7 +1,9 @@
 - provide(:title, "#{@shop.name}")
+- @comments = @shop.feed_comment(@shop.id)
+
 .container
-  .card.card-body.bg-light.col-md-8.mx-auto
-    .shop-picture 
+  .card.card-body.bg-light.col-md-7.mx-auto
+    .shop-picture.text-center
       = link_to((image_tag @shop.picture.thumb400.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
     p  
     .col-md-6
@@ -9,32 +11,39 @@
         = @shop.name
     .fav-shop-show
       = render 'users/favorite_form'
-    hr
-    .change-shop
+    p
+    .change-shop.text-right
       - if current_user == @shop.user
         = link_to "編集", edit_shop_path(@shop), class: 'edit-shop'
         |  |  
       - if current_user.admin? || (current_user == @shop.user)
         = link_to "削除", shop_path(@shop), method: :delete, class: 'delete-shop',
                                             data: { confirm: "本当に削除しますか？" }
-    h4.shop-description
-      = @shop.description
-      p
+    hr
+      h4.shop-description
+        = @shop.description
+        p
       h4.shop-web_page
         | WEBページ：
         = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
+        p
       h4.shop-address
         | 所在地：
         = @shop.address
+        p
       h4.shop-recommended_points
-        h5.title-recommended_points
+        .title-recommended_points
           | おすすめポイント
         p
-        h5.points
+        h4.points
           = @shop.recommended_points
       h4.show-shop-other-info
         .shop-info
-          h5
+          h4
             | おすすめ度：
           h4
             = @shop.rating
+      .comment
+        = render "comments/feed_comments"
+        = render "comments/new"
+        
