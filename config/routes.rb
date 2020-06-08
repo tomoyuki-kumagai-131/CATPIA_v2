@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post   "favorites/:shop_id/create"  => "favorites#create" # shop_idを入れ、お気に入り登録の識別をする
   delete "favorites/:shop_id/destroy" => "favorites#destroy"
   resources :comments, only: [:create, :destroy] # Commentsコントローラ・create・destroyアクション追記
+  resources :notifications, only: :index # Notificationsコントローラ追記
 end
