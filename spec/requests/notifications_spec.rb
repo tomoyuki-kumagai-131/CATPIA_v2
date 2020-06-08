@@ -24,3 +24,4 @@ RSpec.describe "通知機能", type: :request do
     end
   end
 end
+
