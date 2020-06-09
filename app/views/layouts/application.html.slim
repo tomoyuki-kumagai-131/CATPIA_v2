@@ -11,7 +11,9 @@ html
     script[src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"]
     // font
     script[src="https://kit.fontawesome.com/84eeecacff.js" crossorigin="anonymous"]
-
+    script[src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"]
+    link[rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-circle.min.css"]
+    
   - if flash[:notice]
     .alert.alert-info
       =flash[:notice]
@@ -33,3 +35,5 @@ html
     == yield
 
   = render 'partial/footer'  
+
+  
