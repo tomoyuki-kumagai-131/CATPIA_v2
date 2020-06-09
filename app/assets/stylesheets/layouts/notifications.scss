@@ -1,0 +1,22 @@
+////通知機能////ーーーーーーーーーーーーーーー
+
+// 新しい通知があるときは赤文字にするCSS
+li.new_notification > a {
+  color: red;
+}
+
+.notifications {
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .gravatar {
+    margin-right: 10px;
+    margin-top: -5px;
+  }
+}
+
+.notification-message {
+  font-size: 16px;
+}
