@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :system do
   let!(:admin_user) { create(:user, :admin) }
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
-
+  let!(:other_shop) { create(:shop, user: other_user) }
   describe "ユーザー一覧ページ" do
     context "管理者ユーザーの場合" do
       it "ページネーション、自分以外のユーザーに削除ボタンが表示されることを確認" do
@@ -122,21 +122,20 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
       end
 
-      it "ねこカフェの件数が表示されていることを確認" do
+      it "ねこカフェ投稿の件数が表示されていることを確認" do
         expect(page).to have_content "ねこカフェ (#{user.shops.count})"
       end
 
-      it "ねこカフェの情報が表示されていることを確認" do
+      it "ねこカフェ投稿の情報が表示されていることを確認" do
         Shop.take(5).each do |shop|
           expect(page).to have_link shop.name
           expect(page).to have_content shop.description
           expect(page).to have_content shop.recommended_points
-          expect(page).to have_content shop.user.name
           expect(page).to have_content shop.rating
         end
       end
 
-      it "ねこカフェのページネーションが表示されていることを確認" do
+      it "ねこカフェ投稿のページネーションが表示されていることを確認" do
         expect(page).to have_css ".pagination"
       end
     end
@@ -160,7 +159,7 @@ RSpec.describe "Users", type: :system do
         login_for_system(user)
       end #まずはユーザーにログイン
 
-      it "ねこカフェのお気に入り登録/解除ができること" do # ユーザーが投稿をお気に入り登録する流れを再現する
+      it "ねこカフェ投稿のお気に入り登録/解除ができること" do # ユーザーが投稿をお気に入り登録する流れを再現する
         expect(user.favorite?(shop)).to be_falsey
         user.favorite(shop)
         expect(user.favorite?(shop)).to be_truthy
@@ -170,18 +169,6 @@ RSpec.describe "Users", type: :system do
 
       it "トップページからお気に入り登録/解除ができること", js: true do
         visit root_path
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-        link.click
-        link = find('.unlike')
-        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
-        link.click
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-      end
-
-      it "ユーザー詳細ページからお気に入り登録/解除ができること", js: true do
-        visit user_path(user)
         link = find('.like')
         expect(link[:href]).to include "/favorites/#{shop.id}/create"
         link.click
@@ -202,6 +189,77 @@ RSpec.describe "Users", type: :system do
         link.click
         link = find('.like')
         expect(link[:href]).to include "/favorites/#{shop.id}/create"
+      end
+    end
+    # 通知機能に関するテスト
+    context "通知生成" do
+      before do
+        login_for_system(user)
+      end
+
+      context "自分以外のユーザーのねこカフェ投稿投稿に対して" do
+        before do
+          visit shop_path(other_shop)
+        end
+
+        it "お気に入り登録によって通知が生成されることを確認" do
+          find('.like').click
+          visit shop_path(other_shop)
+          expect(page).to have_css 'li.no_notification'
+          logout
+          login_for_system(other_user)
+          expect(page).to have_css 'li.new_notification'
+          visit notifications_path
+          expect(page).to have_css 'li.no_notification'
+          expect(page).to have_content "あなたのねこカフェ投稿が#{user.name}さんにお気に入り登録されました。"
+          expect(page).to have_content other_shop.name
+          expect(page).to have_content other_shop.description
+          expect(page).to have_content other_shop.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+        end
+
+        it "コメントによって通知が生成されることを確認" do
+          fill_in "comment_content", with: "いいですね"
+          click_button "コメント"
+          logout
+          login_for_system(other_user)
+          expect(page).to have_css 'li.new_notification'
+          visit notifications_path
+          expect(page).to have_css 'li.no_notification'
+          expect(page).to have_content "あなたのねこカフェ投稿に#{user.name}さんがコメントしました。"
+          expect(page).to have_content '「いいですね」'
+          expect(page).to have_content other_shop.name
+          expect(page).to have_content other_shop.description
+          expect(page).to have_content other_shop.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+        end
+      end
+      # 自分のねこカフェ投稿に対しては通知が生成されないことを確認するテスト
+      context "自分のねこカフェ投稿に対して" do
+        before do
+          visit shop_path(shop)
+        end
+
+        it "お気に入り登録によって通知が作成されないこと" do
+          find('.like').click
+          visit shop_path(shop)
+          expect(page).to have_css 'li.no_notification'
+          visit notifications_path
+          expect(page).not_to have_content 'お気に入りに登録されました。'
+          expect(page).not_to have_content shop.name
+          expect(page).not_to have_content shop.description
+          expect(page).not_to have_content shop.created_at
+        end
+
+        it "コメントによって通知が作成されないこと" do
+          fill_in "comment_content", with: "自分でコメント"
+          click_button "コメント"
+          expect(page).to have_css 'li.no_notification'
+          visit notifications_path
+          expect(page).not_to have_content 'コメントする'
+          expect(page).not_to have_content '自分でコメントする'
+          expect(page).not_to have_content other_shop.name
+          expect(page).not_to have_content other_shop.description
+          expect(page).not_to have_content other_shop.created_at
+        end
       end
     end
   end
