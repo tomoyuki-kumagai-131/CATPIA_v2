@@ -11,6 +11,12 @@ nav.navbar.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
       ul.navbar-nav
         p
         - if logged_in?
+          - if current_user.notification == true
+            li.new_notification.header-link
+          - else
+            li.no_notification.header-link
+          = link_to "\uf0f3 NOTIFICATIONS", notifications_path, class: "nav-link fa"
+
           li.nav-item
             = link_to "\uf015 HOME", root_path, class: "nav-link fa"
           li
