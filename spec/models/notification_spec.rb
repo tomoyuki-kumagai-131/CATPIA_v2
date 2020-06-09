@@ -1,7 +1,5 @@
 require 'rails_helper'
-
 # Notificaionモデルのバリデーションテスト
-
 RSpec.describe Notification, type: :model do
   let!(:notification) { create(:notification) }
 
