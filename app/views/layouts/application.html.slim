@@ -11,7 +11,7 @@ html
     script[src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"]
     // font
     script[src="https://kit.fontawesome.com/84eeecacff.js" crossorigin="anonymous"]
-
+    
   - if flash[:notice]
     .alert.alert-info
       =flash[:notice]
@@ -23,12 +23,15 @@ html
   
     = render 'partial/navbar'
 
-    #fh5co-wireframe
-    
+  - if logged_in?
+    = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
+
   .container
     - flash.each do |message_type, message|
       = content_tag(:div, message, class: "alert alert-#{message_type}")
 
     == yield
 
-    = render 'partial/footer'  
+  = render 'partial/footer'  
+
+  

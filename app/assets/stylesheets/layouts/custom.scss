@@ -395,3 +395,14 @@ ul.navbar-nav.icons {
 li.new_notification > a {
   color: red;
 }
+
+//トップページのねこ//
+
+.image_cat {
+  z-index: 100;
+  height: 180px;
+  width: 180px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
