@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-12
+      h3
+        | 　通知一覧
+  - if @notifications.present?
+    ol.notifications
+      = render @notifications
