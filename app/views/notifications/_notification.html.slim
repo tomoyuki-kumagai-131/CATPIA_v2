@@ -1,0 +1,31 @@
+- user = User.find(notification.from_user_id)
+- shop = Shop.find(notification.shop_id)
+
+|  <li id="notification-
+= notification.id
+| "> 
+div
+  - if notification.variety == 1 # お気に入り登録の通知
+    p
+      = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    p.notification-message
+      | あなたのねこカフェ投稿が
+      = link_to user.name, user_path(user)
+      | さんにお気に入り登録されました。
+  - elsif notification.variety == 2 # コメントの通知
+    p
+      = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    p.notification-message
+      | あなたのねこカフェ投稿
+      = link_to user.name, user_path(user)
+      | さんがコメントしました。 「
+      = notification.content
+      | 」
+.row
+  .col-md-2
+    = link_to((image_tag shop.picture.url), shop_path(shop), class: 'shop-picture')
+  .col-md-7
+    p
+      = link_to shop.name, shop_path(shop)
+    p
+      = shop.description
