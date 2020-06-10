@@ -81,7 +81,7 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_content shop.address
         expect(page).to have_content shop.recommended_points
         expect(page).to have_content shop.web_page
-        expect(page).to have_content shop.rating
+        expect(page).to have_content "★"
         expect(page).to have_link nil, href: shop_path(shop), class: 'shop-picture' # 投稿詳細ページで画像表示されているか
       end
     end
