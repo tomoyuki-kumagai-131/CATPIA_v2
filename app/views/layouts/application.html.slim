@@ -12,25 +12,20 @@ html
     // font
     script[src="https://kit.fontawesome.com/84eeecacff.js" crossorigin="anonymous"]
     
-  - if flash[:notice]
-    .alert.alert-info
-      =flash[:notice]
-  - if flash[:alert]
-    .alert.alert-danger
-      =flash[:alert]
-  
   header
   
     = render 'partial/navbar'
+    
+    // 検索フォーム（ransackのヘルパー） //
+    .container
+      - flash.each do |message_type, message|
+        = content_tag(:div, message, class: "alert alert-#{message_type}")
+      = render 'layouts/search' if logged_in?
 
-  - if logged_in?
-    = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
+    - if logged_in?
+      = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
 
-  .container
-    - flash.each do |message_type, message|
-      = content_tag(:div, message, class: "alert alert-#{message_type}")
-
-    == yield
+  == yield
 
   = render 'partial/footer'  
 
