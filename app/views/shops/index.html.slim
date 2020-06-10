@@ -1,0 +1,15 @@
+- provide(:title, 'ねこカフェ投稿一覧')
+.container
+  - if @search_word.present?
+    h3.text-center
+      | ”
+      = @search_word
+      | ”の検索結果：
+      = @shops.count
+      | 件
+  - else
+    h3
+      | ねこカフェ一覧
+  ul.shops
+    = render @shops
+  = paginate @shops
