@@ -23,7 +23,7 @@ ja:
         id: ID
         name: 店名
         user_id: 作成者のID
-        address: 住所
+        address: 所在地
         description: 説明
         recommended_points: おすすめポイント
         web_page: WEBページ

@@ -41,8 +41,9 @@
         .shop-info
           h4
             | おすすめ度：
-          h4
-            = @shop.rating
+          - if @shop.rating.present?
+            = "★" * @shop.rating
+            = "☆" * (5 - @shop.rating)
       .comment
         = render "comments/feed_comments"
         = render "comments/new"

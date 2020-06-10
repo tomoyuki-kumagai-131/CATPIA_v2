@@ -2,5 +2,7 @@
   ol.shops
     .card.bg-light.col-md-8.mx-auto
       = render @feed_items
-  = paginate @feed_items
+  p    
+  .container
+    = paginate @feed_items
   

@@ -24,7 +24,7 @@ RSpec.describe "Shops", type: :system do
       it "入力部分に適切なフォームラベルが表示されること" do
         expect(page).to have_content '店名'
         expect(page).to have_content '説明'
-        expect(page).to have_content '住所'
+        expect(page).to have_content '所在地'
         expect(page).to have_content 'おすすめポイント'
         expect(page).to have_content 'WEBページ'
         expect(page).to have_content 'おすすめ度 [1~5]'
@@ -35,7 +35,7 @@ RSpec.describe "Shops", type: :system do
       it "有効な情報でねこカフェ登録を行うとねこカフェ登録成功のフラッシュが表示されること" do
         fill_in "店名", with: "ひとやすみ"
         fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
-        fill_in "住所", with: "名古屋市中区栄１−１−１"
+        fill_in "所在地", with: "名古屋市中区栄１−１−１"
         fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
         fill_in "WEBページ", with: "http://google.com"
         fill_in "shop[rating]", with: 5
@@ -46,7 +46,7 @@ RSpec.describe "Shops", type: :system do
 
       #it "画像なしでねこカフェ登録を行うと、デフォルトの画像が割り当てられること" do
         #fill_in "店名", with: "ひとやすみ"
-        #fill_in "住所", with: "名古屋市中区栄１−１ー１"
+        #fill_in "所在地", with: "名古屋市中区栄１−１ー１"
         #click_button "登録する"
         #expect(page).to have_link(href: shop_path(Shop.first)) 
      # end
@@ -54,7 +54,7 @@ RSpec.describe "Shops", type: :system do
       #it "無効な情報でねこカフェ登録を行うとねこカフェ登録失敗のフラッシュが表示されること" do
         #fill_in "店名", with: ""
         #fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
-        #fill_in "住所", with: "名古屋市中区栄１−１−１"
+        #fill_in "所在地", with: "名古屋市中区栄１−１−１"
         #fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
         #fill_in "WEBページ", with: "http://google.com"
         #fill_in "shop[rating]", with: 5
@@ -63,7 +63,7 @@ RSpec.describe "Shops", type: :system do
       #end
     end
   end
-#----------------------------------------------------------------------------#
+
   describe "ねこカフェ詳細ページ" do
     context "ページレイアウト" do
       before do
@@ -81,7 +81,7 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_content shop.address
         expect(page).to have_content shop.recommended_points
         expect(page).to have_content shop.web_page
-        expect(page).to have_content shop.rating
+        expect(page).to have_content "★"
         expect(page).to have_link nil, href: shop_path(shop), class: 'shop-picture' # 投稿詳細ページで画像表示されているか
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe "Shops", type: :system do
       end
     end
   end
-#----------------------------------------------------------------------------#
+
   describe "ねこカフェ投稿編集ページ" do
     before do
       login_for_system(user)
@@ -109,7 +109,7 @@ RSpec.describe "Shops", type: :system do
     it "入力部分に適切なラベルが表示されること" do
       expect(page).to have_content '店名'
       expect(page).to have_content '説明'
-      expect(page).to have_content '住所'
+      expect(page).to have_content '所在地'
       expect(page).to have_content 'おすすめポイント'
       expect(page).to have_content 'WEBページ'
       expect(page).to have_content 'おすすめ度 [1~5]'
@@ -118,7 +118,7 @@ RSpec.describe "Shops", type: :system do
     context "ねこカフェの更新処理" do
       it "有効な更新" do
         fill_in "店名", with: "ひとやすみ。"
-        fill_in "住所", with: "名古屋市中区栄１ー１"
+        fill_in "所在地", with: "名古屋市中区栄１ー１"
         attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop2.jpg" # 画像添付して更新する
         click_button "更新する"
         expect(shop.reload.picture.url).to include "test-shop2.jpg"
@@ -139,7 +139,7 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_content '投稿が削除されました！'
       end
     end
-#----------------------------------------------------------------------------#
+
     context "コメントの登録処理・削除" do
       it "自分のねこカフェ投稿に対するコメントの登録・削除が正常に行えること" do
         login_for_system(user)
@@ -164,6 +164,46 @@ RSpec.describe "Shops", type: :system do
           expect(page).to have_selector 'span', text: comment.content
           expect(page).not_to have_link '削除', href: shop_path(shop)
         end
+      end
+    end
+  end
+
+  describe "検索機能" do
+    context "ログイン中の場合" do
+      before do
+        login_for_system(user)
+        visit root_path
+      end
+
+      it "ログイン後の各ページに検索フォームが表示されていることを確認" do
+        expect(page).to have_css 'form#shop_search'
+        visit about_path
+        expect(page).to have_css 'form#shop_search'
+        visit users_path
+        expect(page).to have_css 'form#shop_search'
+        visit user_path(user)
+        expect(page).to have_css 'form#shop_search'
+        visit edit_user_path(user)
+        expect(page).to have_css 'form#shop_search'
+        visit following_user_path(user)
+        expect(page).to have_css 'form#shop_search'
+        visit followers_user_path(user)
+        expect(page).to have_css 'form#shop_search'
+        visit shops_path
+        expect(page).to have_css 'form#shop_search'
+        visit shop_path(shop)
+        expect(page).to have_css 'form#shop_search'
+        visit new_shop_path
+        expect(page).to have_css 'form#shop_search'
+        visit edit_shop_path(shop)
+        expect(page).to have_css 'form#shop_search'
+      end
+    end
+
+    context "ログインしていない場合" do
+      it "検索フォームが表示されていないことを確認" do
+        visit root_path
+        expect(page).not_to have_content 'form#shop_search'
       end
     end
   end

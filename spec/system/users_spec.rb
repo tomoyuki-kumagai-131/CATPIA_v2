@@ -131,7 +131,7 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_link shop.name
           expect(page).to have_content shop.description
           expect(page).to have_content shop.recommended_points
-          expect(page).to have_content shop.rating
+          expect(page).to have_content "★"
         end
       end
 

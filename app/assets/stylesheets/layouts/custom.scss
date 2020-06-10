@@ -91,14 +91,7 @@ input {
 }
 
 //ログイン画面
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
- }
+
 
  //ユーザー編集画面
  .title-profile {
@@ -405,4 +398,12 @@ li.new_notification > a {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+.topcat2 {
+  height: 180px;
+  width: 180px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }

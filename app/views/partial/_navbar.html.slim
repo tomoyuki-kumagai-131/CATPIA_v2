@@ -8,7 +8,7 @@ nav.navbar.navbar-light.bg-light.fixed-top.border-bottom.shadow-sm
     button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navigation"]
       span.navbar-toggler-icon
     #navigation.collapse.navbar-collapse.text-right
-      ul.navbar-nav
+      ul.navbar-nav.text-left
         p
         - if logged_in?
           - if current_user.notification == true

@@ -38,13 +38,13 @@ RSpec.describe Shop, type: :model do
       expect(shop.errors[:user_id]).to include("を入力してください")
     end
 
-    it "人気度が1以上でなければ無効な状態であること" do
+    it "おすすめ度が1以上でなければ無効な状態であること" do
       shop = build(:shop, rating: 0)
       shop.valid?
       expect(shop.errors[:rating]).to include("は1以上の値にしてください")
     end
 
-    it "人気度が5以下でなければ無効な状態であること" do
+    it "おすすめ度が5以下でなければ無効な状態であること" do
       shop = build(:shop, rating: 6)
       shop.valid?
       expect(shop.errors[:rating]).to include("は5以下の値にしてください")

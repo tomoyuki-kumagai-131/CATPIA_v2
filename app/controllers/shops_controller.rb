@@ -17,6 +17,13 @@ class ShopsController < ApplicationController
     end
   end
 
+  def index
+
+  end
+
+  def search
+  end
+
   # ねこカフェ投稿詳細ページへ
   def show
     @shop = Shop.find(params[:id])
