@@ -1,14 +1,14 @@
 - if logged_in?
   .container
-  p
     h4.text-center.feed
       |  みんなのねこカフェ (
       = @feed_items.count
       |)
-      p
+    br
     = render 'shared/feed'
-  .col-md-2.mx-auto
-    = link_to "新規投稿", new_shop_path, class: "btn btn-info btn-lg btn-record"
+    
+  //.col-md-2.mx-auto
+    //= link_to "新規投稿", new_shop_path, class: "btn btn-info btn-lg btn-record"
 
 - else    
   main[role="main"]

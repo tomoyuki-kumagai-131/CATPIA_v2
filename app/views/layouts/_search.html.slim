@@ -1,8 +1,9 @@
-.row.justify-content-center
-  = search_form_for @q do |f|
-    .col-md-15
-      .form-group
-        = f.search_field :name_cont, placeholder: "ねこカフェを探す...",class: 'form-control font-awesome'
-    .col-md-19  
-      .form-group
-        = f.submit nil, class: 'btn btn-info'
+.container
+  .row.justify-content-center
+    = search_form_for @q do |f|
+      .col-md-100
+        .form-group
+          = f.search_field :name_cont, placeholder: "ねこカフェを探す...",class: 'form-control font-awesome'
+      .col-md-100
+        .form-group
+          = f.submit nil, class: 'btn btn-info'

@@ -1,12 +1,10 @@
 - @shop = shop
-
 | <li id="shop-
 = shop.id
 | "> 
-
-= link_to gravatar_for(shop.user, size: 50), shop.user
+= link_to gravatar_for(shop.user, size: 40), shop.user
 p
-.name-shop
+h4.name-shop
   = link_to shop.name, shop_path(shop)
 li
 .shop-image.text-center

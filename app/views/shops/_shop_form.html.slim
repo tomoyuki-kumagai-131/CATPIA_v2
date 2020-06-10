@@ -7,7 +7,7 @@
         =  f.label :picture
         | 　
         span.input-unneed
-          |  ※任意
+          |  ※任意 (投稿写真がない場合はデフォルトの写真が割り当てられます)
         = f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'shop_picture'
       .form-group
         = f.label :name
@@ -23,7 +23,7 @@
         = f.text_field :description, size: "60x4", class: 'form-control', id: 'shop_description'
       .form-group
         = f.label :address
-        |  
+        |  (都道府県名から入力)
         span.input-need
           | 　※必須
         = f.text_field :address, class: 'form-control', id: 'shop_address'
