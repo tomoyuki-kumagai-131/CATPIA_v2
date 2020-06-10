@@ -31,8 +31,10 @@ li
   = shop.recommended_points
 li
 .rating
-  | 人気度：
-  = shop.rating
+  | おすすめ度：
+- if @shop.rating.present?
+  = "★" * shop.rating
+  = "☆" * (5 - shop.rating)
 li
 //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
 - if current_user.admin? || (current_user == shop.user)
