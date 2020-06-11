@@ -10,7 +10,7 @@
         span.input-unneed
           | ※任意
         = f.file_field :picture, accept: 'image/jpg,image/png', class: 'form-control', id: 'shop-picture'
-        = link_to((image_tag @shop.picture.thumb400.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
+        = link_to((image_tag @shop.picture.thumb600.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
         p
         h3.text-center
           | ねこカフェ情報の編集

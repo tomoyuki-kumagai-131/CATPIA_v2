@@ -1,45 +1,55 @@
 - @shop = shop
 | <li id="shop-
 = shop.id
-| "> 
-= link_to gravatar_for(shop.user, size: 40), shop.user
-p
-h4.name-shop
-  = link_to shop.name, shop_path(shop)
-li
-.shop-image.text-center
-  = link_to((image_tag shop.picture.thumb200.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
-li
-.favorite-form
-  = render 'users/favorite_form'
-li
-.address-shop
-  |  所在地：
-  = shop.address
-li
-.web_page
-    = link_to "WEBページ", shop.web_page, target: :_blank
-li
-.description-shop
-  | 店舗説明：
-  = shop.description
-li
-.recommended_points
-  | おすすめポイント：
-  = shop.recommended_points
-li
-.rating
-  | おすすめ度：
-- if @shop.rating.present?
-  = "★" * shop.rating
-  = "☆" * (5 - shop.rating)
-li
-//管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
-- if current_user.admin? || (current_user == shop.user)
-  = link_to "削除", shop_path(shop), method: :delete,
-                    data: { confirm: "本当に削除しますか？" }     
-li               
-.timestamp.text-right
-  = time_ago_in_words(shop.created_at)
-  | 前に投稿 
+| ">  
+.container
+  h5.name-shop
+    = link_to shop.name, shop_path(shop)
+  h8.user-name
+    |　Posted by :  
+    = link_to shop.user.name, user_path(shop.user)
+  li
+  .shop-image.text-center
+    = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+  p
+  li
+  .favorite-form
+    = render 'users/favorite_form'
+  p
+  li
+  .address-shop
+    |  所在地：
+    = shop.address
+  p
+  li
+  .web_page
+    | WEBページ：
+    = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
+  li
+  .description-shop
+    | 店舗説明：
+    = shop.description
+  p
+  li
+  .recommended_points
+    | おすすめポイント：
+    = shop.recommended_points
+  p
+  li
+  .rating
+    | おすすめ度：
+    - if @shop.rating.present?
+      = "★" * shop.rating
+      = "☆" * (5 - shop.rating)
+  p
+  li
+    //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
+    - if current_user.admin? || (current_user == shop.user)
+      = link_to "削除", shop_path(shop), method: :delete,
+                        data: { confirm: "本当に削除しますか？" }     
+  li               
+  .timestamp.text-right
+    = time_ago_in_words(shop.created_at)
+    | 前に投稿 
+  p
 
