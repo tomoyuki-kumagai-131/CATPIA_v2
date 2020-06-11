@@ -1,8 +1,9 @@
 .container
   .row
     .col-md-12
-      h3.text-center
-        | 　通知一覧
+      h4.text-center
+        | 通知一覧
   - if @notifications.present?
-    ol.notifications
+    container.card
+    .notifications
       = render @notifications
