@@ -106,7 +106,7 @@ input {
 }
 
 .user-picture-box {
-  margin-top: 0.5em;
+  margin-top: 1em;
   margin-left: 1em;
 }
 
@@ -124,12 +124,12 @@ input {
 .users {
   list-style: none;
   margin: 0;
-  padding-left: 30px;
+  padding-left: 20px;
   li {
     overflow: auto;
     margin: 20px;
     padding: 12px 0;
-    border-bottom: 2px solid;
+    border-bottom: 1px solid;
   }
 }
 //ユーザー一覧ページ：プロフィール写真と名前の間隔調整//
@@ -383,10 +383,6 @@ ul.navbar-nav.icons {
 //タイトル// 
 .title-head {
   padding-top: 5px;
-}
-
-li.new_notification > a {
-  color: red;
 }
 
 //トップページのねこ//
