@@ -39,6 +39,7 @@ https://catpia.herokuapp.com/
 * RSpec
 * Slim記法,JQuery
 * CircleCi
+* DB:MySQL
 <p>
   
 ## 機能一覧
