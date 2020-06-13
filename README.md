@@ -1,24 +1,63 @@
-# README
+# CATPIA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+就職活動用に、ポートフォリオとして制作した自作WEBアプリケーションです。
+<p>
+お気に入りのねこカフェを共有し、コメントやいいねを送り合ってコミニュケーションを取ることも可能です。
+<p>
+機能としては下記の通りシンプルですが、Dockerによる環境構築(docker-compose)、
+<p>
+CircleCIによる継続的インテグレーションなどモダンな技術を導入しています。
+<p>
+テスト用にherokuにデプロイしていますが、AWSへデプロイし、インフラをクラウド化させます。
+<p>
+[![Screenshot from Gyazo](https://gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8)]
+<p>
+  
+## 制作背景
+<p>
+私は黒ネコを一匹飼っているのですが、恐らく生まれて２〜３ヶ月という幼い頃に、
+<p>
+雨の中道で鳴いていたところを拾い、動物病院に連れていき、飼い始めたという経緯があります。
+<p>
+ポートフォリオを作り始めたのが２０２０年5月中旬で、コロナウィルス蔓延の真っ只中でした。
+<p>
+「おうち時間」が増える中で、ペット需要、中でも散歩の必要がない猫が人気だとニュースで見ました。
+<p>
+しかし、飼育放棄や多頭飼育による環境崩壊などの問題もこれから更に増えてくると思います。
+<p>
+ねこカフェでは里親募集も行っていることが多いです。
 
-Things you may want to cover:
 
-* Ruby version
+## URL
+https://catpia.herokuapp.com/
 
-* System dependencies
+* トップページに採用担当者様用ログインフォームを配置しております。
 
-* Configuration
+## 使用技術
+* Ruby 2.5.3, Rails 5.2.2
+* Docker,docker-compose
+* RSpec
+* Slim記法,JQuery
+* CircleCi
+<p>
+  
+## 機能一覧
+* ユーザー登録・ログイン機能
+* ログイン保持機能(RememberMe)
+* 投稿機能 （画像のアップロードにgem:CarrierWaveを使用）
+* 投稿一覧・投稿詳細表示機能
+* 投稿管理機能
+* ページネーション機能（Kaminari）
+* いいね機能（Ajax）
+* コメント機能（Ajax）
+* フォロー・フォロワー機能
+* 検索機能（gem:Ransackを使用）
+* Rspecテスト機能
+* CircleCIによる自動ビルド・自動テスト
+* 通知機能(お気に入り登録・コメントがあった場合)
+* モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 課題、今後実装したい機能
+* テストを更に充実させる
+* 追加機能の実装
+* クラウド整備(AWSへのデプロイなど)
