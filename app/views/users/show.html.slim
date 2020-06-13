@@ -1,7 +1,7 @@
 - provide(:title, "プロフィール")
 .container
   ol
-  h4.title-profile.text-center
+  h4.title-profile
     | プロフィール
   .users-card
     .card.col-md-9
@@ -23,7 +23,7 @@
   .row
     .col-md-10
       - if @user.shops.any?
-        h4.text-center
+        h4
           | ねこカフェ (
           = @user.shops.count
           | )
