@@ -1,28 +1,31 @@
 - provide(:title, @title)
-.row
-  aside.col-md-4
-    section.user_info
-      = gravatar_for @user
-      h4
-        = @user.name
-      span
-        = link_to "プロフィール", @user
-      span
-        b
+.container
+  ol
+  h4.title-profile
+    |プロフィール
+  .users-card.text-center
+    .card.col-md-5
+      .col-md-9
+        .user-picture-box
+          = gravatar_for @user, size: 75, cl: "gravatar user-picture"
+        p
+        span
           | ねこカフェ
-        = @user.shops.count
-        b
+          = @user.shops.count
           | 件
-    section.stats
-      = render 'shared/stats'
-      - if @users.any?
-        .user_avatars
-          - @users.each do |user|
-            = link_to gravatar_for(user, size: 30), user
-  .col-md-8
-    h3
+        section.stats
+          = render 'shared/stats'
+          - if @users.any?
+            .user_avatars
+              - @users.each do |user|
+                = link_to gravatar_for(user, size: 30), user
+        
+  p
+  .col-md-7
+    h6
       = @title
     - if @users.any?
       ul.users.follow
         = render @users
+      p
       = paginate @users
