@@ -15,7 +15,7 @@ User.create!(
     },
     {
       name: "採用 者様",
-      email: "recruit3@example.com",
+      email: "recruit@example.com",
       password:              "foobar",
       password_confirmation: "foobar",
     },
@@ -75,7 +75,7 @@ Shop.create!(
     },
     {
       name: name2,
-      address: "愛知県名古屋市中区栄3-32-6 BECOME SAKAE 2F",
+      address: "名古屋市中区錦3-1-6 ソアービル錦2F",
       picture: open("#{Rails.root}/public/images/ccafe2.jpg"),
       web_page: "http://www.nekocafe-hitoyasumi.com/",
       description: description2,
