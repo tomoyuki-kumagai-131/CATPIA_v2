@@ -179,7 +179,7 @@ RSpec.describe "Users", type: :system do
         expect(link[:href]).to include "/favorites/#{shop.id}/create"
       end
 
-      it "ねこ詳細ページからお気に入り登録/解除ができること", js: true do
+      it "ねこカフェ投稿詳細ページからお気に入り登録/解除ができること", js: true do
         visit shop_path(shop)
         link = find('.like')
         expect(link[:href]).to include "/favorites/#{shop.id}/create"
@@ -197,7 +197,7 @@ RSpec.describe "Users", type: :system do
         login_for_system(user)
       end
 
-      context "自分以外のユーザーのねこカフェ投稿投稿に対して" do
+      context "自分以外のユーザーのねこカフェ投稿に対して" do
         before do
           visit shop_path(other_shop)
         end
@@ -211,7 +211,7 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_css 'li.new_notification'
           visit notifications_path
           expect(page).to have_css 'li.no_notification'
-          expect(page).to have_content "あなたのねこカフェ投稿が#{user.name}さんにお気に入り登録されました。"
+          expect(page).to have_content "あなたのねこカフェ投稿が「#{user.name}」さんにお気に入り登録されました。"
           expect(page).to have_content other_shop.name
           expect(page).to have_content other_shop.description
           expect(page).to have_content other_shop.created_at.strftime("%Y/%m/%d(%a) %H:%M")
@@ -225,7 +225,7 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_css 'li.new_notification'
           visit notifications_path
           expect(page).to have_css 'li.no_notification'
-          expect(page).to have_content "あなたのねこカフェ投稿に#{user.name}さんがコメントしました。"
+          expect(page).to have_content "あなたのねこカフェ投稿に「#{user.name}」さんがコメントしました。"
           expect(page).to have_content '「いいですね」'
           expect(page).to have_content other_shop.name
           expect(page).to have_content other_shop.description
