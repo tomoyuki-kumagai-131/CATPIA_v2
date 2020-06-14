@@ -29,14 +29,6 @@ RSpec.describe "Relationships", type: :system do
         expect(page).to have_title full_title('フォロー中')
       end
 
-      it "ユーザー情報が表示されていること" do
-        expect(page).to have_content user.name
-        expect(page).to have_link "プロフィール", href: user_path(user)
-        expect(page).to have_content "ねこカフェ#{user.shops.count}件"
-        expect(page).to have_link "#{user.following.count} 人をフォロー", href: following_user_path(user)
-        expect(page).to have_link "#{user.followers.count} 人のフォロワー", href: followers_user_path(user)
-      end
-
       it "フォロー中のユーザーが表示されていること" do
         within find('.users') do
           expect(page).to have_css 'li', count: user.following.count
@@ -64,14 +56,6 @@ RSpec.describe "Relationships", type: :system do
 
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title('フォロワー')
-      end
-
-      it "ユーザー情報が表示されていること" do
-        expect(page).to have_content user.name
-        expect(page).to have_link "プロフィール", href: user_path(user)
-        expect(page).to have_content "ねこカフェ#{user.shops.count}件"
-        expect(page).to have_link "#{user.following.count} 人をフォロー", href: following_user_path(user)
-        expect(page).to have_link "#{user.followers.count} 人のフォロワー", href: followers_user_path(user)
       end
 
       it "フォロワーが表示されていること" do
