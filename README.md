@@ -1,24 +1,86 @@
-# README
+# CATPIA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+就職活動用に、ポートフォリオとして制作した自作WEBアプリケーションです。
+<p>
+お気に入りのねこカフェを共有し、コメントやいいねを送り合ってコミニュケーションを取ることも可能です。
+<p>
+機能としてはシンプルですが、特にRSpecによるテスト(モデル・リクエスト・システムスペック)を重視していて、約150近くのexampleをパスしています。
+<p>
+開発初期(Initial Commit時)からDockerによる環境構築(docker-compose)、
+開発途中からCircleCIを導入することで、自動テストを走らせて安全性を図るなど、現時点でモダンな技術を導入するようにしました。
+<p>
+テスト用にherokuにデプロイしていますが、AWSへデプロイし、インフラ周りをクラウド化させます。
+<p>
+<a href="https://gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8"><img src="https://i.gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8.jpg" alt="Image from Gyazo" width="1412"/></a>
+<p>
+<a href="https://gyazo.com/78d28b7f5ac8783cc865d71fda8a8cf5"><img src="https://i.gyazo.com/78d28b7f5ac8783cc865d71fda8a8cf5.jpg" alt="Image from Gyazo" width="462"/></a>
+  
+## 制作背景
+<p>
+私は6歳になる黒猫を一匹飼っているのですが、生まれて２〜３ヶ月という幼い頃に、
+<p>
+雨の中道で鳴いていたところを拾い、動物病院に連れていき、飼い始めたという経緯があります。
+<p>
+ポートフォリオを作り始めたのが２０２０年5月中旬で、コロナウィルス蔓延の真っ只中でした。
+<p>
+「おうち時間」が増える中で、ペット需要、中でも散歩の必要がない猫が人気だとニュースで見ました。
+<p>
+しかし、飼育放棄や多頭飼育による環境崩壊などの問題もこれから更に増えてくると思います。
+<p>
+気軽にペットを飼い始めると、飼えなくなった時に路上に放棄するといった方が少なからずいます。
+<p>
+まずは気軽に猫カフェに足を運んでいただいて、猫の魅力に気付いてもらいたいと思いました。
+<p>
+猫カフェはただ猫と戯れることができるカフェ、と思われている方も多いかもしれないですが、
+<p>
+実際は保護猫がお店にいて、引き取りや譲渡会も行っている、という形態を取っている猫カフェも多いです。
+<p>
+いきなり猫を飼い始めるのではなく、猫カフェで猫を知っていただいた後に飼育して欲しい、という思いもあり、
+<p>
+フランクにお気に入りの猫カフェを投稿したり閲覧できるWEBアプリを作ろうと思いました。
+<p> 
+お気に入りの猫カフェとして紹介することで、少しでも売り上げの貢献、結果的に保護猫の引き取り手が増えるのではないか、という想いもあります。
+<p>
+長くなってしまいましたが、WEBアプリを作成した要旨としましては以下の3つのポイントになります。
+  
+##
+* 猫の魅力の再発見
+* 保護猫の良質な引き取り手の増加
+* 猫カフェへの売り上げの貢献
 
-Things you may want to cover:
+## URL
+https://catpia.herokuapp.com/
 
-* Ruby version
+* トップページに採用担当者様用ログインフォームを配置しております。
 
-* System dependencies
+## 使用技術
+* Ruby 2.5.3
+* Rails 5.2.2
+* Docker,docker-compose
+* RSpec
+* Slim記法,JQuery
+* CircleCi
+* DB:MySQL
+<p>
+  
+## 機能一覧
+* ユーザー登録・ログイン機能
+* ログイン保持機能(RememberMe)
+* 投稿機能 （画像のアップロードにgem:CarrierWaveを使用）
+* 投稿一覧・投稿詳細表示機能
+* 投稿管理機能
+* 投稿編集機能
+* ページネーション機能（Kaminari）
+* いいね機能（Ajax）
+* コメント機能（Ajax）
+* フォロー・フォロワー機能(Ajax)
+* 検索機能（gem:Ransackを使用）
+* Rspecテスト機能
+* CircleCIによる自動ビルド・自動テスト
+* 通知機能(お気に入り登録・コメントがあった場合)
+* モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 課題、今後実装したい機能
+* クラウド整備(AWSへのデプロイなど)
+* テストを更に充実させる
+* 追加機能の実装(無限スクロール機能など)
