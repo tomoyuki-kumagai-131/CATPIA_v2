@@ -2,20 +2,20 @@ User.create!(
   [
     {
       name: "管理 太郎",
-      email: "kanri2@example.com",
+      email: "kanri1@example.com",
       password:              "foobar",
       password_confirmation: "foobar",
       admin: true,
     },
     {
       name: "山田 杏果",
-      email: "yamada2@example.com",
+      email: "yamada1@example.com",
       password:              "foobar",
       password_confirmation: "foobar",
     },
     {
       name: "採用 者様",
-      email: "recruit2@example.com",
+      email: "recruit1@example.com",
       password:              "foobar",
       password_confirmation: "foobar",
     },
@@ -24,10 +24,10 @@ User.create!(
 
 # フォロー関係
 user1 = User.find(1)
-user11 = User.find(11)
-user21 = User.find(21)
-user21.follow(user1)
-user21.follow(user11)
+user2= User.find(2)
+user3 = User.find(3)
+user3.follow(user1)
+user3.follow(user2)
 
 # ねこカフェ
 name1 = "猫カフェ Mocha 名古屋栄店"
@@ -81,7 +81,7 @@ Shop.create!(
       description: description2,
       recommended_points: recommended_points2,
       rating: 4,
-      user_id: 11
+      user_id: 2
     },
     {
       name: name3,
@@ -91,7 +91,7 @@ Shop.create!(
       description: description3,
       recommended_points: recommended_points3,
       rating: 5,
-      user_id: 21
+      user_id: 3
     },
     {
       name: name4,
@@ -111,7 +111,7 @@ Shop.create!(
       description: description5,
       recommended_points: recommended_points5,
       rating: 5,
-      user_id: 11
+      user_id: 2
     },
     {
       name: name6,
@@ -121,7 +121,7 @@ Shop.create!(
       description: description6,
       recommended_points: recommended_points6,
       rating: 4,
-      user_id: 21
+      user_id: 3
     },
     {
       name: name7,
@@ -141,7 +141,7 @@ Shop.create!(
       description: description8,
       recommended_points: recommended_points8,
       rating: 5,
-      user_id: 11
+      user_id: 2
     },
     {
       name: name9,
@@ -151,7 +151,7 @@ Shop.create!(
       description: description9,
       recommended_points: recommended_points9,
       rating: 4,
-      user_id: 21
+      user_id: 3
     }
   ]
 )
@@ -164,24 +164,24 @@ shop8 = Shop.find(8)
 shop9 = Shop.find(9)
 
 # お気に入り登録
-user21.favorite(shop1)
-user21.favorite(shop4)
+user3.favorite(shop1)
+user3.favorite(shop4)
 user1.favorite(shop9)
-user11.favorite(shop6)
+user2.favorite(shop6)
 
 # コメント投稿
 shop3.comments.create(user_id: user1.id, content: "今度名古屋に行った時に訪ねてみます♫")
-shop8.comments.create(user_id: user11.id, content: "保護猫を探していますので行ってみます！")
+shop8.comments.create(user_id: user2.id, content: "保護猫を探していますので行ってみます！")
 
 # 通知機能 variety1=お気にいり variety2=コメント
-user21.notifications.create(user_id: user21.id, shop_id: shop9.id,
+user3.notifications.create(user_id: user3.id, shop_id: shop9.id,
   from_user_id: user1.id, variety: 1)
 
-user21.notifications.create(user_id: user21.id, shop_id: shop3.id,
+user3.notifications.create(user_id: user3.id, shop_id: shop3.id,
   from_user_id: user1.id, variety: 2, content: "今度名古屋に行った時に訪ねてみます♫")
 
-user21.notifications.create(user_id: user21.id, shop_id: shop6.id,
-  from_user_id: user11.id, variety: 1)
+user3.notifications.create(user_id: user3.id, shop_id: shop6.id,
+  from_user_id: user2.id, variety: 1)
 
-user21.notifications.create(user_id: user21.id, shop_id: shop8.id,
-  from_user_id: user11.id, variety: 2, content: "保護猫を探していますので行ってみます！")
+user3.notifications.create(user_id: user3.id, shop_id: shop8.id,
+  from_user_id: user2.id, variety: 2, content: "保護猫を探していますので行ってみます！")
