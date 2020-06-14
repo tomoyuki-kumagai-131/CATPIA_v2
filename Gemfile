@@ -40,7 +40,7 @@ gem "mini_magick", '>= 4.9.4'
 gem "ransack"
 
 group :production do
-  gem 'fog', '1.42'
+
 end
 
 group :development, :test do
@@ -84,3 +84,4 @@ gem 'kaminari-bootstrap'
 gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'fog-aws'

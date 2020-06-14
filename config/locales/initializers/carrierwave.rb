@@ -3,8 +3,11 @@ require 'carrierwave/storage/abstract'
 require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
-if Rails.env.production?
-  CarrierWave.configure do |config|
+CarrierWave.configure do |config|
+  if Rails.env.production?
+    config.storage :fog
+    config.fog_provider = 'fog/aws'
+    config.fog_directory  = 'catpia'
     config.fog_credentials = {
       # Amazon S3用の設定 環境変数を読み込む
       :provider              => 'AWS',
@@ -15,3 +18,5 @@ if Rails.env.production?
     config.fog_directory     =  ENV['S3_BUCKET']
   end
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
