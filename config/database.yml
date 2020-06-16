@@ -52,3 +52,10 @@ production:
   database: app_name_production
   username: app_name
   password: <%= ENV['APP_NAME_DATABASE_PASSWORD'] %>
+
+  production:
+    <<: *default
+    database: <%= Rails.application.credentials.db[:database] %>
+    username: <%= Rails.application.credentials.db[:username] %>
+    password: <%= Rails.application.credentials.db[:password] %>
+    socket: <%= Rails.application.credentials.db[:socket] %>
