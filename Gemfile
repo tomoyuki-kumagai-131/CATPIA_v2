@@ -40,7 +40,7 @@ gem "mini_magick", '>= 4.9.4'
 gem "ransack"
 
 group :production do
-
+gem 'unicorn', '5.4.1'
 end
 
 group :development, :test do
@@ -85,3 +85,4 @@ gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'fog-aws'
+gem 'mini_racer'

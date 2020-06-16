@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: app_name_production
-  username: app_name
-  password: <%= ENV['APP_NAME_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: CATPIA_v2_production
+  username: root
+  password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
