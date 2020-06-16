@@ -151,7 +151,7 @@ GEM
       rails
     kaminari-core (1.2.0)
     kgio (2.11.3)
-    libv8 (3.16.14.19-x86_64-linux)
+    libv8 (7.3.492.27.1-x86_64-linux)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -171,6 +171,8 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
+    mini_racer (0.2.14)
+      libv8 (> 7.3)
     minitest (5.14.0)
     msgpack (1.3.3)
     multi_json (1.14.1)
@@ -235,7 +237,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    ref (2.0.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -321,9 +322,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.2)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -378,6 +376,7 @@ DEPENDENCIES
   kaminari-bootstrap
   listen (>= 3.0.5, < 3.2)
   mini_magick (>= 4.9.4)
+  mini_racer
   mysql2 (>= 0.4.4, < 0.6.0)
   pagy
   pry-rails
@@ -393,7 +392,6 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
-  therubyracer
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
