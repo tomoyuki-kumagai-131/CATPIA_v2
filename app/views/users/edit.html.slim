@@ -1,14 +1,17 @@
 - provide(:title, "プロフィール編集")
-.row
-  .col-md-6.col-md-offset-3
+p
+.container.d-flex.justify-content-center
+  .col-md-6.text-center
     = form_for(@user) do |f|
       = render 'shared/error_messages', object: f.object
       .gravatar_edit
-        = gravatar_for(@user, size: 56)
+        = gravatar_for(@user, size: 60)
+        p
         h5
-        = @user.name
+          = @user.name
+      p
         a[href="http://gravatar.com/emails" target="_blank"]
-          | 　プロフィール写真を変更
+          | プロフィール写真を変更
       p
       .form-group
         = f.label :name
