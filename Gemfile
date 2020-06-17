@@ -40,7 +40,11 @@ gem "mini_magick", '>= 4.9.4'
 gem "ransack"
 
 group :production do
-gem 'unicorn', '5.4.1'
+  gem 'mysql2', '>= 0.4.4'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 group :development, :test do
