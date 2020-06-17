@@ -39,10 +39,6 @@ gem 'carrierwave', '1.2.2'
 gem "mini_magick", '>= 4.9.4'
 gem "ransack"
 
-group :production do
-  gem 'mysql2', '>= 0.4.4'
-end
-
 group :production, :staging do
   gem 'unicorn'
 end
