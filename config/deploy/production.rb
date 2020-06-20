@@ -11,3 +11,5 @@ server '54.199.70.11',
        port: 22,
        keys: %w(~/.ssh/catpia_v4.pem),
        forward_agent: true
+      }
+      
