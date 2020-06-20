@@ -50,9 +50,7 @@ server '54.199.70.11', user: 'tomo', roles: %w{app db web}
 #  }
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, auth_methods: ['publickey'],
-                  keys: ["#{ENV.fetch('PRODUCTION_SSH_KEY')}"],
-                  forward_agent: true
+set :ssh_options, keys: '~/.ssh/catpiav4_key_rsa' 
 
 #
 # The server-based syntax can be used to override options:
