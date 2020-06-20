@@ -50,7 +50,7 @@ server '54.199.70.11', user: 'tomo', roles: %w{app db web}
 #  }
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/catpiav4_key_rsa' 
+set :ssh_options, keys: '~/.ssh/catpia_v4.pem' 
 
 #
 # The server-based syntax can be used to override options:
