@@ -1,4 +1,3 @@
-# config valid for current version and patch releases of Capistrano
 # capistranoのバージョン固定
 lock '3.14.1'
 
