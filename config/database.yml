@@ -50,7 +50,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: CATPIA_v2_production
+  pool: 5
+  database: catpia_production
   username: root
   password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
