@@ -25,6 +25,10 @@ set :keep_releases, 5
 # rubyのバージョン
 set :rbenv_ruby, '2.5.3'
 
+# どの公開鍵を利用してデプロイするか
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: ['~/.ssh/catpia_v4.pem'] 
+
 #出力するログのレベル。
 set :log_level, :debug
 
