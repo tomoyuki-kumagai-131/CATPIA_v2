@@ -76,7 +76,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-gem 'bootstrap'
+gem 'bootstrap', '4.1.3'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'rubocop-airbnb'
@@ -85,8 +85,8 @@ gem 'jquery-rails', '4.3.1'
 gem 'pagy'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem 'fog-aws'
 gem 'mini_racer'
+gem 'sassc', '~> 2.1.0'

@@ -48,16 +48,16 @@ GEM
       sshkit (>= 1.6.1, != 1.7.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.7.6)
+    autoprefixer-rails (9.8.1)
       execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    bootstrap (4.4.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
+    bootstrap (4.1.3)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     builder (3.2.4)
     byebug (11.1.3)
     capistrano (3.14.1)
@@ -132,8 +132,6 @@ GEM
     fog-xml (0.1.3)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    font-awesome-sass (5.12.0)
-      sassc (>= 1.11)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -166,7 +164,7 @@ GEM
       rails
     kaminari-core (1.2.0)
     kgio (2.11.3)
-    libv8 (7.3.492.27.1-x86_64-linux)
+    libv8 (7.3.492.27.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -308,14 +306,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sassc (2.3.0)
+    sassc (2.1.0)
       ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -379,7 +371,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
-  bootstrap
+  bootstrap (= 4.1.3)
   byebug
   capistrano
   capistrano-bundler
@@ -393,7 +385,6 @@ DEPENDENCIES
   factory_bot_rails (~> 4.10.0)
   faker
   fog-aws
-  font-awesome-sass
   html2slim
   jbuilder (~> 2.5)
   jquery-rails (= 4.3.1)
@@ -412,6 +403,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.0.beta2)
   rubocop-airbnb
   sass-rails (~> 5.0)
+  sassc (~> 2.1.0)
   selenium-webdriver
   slim-rails
   spring
