@@ -53,5 +53,5 @@ production:
   pool: 5
   database: catpia_production
   username: root
-  password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
