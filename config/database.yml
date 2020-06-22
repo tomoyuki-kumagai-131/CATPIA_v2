@@ -52,6 +52,7 @@ production:
   encoding: utf8
   pool: 5
   database: catpia_production
-  username: root
+  username: tomo
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
+  host: localhost
