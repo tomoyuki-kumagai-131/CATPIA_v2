@@ -52,6 +52,6 @@ production:
   encoding: utf8
   database: catpia_production
   username: root
-  password: <%= ENV["DATABASE_PASSWORD"] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
   host: %
