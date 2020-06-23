@@ -55,4 +55,3 @@
       force_stop_unicorn
     end
   end
-end
