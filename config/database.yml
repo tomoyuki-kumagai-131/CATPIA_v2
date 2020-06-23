@@ -55,4 +55,5 @@ production:
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
-  host:
+  host: catpiav2-mysql.cw4t3oi5vml1.ap-northeast-1.rds.amazonaws.com
+  port: 3306
