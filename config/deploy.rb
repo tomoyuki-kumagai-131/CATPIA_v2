@@ -16,7 +16,6 @@ set :pty, true
 set :rbenv_ruby, '2.5.3'
 
 # 必要に応じて、gitignoreしているファイルにLinkを貼る
-set :linked_files, %w{.rbenv-vars}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set :use_sudo, false
