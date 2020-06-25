@@ -54,6 +54,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
 end
 
 group :development do
