@@ -25,4 +25,5 @@ namespace :deploy do
   end
 
   before :starting, :confirm
+  append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
 end
