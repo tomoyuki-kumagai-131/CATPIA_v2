@@ -3,10 +3,12 @@
   ol
   h4.title-profile
     |プロフィール
+  p
   .users-card.text-center
     .card.col-md-5
       .col-md-9
         .user-picture-box
+        br      
           = gravatar_for @user, size: 75, cl: "gravatar user-picture"
         p
         span
@@ -16,9 +18,13 @@
         section.stats
           = render 'shared/stats'
           - if @users.any?
+            p
+          .row.d-flex.flex-row
             .user_avatars
               - @users.each do |user|
                 = link_to gravatar_for(user, size: 30), user
+              
+        p
         
   p
   .col-md-7
