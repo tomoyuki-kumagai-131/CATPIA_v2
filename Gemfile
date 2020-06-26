@@ -39,8 +39,8 @@ gem 'carrierwave', '1.2.2'
 gem "mini_magick", '>= 4.9.4'
 gem "ransack"
 
-group :production do
-gem 'unicorn', '5.4.1'
+group :production, :staging do
+  gem 'unicorn'
 end
 
 group :development, :test do
@@ -49,6 +49,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rails-controller-testing'
   gem "factory_bot_rails", "~> 4.10.0"
+  gem 'capistrano', '3.7.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
 end
 
 group :development do
@@ -72,7 +78,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
-gem 'bootstrap'
+gem 'bootstrap', '4.1.3'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'rubocop-airbnb'
@@ -81,8 +87,8 @@ gem 'jquery-rails', '4.3.1'
 gem 'pagy'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'pry-rails'
-gem 'fog-aws'
 gem 'mini_racer'
+gem 'sassc', '~> 2.1.0'
+gem 'font-awesome-sass'

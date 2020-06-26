@@ -82,12 +82,12 @@ class UsersController < ApplicationController
   private
     # ユーザー新規作成時に許可する属性
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
     end
 
     # プロフィール編集時に許可する属性
     def user_params_update
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :image)
     end
 
     # 正しいユーザーかどうか確認するメソッド

@@ -1,32 +1,34 @@
 - provide(:title, "プロフィール")
-.container
-  ol
-  h4.title-profile
-    | プロフィール
-  .users-card
-    .card.col-md-9
-      .col-md-9
-        .user-picture-box.text-center
-          = gravatar_for @user, size: 78, cl: "gravatar user-picture"
+.container.mx-auto
+  br
+  .row.justify-content-center
+    h3.title-profile
+      | P R O F I L E
+    p
+    .col-md-2.text-center
+      .user-picture-box
+        = gravatar_for @user, size: 75, cl: "gravatar user-picture"
       p
-      .col-md-9.text-center
-        h5.show-user-name
-          = @user.name
-        .stats
-          = render 'shared/stats'
-          - if current_user == @user
-            .account-edit
-              = link_to "プロフィール編集", edit_user_path(@user)
-          p.follow-button    
-          = render 'follow_form' if logged_in?
+    .col-md-4.text-center
+      h5.show-user-name
+        = @user.name
+      .stats
+        = render 'shared/stats'
+      p  
+        - if current_user == @user
+          .account-edit.btn.btn-outline-dark
+            = link_to "PROFILE EDIT", edit_user_path(@user)
+        p.follow-button    
+        = render 'follow_form' if logged_in?
   p
-  .row
+  .card-body.bg-light
     .col-md-10
-      - if @user.shops.any?
-        h4
-          | ねこカフェ (
-          = @user.shops.count
-          | )
-        ol.shops
-          = render @shops
-        = paginate @shops
+    - if @user.shops.any?
+      h5
+        | CAT CAFE'S　 
+        = @user.shops.count
+        | 件
+      p
+      ol.shops
+        = render @shops
+      = paginate @shops

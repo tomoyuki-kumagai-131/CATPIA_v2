@@ -48,9 +48,12 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  <<: *default
   adapter: mysql2
   encoding: utf8
-  reconnect: false
-  database: CATPIA_v2_production
+  database: catpia_production
   username: root
-  password: <%= ENV['DATABASE_PRO_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+  host: catpiav2-mysql.cw4t3oi5vml1.ap-northeast-1.rds.amazonaws.com
+  port: 3306

@@ -1,10 +1,11 @@
 - if logged_in?
-  .container
+  .container.text-center
     h4.text-center.feed
-      |  みんなのねこカフェ (
+      |  みんなの猫カフェ　
       = @feed_items.count
-      |)
+      |  件
     br
+    p
     = render 'shared/feed'
 - else    
   .container

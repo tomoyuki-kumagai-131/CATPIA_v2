@@ -9,7 +9,6 @@
 開発初期(Initial Commit時)からDockerによる環境構築(docker-compose)、
 開発途中からCircleCIを導入することで、自動テストを走らせて安全性を図るなど、現時点でモダンな技術を導入するようにしました。
 <p>
-テスト用にherokuにデプロイしていますが、AWSへデプロイし、インフラ周りをクラウド化させます。
 <p>
 <a href="https://gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8"><img src="https://i.gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8.jpg" alt="Image from Gyazo" width="1412"/></a>
 <p>
@@ -49,7 +48,7 @@
 * 猫カフェへの売り上げの貢献
 
 ## URL
-https://catpia.herokuapp.com/
+https://cat-pia.com/
 
 * トップページに採用担当者様用ログインフォームを配置しております。
 
@@ -61,6 +60,7 @@ https://catpia.herokuapp.com/
 * Slim記法,JQuery
 * CircleCi
 * DB:MySQL
+* AWS EC2, ALB, ACM, Route53, 
 <p>
   
 ## 機能一覧
@@ -81,6 +81,7 @@ https://catpia.herokuapp.com/
 * モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
 
 ## 課題、今後実装したい機能
-* クラウド整備(AWSへのデプロイなど)
+* クラウド整備
 * テストを更に充実させる
 * 追加機能の実装(無限スクロール機能など)
+  

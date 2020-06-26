@@ -14,7 +14,7 @@
         = form_for(:session, url: login_path, local: true) do |f|
           .form-group
             = f.label 'メールアドレス'
-            = f.email_field :email, class: 'form-control', id: 'recruit_user_email', value: 'recruit@example.com'
+            = f.email_field :email, class: 'form-control', id: 'recruit_user_email', value: 'recruit1@example.com'
           .form-group
             = f.label 'パスワード'
             = f.password_field :password, class: 'form-control', id: 'recruit_user_password', value: 'foobar'
@@ -28,7 +28,7 @@
           p
             | ＜採用担当者様　専用アカウント＞
           p
-            | メールアドレス：recruit@example.com
+            | メールアドレス：recruit1@example.com
           p
             | パスワード：foobar
           p
