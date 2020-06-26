@@ -1,9 +1,7 @@
 - provide(:title, @title)
 .container
-  ol
-  h4.title-profile
-    |プロフィール
-  p
+  h5.title-profile
+    | P R O F I L E
   .users-card.text-center
     .card.col-md-5
       .col-md-9
@@ -12,26 +10,17 @@
           = gravatar_for @user, size: 75, cl: "gravatar user-picture"
         p
         span
-          | ねこカフェ
+          | POSTED CAT CAFE'S　
           = @user.shops.count
           | 件
-        section.stats
-          = render 'shared/stats'
-          - if @users.any?
-            p
-          .row.d-flex.flex-row
-            .user_avatars
-              - @users.each do |user|
-                = link_to gravatar_for(user, size: 30), user
-              
+      section.stats
+      = render 'shared/stats'
+    p
+    .col-md-4
+      h6
+        = @title
+      - if @users.any?
+        users.follow-user
+          = render @users
         p
-        
-  p
-  .col-md-7
-    h6
-      = @title
-    - if @users.any?
-      ul.users.follow
-        = render @users
-      p
-      = paginate @users
+        = paginate @users
