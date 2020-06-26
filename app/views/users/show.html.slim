@@ -1,8 +1,10 @@
 - provide(:title, "プロフィール")
-.container
+.container.mx-auto
+  br
   .row.justify-content-center
-    h5.title-profile
-      | プロフィール
+    h3.title-profile
+      | P R O F I L E
+    p
     .col-md-2.text-center
       .user-picture-box
         = gravatar_for @user, size: 75, cl: "gravatar user-picture"
@@ -14,18 +16,19 @@
         = render 'shared/stats'
       p  
         - if current_user == @user
-          .account-edit.btn.btn-outline-secondary
-            = link_to "プロフィール編集", edit_user_path(@user)
+          .account-edit.btn.btn-outline-dark
+            = link_to "PROFILE EDIT", edit_user_path(@user)
         p.follow-button    
         = render 'follow_form' if logged_in?
   p
-  .row
+  .card-body.bg-light
     .col-md-10
-      - if @user.shops.any?
-        h4
-          | ねこカフェ (
-          = @user.shops.count
-          | )
-        ol.shops
-          = render @shops
-        = paginate @shops
+    - if @user.shops.any?
+      h5
+        | CAT CAFE'S　 
+        = @user.shops.count
+        | 件
+      p
+      ol.shops
+        = render @shops
+      = paginate @shops

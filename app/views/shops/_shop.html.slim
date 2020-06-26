@@ -3,11 +3,12 @@
 = shop.id
 | ">  
 .container
-  h5.name-shop
-    = link_to shop.name, shop_path(shop)
-  h8.user-name
-    |　Posted by :  
-    = link_to shop.user.name, user_path(shop.user)
+  .card.card-body
+    h5.name-shop
+      = link_to shop.name, shop_path(shop)
+    h8.user-name
+      |　Posted by :  
+      = link_to shop.user.name, user_path(shop.user)
   li
   .shop-image.text-center
     = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
@@ -46,8 +47,7 @@
     //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
     - if current_user.admin? || (current_user == shop.user)
       = link_to "削除", shop_path(shop), method: :delete,
-                        data: { confirm: "本当に削除しますか？" }     
-  li               
+                        data: { confirm: "本当に削除しますか？" }                  
   .timestamp.text-right
     = time_ago_in_words(shop.created_at)
     | 前に投稿 
