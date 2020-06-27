@@ -14,5 +14,4 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1' # 東京はap-northeast-1
   }
   config.fog_directory  = 'catpia' #S3のバケット名
-  config.asset_host = 'http://catpia.s3-website-ap-northeast-1.amazonaws.com'
 end  
