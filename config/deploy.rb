@@ -42,6 +42,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :keep_releases, 2
+set :linked_files, %w{config/master.key}
 
 
 namespace :puma do
@@ -85,6 +86,17 @@ namespace :deploy do
     end
   end
 
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+
+  before :starting, 'deploy:upload'
   before :starting,     :confirm
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
