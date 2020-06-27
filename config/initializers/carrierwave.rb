@@ -5,6 +5,7 @@ require 'carrierwave/storage/fog'
 
 # 保存先の分岐
 CarrierWave.configure do |config|
+  config.storage = :fog
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
     provider: 'AWS',
@@ -12,7 +13,6 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
     region: 'ap-northeast-1' # 東京はap-northeast-1
   }
-  config.storage = :fog
   config.fog_directory  = 'catpia' #S3のバケット名
   config.asset_host = 'http://catpia.s3-website-ap-northeast-1.amazonaws.com'
 end  
