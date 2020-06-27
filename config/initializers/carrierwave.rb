@@ -14,5 +14,5 @@ CarrierWave.configure do |config|
   }
   config.storage = :fog
   config.fog_directory  = 'catpia' #S3のバケット名
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/catpia'
+  config.asset_host = 'https://catpia.s3.amazonaws.com'
 end  
