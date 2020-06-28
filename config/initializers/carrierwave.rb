@@ -15,4 +15,5 @@ CarrierWave.configure do |config|
     path_style: true
   }
   config.storage :fog
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/catpia'
 end 
