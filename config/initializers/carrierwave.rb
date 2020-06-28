@@ -13,7 +13,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
     region: 'ap-northeast-1' # 東京はap-northeast-1
   }
-  config.fog_directory  = 'catpia'
+  config.fog_directory = 'catpia'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/catpia'
   config.fog_public = false
 end
