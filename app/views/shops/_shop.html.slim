@@ -10,7 +10,7 @@
       |　Posted by :  
       = link_to shop.user.name, user_path(shop.user)
   li
-  .shop-image.text-center
+  .shop-image
     = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
   p
   li
