@@ -494,7 +494,7 @@ ol.main-use li:after {
 }
 
 // ホーム画面 フィード
-.text-center.feed {
+.feed-home {
   color: #ffffff;/*文字色*/
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
@@ -502,6 +502,7 @@ ol.main-use li:after {
   background: #a6d1d3;/*背景色*/
   vertical-align: middle;
   border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+  margin-left: 92px;
 }
 
 .text-center.feed:before {
