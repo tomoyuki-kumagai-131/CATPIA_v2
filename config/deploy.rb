@@ -44,8 +44,8 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 set :keep_releases, 2
 set :linked_files, %w{config/master.key}
 set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  rbenv_root: "/usr/local/bin/rbenv",
+  path: "/usr/local/bin/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
