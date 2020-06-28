@@ -93,3 +93,4 @@ gem 'mini_racer'
 gem 'sassc', '~> 2.1.0'
 gem 'font-awesome-sass'
 gem 'fog-aws'
+gem "aws-sdk-s3", require: false
