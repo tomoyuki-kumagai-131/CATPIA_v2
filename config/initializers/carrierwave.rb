@@ -6,13 +6,13 @@ require 'carrierwave/storage/fog'
 # 保存先
 CarrierWave.configure do |config|
   config.fog_provider = 'fog/aws'
+  config.fog_directory  = 'catpia' # 作成したバケット名を記述
   config.fog_credentials = {
     provider: 'AWS',
-    aws_access_key_id: Rails.application.credentials.aws[:access_key_id],
-    aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-    region: 'ap-northeast-1' # 東京はap-northeast-1
+    aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], # 環境変数
+    aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'], # 環境変数
+    region: 'ap-northeast-1',   # アジアパシフィック(東京)を選択した場合
+    path_style: true
   }
-  config.storage = :fog
-  config.fog_directory = 'catpia'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/catpia'
-end
+  config.storage :fog
+end 
