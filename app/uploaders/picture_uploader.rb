@@ -8,7 +8,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   def default_url(*args)
      "/images/" + [version_name, "default.png"].compact.join('_')
-   end
+  end
 
   # 画像サイズ設定
   # 詳細表示用：400 * 400の正方形に整形
