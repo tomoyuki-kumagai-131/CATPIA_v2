@@ -42,7 +42,9 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :keep_releases, 2
-set :linked_files, %w{config/master.key}
+set :linked_files, %w{ config/master.key }
+set :linked_files, %w{ config/credentials.yml.enc }
+
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
@@ -100,6 +102,18 @@ namespace :deploy do
       upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
+
+  #config/secrets.ymlを本番環境のshared/config/secrets.ymlに反映するための設定
+  desc 'upload credentialsy.yml.enc'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
+    end
+  end
+
   before :starting, 'deploy:upload'
   before :starting,     :confirm
   after  :finishing,    :compile_assets
