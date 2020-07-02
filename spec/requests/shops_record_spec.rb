@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "ねこカフェ登録", type: :request do
   let!(:user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
-  let(:picture_path) { File.join(Rails.root, 'spec/fixtures/test-shop.jpg') } 
-  let(:picture) { Rack::Test::UploadedFile.new(picture_path) }  
+  let(:picture_path) { File.join(Rails.root, 'spec/fixtures/test-shop.jpg') }
+  let(:picture) { Rack::Test::UploadedFile.new(picture_path) }
 
   context "ログインしているユーザーの場合" do
     before do

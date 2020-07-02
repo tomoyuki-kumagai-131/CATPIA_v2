@@ -15,7 +15,7 @@ RSpec.describe Shop, type: :model do
     end
 
     it "店名が30文字以内であること" do
-      shop = build(:shop, name: "あ" *31)
+      shop = build(:shop, name: "あ" * 31)
       shop.valid?
       expect(shop.errors[:name]).to include("は30文字以内で入力してください")
     end
@@ -50,7 +50,7 @@ RSpec.describe Shop, type: :model do
       expect(shop.errors[:rating]).to include("は5以下の値にしてください")
     end
   end
-  
+
   context "並び順" do
     it "最も新しい投稿が最初の投稿になっていること" do
       expect(shop).to eq Shop.first

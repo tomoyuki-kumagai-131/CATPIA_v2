@@ -17,9 +17,9 @@ RSpec.describe "永続セッション機能", type: :request do
       expect(is_logged_in?).to be_truthy
     end
   end
-  
+
   context "「ログインしたままにする」にチェックを入れずにログインする場合" do
-    it "remember_tokenが空であることを確認"do
+    it "remember_tokenが空であることを確認" do
       # cookieを保存してログイン
       login_remember(user)
       delete logout_path

@@ -13,6 +13,7 @@ RSpec.describe "Favorites", type: :request do
         expect(response).to render_template('favorites/index') # favoritesフォルダのindexの表示
       end
     end
+
     context "ログインしていない場合" do
       it "ログイン画面にリダイレクトすること" do
         get favorites_path # ログインせずにお気に入り一覧画面を開く
@@ -45,7 +46,7 @@ RSpec.describe "Favorites", type: :request do
       end
 
       # ログイン中にお気に入り登録・解除ができるかテスト #
-      
+
       it "ねこカフェのお気に入り登録ができること" do
         expect {
           post "/favorites/#{shop.id}/create"

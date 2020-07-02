@@ -38,3 +38,40 @@ Style/MixinUsage:
 
 Style/MutableConstant:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 150
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+  
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Airbnb/DefaultScope:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/uploaders/*'
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+
+Airbnb/RiskyActiverecordInvocation:
+  Enabled: false
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: false
+
+Airbnb/ContinuationSlash:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false

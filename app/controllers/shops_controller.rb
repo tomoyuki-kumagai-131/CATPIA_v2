@@ -18,7 +18,6 @@ class ShopsController < ApplicationController
   end
 
   def index
-
   end
 
   def search
@@ -60,6 +59,7 @@ class ShopsController < ApplicationController
   end
 
   private
+
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
       params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture)

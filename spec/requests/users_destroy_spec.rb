@@ -5,11 +5,11 @@ RSpec.describe "ユーザーの削除", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
-  
+
   context "管理者ユーザーの場合" do
     it "ユーザーを削除後、ユーザー一覧ページにリダイレクト" do
       login_for_request(admin_user)
-      expect{ delete user_path(user) }.to change(User, :count).by(-1)
+      expect { delete user_path(user) }.to change(User, :count).by(-1)
       redirect_to users_url
       follow_redirect!
       expect(response).to render_template('users/index')

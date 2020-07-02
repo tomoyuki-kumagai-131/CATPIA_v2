@@ -10,7 +10,7 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
-  has_many :favorites,  dependent: :destroy # お気に入り機能実装により追記
+  has_many :favorites, dependent: :destroy # お気に入り機能実装により追記
   has_many :notifications, dependent: :destroy # 通知機能実装により追記
 
   attr_accessor :remember_token # 仮想の属性
@@ -37,15 +37,15 @@ class User < ApplicationRecord
     end
   end
 
-  #フィード一覧を取得(自分の投稿・フォロー中のユーザーの投稿を表示するようにする)
+  # フィード一覧を取得(自分の投稿・フォロー中のユーザーの投稿を表示するようにする)
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"
     Shop.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
-  
-  #永続セッションのため、ユーザーをデータベースに保存するメソッド
+
+  # 永続セッションのため、ユーザーをデータベースに保存するメソッド
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))

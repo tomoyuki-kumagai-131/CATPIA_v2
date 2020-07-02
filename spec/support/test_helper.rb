@@ -1,4 +1,4 @@
-include ApplicationHelper #full_titleメソッドを読み込む
+include ApplicationHelper # full_titleメソッドを読み込む
 
 def is_logged_in?
   !session[:user_id].nil?

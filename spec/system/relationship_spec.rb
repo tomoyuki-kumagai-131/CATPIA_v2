@@ -9,8 +9,7 @@ RSpec.describe "Relationships", type: :system do
   let!(:user4) { create(:user) }
   let!(:shop) { create(:shop, user: user) } # 自分が投稿したねこカフェ
   let!(:shop2) { create(:shop, user: user2) } # フォロー中ユーザーが投稿したねこカフェ
-  let!(:shop3) { create(:shop, user: user3) }  # フォローしていないユーザーが投稿したねこカフェ
-
+  let!(:shop3) { create(:shop, user: user3) } # フォローしていないユーザーが投稿したねこカフェ
 
   describe "フォロー中(following一覧)ページ" do
     before do

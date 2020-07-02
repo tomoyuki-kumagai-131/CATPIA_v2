@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "ユーザー一覧ページ", type: :request do
-  let!(:user) { create(:user) } 
-  let!(:admin_user) { create(:user, :admin) } #管理者権限ユーザーの作成
+  let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) } # 管理者権限ユーザーの作成
 
   context "認可されたユーザーの場合" do
     it "レスポンスが正常に表示されることを確認する" do
@@ -23,9 +23,9 @@ RSpec.describe "ユーザー一覧ページ", type: :request do
       login_for_request(user)
       expect(user.admin).to be_falsey # be_falsey...nilかfalseの時にパスする
       patch user_path(user), params: { user: { password: user.password,
-                                                password_confirmation: user.password,
-                                                admin: true } }
-      expect(user.reload.admin).to be_falsey                                          
+                                               password_confirmation: user.password,
+                                               admin: true } }
+      expect(user.reload.admin).to be_falsey
     end
   end
 end

@@ -20,7 +20,7 @@ RSpec.describe "ユーザーフォロー機能", type: :request do
         post relationships_path, xhr: true, params: { followed_id: other_user.id }
       }.to change(user.following, :count).by(1)
     end
-    
+
     it "ユーザーのアンフォローができること" do
       user.follow(other_user)
       relationship = user.active_relationships.find_by(followed_id: other_user.id)

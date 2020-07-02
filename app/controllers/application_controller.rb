@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
     # ログイン済ユーザーかどうか確認
     def logged_in_user
       unless logged_in?
