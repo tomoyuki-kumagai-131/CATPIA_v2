@@ -1,5 +1,4 @@
 - provide(:title, "ログイン")
-= render 'shared/recruit_login'
 .container
   br
   h2.text-center
@@ -14,16 +13,14 @@
         .form-group
           = f.label 'パスワード'
           = f.password_field :password, class: 'form-control', id: 'user_password'
-        .form-group
-          = f.label :remember_me, class: "checkbox inline" do
+        .form-group.text-center
+          = f.label :remember_me, class: "checkbox inline" do 
             = f.check_box :remember_me
-            | ログインしたままにする
+            |　ログインしたままにする
         p 
           = f.submit 'ログイン', class: 'btn btn-info'
     
       | ユーザー登録されていない方は
-      = link_to 'こちら', signup_path
+      = link_to ' こちら ', signup_path
       br
-      /| パスワードをお忘れの方は
-      /= link_to 'こちら', '#'
-  br
+    br

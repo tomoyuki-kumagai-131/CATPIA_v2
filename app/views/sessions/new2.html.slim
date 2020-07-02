@@ -1,0 +1,29 @@
+- provide(:title, "かんたんログイン")
+.cotainer
+  .col-md-8.mx-auto.text-center
+    .recruit-login.text-center
+      h4.title-form
+        |  採用担当者様
+      h4.title-form-2
+        |  専用ログインフォーム
+      p
+      h6.description-form
+        | 下記の「専用ログイン」ボタンから
+        br
+        | 専用アカウントでログインが可能です
+      p
+      .col-md-8.col-md-offset-2.mx-auto
+        = form_for(:session, url: login_path, local: true) do |f|
+          .form-group
+            = f.label 'メールアドレス'
+            = f.email_field :email, class: 'form-control', id: 'recruit_user_email', value: 'recruit1@example.com'
+          .form-group
+            = f.label 'パスワード'
+            = f.password_field :password, class: 'form-control', id: 'recruit_user_password', value: 'foobar'
+          .form-group
+            = f.label :remember_me, class: "checkbox inline" do
+              = f.check_box :remember_me
+              span
+                | ログインしたままにする
+          = f.submit '専用ログイン', class: 'btn btn-info'
+          p
