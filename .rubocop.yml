@@ -41,3 +41,13 @@ Style/MutableConstant:
 
 Metrics/LineLength:
   Max: 150
+
+Rails/HelperInstanceVariable:
+  enabled: false
+  
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
