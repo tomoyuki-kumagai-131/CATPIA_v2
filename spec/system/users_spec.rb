@@ -6,6 +6,7 @@ RSpec.describe "Users", type: :system do
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, user: user) }
   let!(:other_shop) { create(:shop, user: other_user) }
+
   describe "ユーザー一覧ページ" do
     context "管理者ユーザーの場合" do
       it "ページネーション、自分以外のユーザーに削除ボタンが表示されることを確認" do
@@ -67,9 +68,8 @@ RSpec.describe "Users", type: :system do
 
   describe "プロフィール編集ページ" do
     before do
-      login_for_system(user) # test_helper定義
-      visit user_path(user)
-      click_link "プロフィール編集"
+      login_for_system(user)
+      click_link "PROFILE EDIT"
     end
 
     context "ページレイアウト" do
@@ -100,11 +100,11 @@ RSpec.describe "Users", type: :system do
       end
 
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
-        expect(page).to have_link 'プロフィール編集', href: edit_user_path(user)
+        expect(page).to have_link 'PROFILE EDIT', href: edit_user_path(user)
       end
 
       it "ねこカフェ投稿の件数が表示されていることを確認" do
-        expect(page).to have_content "ねこカフェ (#{user.shops.count})"
+        expect(page).to have_content "投稿したねこカフェ #{user.shops.count}件"
       end
 
       it "ねこカフェ投稿の情報が表示されていることを確認" do
@@ -133,12 +133,10 @@ RSpec.describe "Users", type: :system do
       end
     end
 
-    ### お気に入り登録機能に関するテスト ###
-
     context "お気に入り登録/解除" do
       before do
         login_for_system(user)
-      end #まずはユーザーにログイン
+      end
 
       it "ねこカフェ投稿のお気に入り登録/解除ができること" do # ユーザーが投稿をお気に入り登録する流れを再現する
         expect(user.favorite?(shop)).to be_falsey
