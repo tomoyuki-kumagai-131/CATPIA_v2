@@ -43,11 +43,29 @@ Metrics/LineLength:
   Max: 150
 
 Rails/HelperInstanceVariable:
-  enabled: false
+  Enabled: false
   
 Lint/AssignmentInCondition:
   Enabled: false
 
-Rails/HelperInstanceVariable:
+Airbnb/DefaultScope:
   Enabled: false
 
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/uploaders/*'
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+
+Airbnb/RiskyActiverecordInvocation:
+  Enabled: false
+
+Layout/MultilineArrayBraceLayout:
+  Enabled: false
+
+Airbnb/ContinuationSlash:
+  Enabled: false
