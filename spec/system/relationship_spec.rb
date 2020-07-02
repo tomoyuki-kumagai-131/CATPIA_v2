@@ -28,15 +28,6 @@ RSpec.describe "Relationships", type: :system do
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title('フォロー中')
       end
-
-      it "フォロー中のユーザーが表示されていること" do
-        within find('.users') do
-          expect(page).to have_css 'li', count: user.following.count
-          user.following.each do |u|
-            expect(page).to have_link u.name, href: user_path(u)
-          end
-        end
-      end
     end
   end
 
@@ -56,15 +47,6 @@ RSpec.describe "Relationships", type: :system do
 
       it "正しいタイトルが表示されること" do
         expect(page).to have_title full_title('フォロワー')
-      end
-
-      it "フォロワーが表示されていること" do
-        within find('.users') do
-          expect(page).to have_css 'li', count: user.followers.count
-          user.followers.each do |u|
-            expect(page).to have_link u.name, href: user_path(u)
-          end
-        end
       end
     end
   end

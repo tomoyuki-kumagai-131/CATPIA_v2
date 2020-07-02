@@ -21,13 +21,6 @@ RSpec.describe "StaticPages", type: :system do
         before do
           login_for_system(user)
         end
-
-        it "投稿を削除後、削除成功のフラッシュが表示されること" do
-          visit root_path
-          click_on '削除'
-          page.driver.browser.switch_to.alert.accept
-          expect(page).to have_content '投稿が削除されました！'
-        end
       end
     end
   end
@@ -37,8 +30,8 @@ RSpec.describe "StaticPages", type: :system do
       visit about_path
     end
 
-    it "CATPIAとは?の文字列が存在することを確認" do
-      expect(page).to have_content 'CATPIAとは?'
+    it "みんなとねこカフェを共有するの文字列が存在することを確認" do
+      expect(page).to have_content 'みんなとねこカフェを共有する'
     end
 
     it "正しいタイトルが表示されることを確認" do

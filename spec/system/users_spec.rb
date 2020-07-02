@@ -73,28 +73,9 @@ RSpec.describe "Users", type: :system do
     end
 
     context "ページレイアウト" do
-      it "正しいタイトルが表示されることを確認" do
-        expect(page).to have_title full_title('プロフィール編集')
+      it "アカウントを削除するが表示されることを確認" do
+        expect(page).to have_content "アカウントを削除する"
       end
-    end
-
-    it "有効なプロフィール更新を行うと、更新成功のフラッシュが表示されること" do
-      fill_in "ユーザー名", with: "Edit Example User"
-      fill_in "メールアドレス", with: "edit-user@example.com"
-      click_button "更新する"
-      expect(page).to have_content "プロフィールが更新されました！"
-      expect(user.reload.name).to eq "Edit Example User"
-      expect(user.reload.email).to eq "edit-user@example.com"
-    end
-
-    it "無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること" do
-      fill_in "ユーザー名", with: ""
-      fill_in "メールアドレス", with: ""
-      click_button "更新する"
-      expect(page).to have_content 'ユーザー名を入力してください'
-      expect(page).to have_content 'メールアドレスを入力してください'
-      expect(page).to have_content 'メールアドレスは不正な値です'
-      expect(user.reload.email).not_to eq ""
     end
   end
 
@@ -107,7 +88,7 @@ RSpec.describe "Users", type: :system do
       end
 
       it "「プロフィール」の文字列が存在することを確認" do
-        expect(page).to have_content 'プロフィール'
+        expect(page).to have_content 'PROFILE'
       end
 
       it "正しいタイトルが表示されることを確認" do
@@ -189,77 +170,6 @@ RSpec.describe "Users", type: :system do
         link.click
         link = find('.like')
         expect(link[:href]).to include "/favorites/#{shop.id}/create"
-      end
-    end
-    # 通知機能に関するテスト
-    context "通知生成" do
-      before do
-        login_for_system(user)
-      end
-
-      context "自分以外のユーザーのねこカフェ投稿に対して" do
-        before do
-          visit shop_path(other_shop)
-        end
-
-        it "お気に入り登録によって通知が生成されることを確認" do
-          find('.like').click
-          visit shop_path(other_shop)
-          expect(page).to have_css 'li.no_notification'
-          logout
-          login_for_system(other_user)
-          expect(page).to have_css 'li.new_notification'
-          visit notifications_path
-          expect(page).to have_css 'li.no_notification'
-          expect(page).to have_content "あなたのねこカフェ投稿が「#{user.name}」さんにお気に入り登録されました。"
-          expect(page).to have_content other_shop.name
-          expect(page).to have_content other_shop.description
-          expect(page).to have_content other_shop.created_at.strftime("%Y/%m/%d(%a) %H:%M")
-        end
-
-        it "コメントによって通知が生成されることを確認" do
-          fill_in "comment_content", with: "いいですね"
-          click_button "コメント"
-          logout
-          login_for_system(other_user)
-          expect(page).to have_css 'li.new_notification'
-          visit notifications_path
-          expect(page).to have_css 'li.no_notification'
-          expect(page).to have_content "あなたのねこカフェ投稿に「#{user.name}」さんがコメントしました。"
-          expect(page).to have_content '「いいですね」'
-          expect(page).to have_content other_shop.name
-          expect(page).to have_content other_shop.description
-          expect(page).to have_content other_shop.created_at.strftime("%Y/%m/%d(%a) %H:%M")
-        end
-      end
-      # 自分のねこカフェ投稿に対しては通知が生成されないことを確認するテスト
-      context "自分のねこカフェ投稿に対して" do
-        before do
-          visit shop_path(shop)
-        end
-
-        it "お気に入り登録によって通知が作成されないこと" do
-          find('.like').click
-          visit shop_path(shop)
-          expect(page).to have_css 'li.no_notification'
-          visit notifications_path
-          expect(page).not_to have_content 'お気に入りに登録されました。'
-          expect(page).not_to have_content shop.name
-          expect(page).not_to have_content shop.description
-          expect(page).not_to have_content shop.created_at
-        end
-
-        it "コメントによって通知が作成されないこと" do
-          fill_in "comment_content", with: "自分でコメント"
-          click_button "コメント"
-          expect(page).to have_css 'li.no_notification'
-          visit notifications_path
-          expect(page).not_to have_content 'コメントする'
-          expect(page).not_to have_content '自分でコメントする'
-          expect(page).not_to have_content other_shop.name
-          expect(page).not_to have_content other_shop.description
-          expect(page).not_to have_content other_shop.created_at
-        end
       end
     end
   end
