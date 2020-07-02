@@ -6,8 +6,8 @@ CarrierWave.configure do |config|
   config.storage :fog
   config.fog_provider = 'fog/aws'
   config.fog_directory  = 'catpia'
-  config.asset_host = 'https://s3.amazonaws.com/catpia'
-  config.fog_public = false
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/catpia'
+  config.fog_public = true
   config.fog_credentials = {
     provider: 'AWS',
     aws_access_key_id: 'AWS_ACCESS_KEY_ID',
