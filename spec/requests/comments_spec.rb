@@ -13,17 +13,17 @@ RSpec.describe "コメント機能", type: :request do
       end
 
       it "有効な内容のコメントが登録できること" do
-        expect{
+        expect {
           post comments_path, params: { shop_id: shop.id,
                                         comment: { content: "最高です！" } }
-          }.to change(shop.comments, :count).by(1)
+        }.to change(shop.comments, :count).by(1)
       end
 
       it "無効な内容のコメントが登録できないこと" do
-        expect{
+        expect {
           post comments_path, params: { shop_id: shop.id,
                                         comment: { content: "" } }
-          }.not_to change(shop.comments, :count)
+        }.not_to change(shop.comments, :count)
       end
     end
 

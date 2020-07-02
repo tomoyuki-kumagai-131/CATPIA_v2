@@ -10,7 +10,7 @@ RSpec.describe "プロフィール編集", type: :request do
       login_for_request(user)
       expect(response).to redirect_to edit_user_url(user)
       patch user_path(user), params: { user: { name: "Example User",
-                                              email: "user@example.com" } }
+                                               email: "user@example.com" } }
       redirect_to user
       follow_redirect!
       expect(response).to render_template('users/show')
@@ -23,7 +23,7 @@ RSpec.describe "プロフィール編集", type: :request do
       expect(response).to have_http_status "302"
       expect(response).to redirect_to login_path
       patch user_path(user), params: { user: { name: user.name,
-                                              email: user.email } }
+                                               email: user.email } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to login_path
     end

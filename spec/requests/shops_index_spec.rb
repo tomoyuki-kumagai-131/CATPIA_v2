@@ -9,7 +9,7 @@ RSpec.describe "ねこカフェ投稿一覧ページ", type: :request do
       login_for_request(user)
       get shops_path
       expect(response).to have_http_status "200"
-      expect(response).to render_template('shops/index')  
+      expect(response).to render_template('shops/index')
     end
   end
 
@@ -17,7 +17,7 @@ RSpec.describe "ねこカフェ投稿一覧ページ", type: :request do
     it "ログイン画面にリダイレクトすることを確認" do
       get shops_path
       expect(response).to have_http_status "302"
-      expect(response).to redirect_to login_url  
+      expect(response).to redirect_to login_url
     end
   end
 end

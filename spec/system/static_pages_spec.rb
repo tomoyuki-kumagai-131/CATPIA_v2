@@ -18,6 +18,7 @@ RSpec.describe "StaticPages", type: :system do
       context "ねこカフェ投稿フィード", js: true do
         let!(:user) { create(:user) }
         let!(:shop) { create(:shop, user: user) }
+
         before do
           login_for_system(user)
         end

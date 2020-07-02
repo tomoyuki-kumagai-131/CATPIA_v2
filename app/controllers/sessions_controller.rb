@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
   end
-  
+
   def new2
   end
 
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user) #チェックがついている時限定でRemember me有効化
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user) # チェックがついている時限定でRemember me有効化
       redirect_back_or user
     else
       flash.now[:danger] = 'メールアドレスとパスワードの組み合わせが誤っています'

@@ -15,15 +15,15 @@ class FavoritesController < ApplicationController
       format.html { redirect_to request.referrer || root_url }
       format.js
     end
-  # 自分以外のユーザーからお気に入り登録があった場合のみ通知する (自分がお気に入り登録しても通知しない) 
+    # 自分以外のユーザーからお気に入り登録があった場合のみ通知する (自分がお気に入り登録しても通知しない)
     if @user != current_user
-      @user.notifications.create(shop_id: @shop.id, variety: 1, #お気に入り登録は[ variety=1 ]
-                                from_user_id: current_user.id)
-      @user.update_attribute(:notification, true) #デフォルトはfalse,通知ありだとtrueを返す                       
+      @user.notifications.create(shop_id: @shop.id, variety: 1, # お気に入り登録は[ variety=1 ]
+                                 from_user_id: current_user.id)
+      @user.update_attribute(:notification, true) # デフォルトはfalse,通知ありだとtrueを返す
     end
   end
 
-  #お気に入り登録解除(destroy)アクション
+  # お気に入り登録解除(destroy)アクション
   def destroy
     @shop = Shop.find(params[:shop_id])
     current_user.favorites.find_by(shop_id: @shop.id).destroy

@@ -1,4 +1,4 @@
-module SessionsHelper #全てのコントローラーで読み込み可能
+module SessionsHelper # 全てのコントローラーで読み込み可能
   def log_in(user)
     session[:user_id] = user.id
   end

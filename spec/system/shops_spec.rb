@@ -56,7 +56,7 @@ RSpec.describe "Shops", type: :system do
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title("#{shop.name}")
       end
-      
+
       it "編集と削除が表示されていることを確認" do
         expect(page).to have_link '削除', href: shop_path(shop)
         expect(page).to have_link '編集', href: edit_shop_path(shop)
@@ -112,7 +112,7 @@ RSpec.describe "Shops", type: :system do
         end
         expect(page).to have_content "コメントを投稿しました！"
         click_link "削除", href: comment_path(Comment.last)
-        expect(page).not_to have_selector 'span', text: 'かわいいネコがいますよね' 
+        expect(page).not_to have_selector 'span', text: 'かわいいネコがいますよね'
         expect(page).to have_content "コメントを削除しました！"
       end
 
