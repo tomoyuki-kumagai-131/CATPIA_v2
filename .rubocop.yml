@@ -69,3 +69,9 @@ Layout/MultilineArrayBraceLayout:
 
 Airbnb/ContinuationSlash:
   Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
