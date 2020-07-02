@@ -120,55 +120,5 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_css ".pagination"
       end
     end
-
-    context "ユーザーのフォロー・アンフォロー処理", js: true do
-      it "ユーザーのフォロー・アンフォローができること" do
-        login_for_system(user)
-        visit user_path(other_user)
-        expect(page).to have_button 'フォローする'
-        click_button 'フォローする'
-        expect(page).to have_button 'フォロー中'
-        click_button 'フォロー中'
-        expect(page).to have_button 'フォローする'
-      end
-    end
-
-    context "お気に入り登録/解除" do
-      before do
-        login_for_system(user)
-      end
-
-      it "ねこカフェ投稿のお気に入り登録/解除ができること" do # ユーザーが投稿をお気に入り登録する流れを再現する
-        expect(user.favorite?(shop)).to be_falsey
-        user.favorite(shop)
-        expect(user.favorite?(shop)).to be_truthy
-        user.unfavorite(shop)
-        expect(user.favorite?(shop)).to be_falsey
-      end
-
-      it "トップページからお気に入り登録/解除ができること", js: true do
-        visit root_path
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-        link.click
-        link = find('.unlike')
-        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
-        link.click
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-      end
-
-      it "ねこカフェ投稿詳細ページからお気に入り登録/解除ができること", js: true do
-        visit shop_path(shop)
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-        link.click
-        link = find('.unlike')
-        expect(link[:href]).to include "/favorites/#{shop.id}/destroy"
-        link.click
-        link = find('.like')
-        expect(link[:href]).to include "/favorites/#{shop.id}/create"
-      end
-    end
   end
 end
