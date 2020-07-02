@@ -1,65 +1,52 @@
 - if logged_in?
   .container
     h4.feed-home
-      |  みんなの猫カフェ　
+      | みんなの猫カフェ　
       = @feed_items.count
-      |  件
+      | 件
     br
     p
-    = render 'shared/feed'
+     = render 'shared/feed'
 - else    
   .container
-    = render 'shared/recruit_login'    
-  main[role="main"]
-    #myCarousel.carousel.slide[data-ride="carousel"]
-      ol.carousel-indicators
-        li.active[data-target="#myCarousel" data-slide-to="0"]
-        li[data-target="#myCarousel" data-slide-to="1"]
-        li[data-target="#myCarousel" data-slide-to="2"]
-        
-      .carousel-inner
-        .carousel-item.active
-          img src="top1.jpg".alt="猫cafe" width="180%"
-          .container
-            .carousel-caption.text-center
-              h1
-                | C A T P I A 
-              p
+    main[role="main"]
+      #myCarousel.carousel.slide[data-ride="carousel"]
+        ol.carousel-indicators
+          li.active[data-target="#myCarousel" data-slide-to="0"]
+          li[data-target="#myCarousel" data-slide-to="1"]
+          
+        .carousel-inner
+          .carousel-item.active
+            img[src="/images/newcat2.jpeg".alt="猫cafe"]
+              .carousel-caption
+                .easy-login
+                  a.btn.btn-lg.btn-outline-light[href="/recruit_login" role="button"]
+                    | かんたんログイン
+                h1.catpia
+                  | C A T P I A
+                br
                 | あなたの街にある、心やすらぐ猫カフェ。
-              p  
-                | 癒されたくてついつい通ってしまう、素敵なお店をみんなにシェアしてみませんか？
-              p
-                a.btn.btn-lg.btn-outline-light[href="users/sign_up" role="button"]
+                p  
+                | 素敵なお店をみんなにシェアしてみませんか？
+                p
+                a.btn.btn-lg.btn-outline-light[href="/signup" role="button"]
                   | はじめる
-        .carousel-item
-          img[src="top2.jpg".alt="猫cafe" width="190%"]
-          .container
-            .carousel-caption.text-center
-              h1
-                | 一期一会の出会い
-              p
-                | 日本には約200件もの猫カフェがあります。
-              p
-                | ここではあなたの知らない猫カフェが、見つかるかもしれません。
-              p
-                a.btn.btn-lg.btn-outline-light[href="/shops/" role="button"]
-                  | 猫カフェを探す
-        .carousel-item
-          img[src="top3.jpg".alt="猫cafe" width="180%"]
-          .container
-            .carousel-caption.text-center
-              h1
-                | C A T P I A 誕 生
-              p
-                | 2020年5月、CATPIAは誕生しました。詳しくは下のボタンから。
-              p
-                a.btn.btn-lg.btn-outline-light[href="/about" role="button"]
-                  | CATPIAについて
-        a.carousel-control-prev[href="#myCarousel" role="button" data-slide="prev"]
-          span.carousel-control-prev-icon[aria-hidden="true"]
-          span.sr-only
-            | Previous
-        a.carousel-control-next[href="#myCarousel" role="button" data-slide="next"]
-          span.carousel-control-next-icon[aria-hidden="true"]
-          span.sr-only
-            | Next
+          .carousel-item
+            img[src="/images/top3.jpg".alt="猫cafe" width="200%"]
+            .container
+              .carousel-caption.text-center
+                h1
+                  | C A T P I A 誕 生
+                p
+                  | 2020年5月、CATPIAは誕生しました。詳しくは下のボタンから。
+                p
+                  a.btn.btn-lg.btn-outline-light[href="/about" role="button"]
+                    | CATPIAについて
+          a.carousel-control-prev[href="#myCarousel" role="button" data-slide="prev"]
+            span.carousel-control-prev-icon[aria-hidden="true"]
+            span.sr-only
+              | Previous
+          a.carousel-control-next[href="#myCarousel" role="button" data-slide="next"]
+            span.carousel-control-next-icon[aria-hidden="true"]
+            span.sr-only
+              | Next
