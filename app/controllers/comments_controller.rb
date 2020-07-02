@@ -29,4 +29,4 @@ class CommentsController < ApplicationController
       end
       redirect_to shop_url(@shop)
     end
-  end
+end
