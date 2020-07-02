@@ -2,25 +2,29 @@
 .container
   h5.title-profile
     | P R O F I L E
-  .users-card.text-center
+  .user.text-center
     .card.col-md-5
-      .col-md-9
+      .col-md-7
+      p
+       h5.show-user-name
+        = @user.name
         .user-picture-box
-        br      
+        br   
           = gravatar_for @user, size: 75, cl: "gravatar user-picture"
         p
         span
-          | POSTED CAT CAFE'S　
+          | 投稿したねこカフェ　
           = @user.shops.count
           | 件
       section.stats
       = render 'shared/stats'
+      p
     p
     .col-md-4
       h6
         = @title
       - if @users.any?
-        users.follow-user
+        users.text-left.follow-user-show
           = render @users
         p
         = paginate @users

@@ -43,24 +43,6 @@ RSpec.describe "Shops", type: :system do
         click_button "登録する"
         expect(page).to have_content "ねこカフェの投稿が完了しました！"
       end
-
-      #it "画像なしでねこカフェ登録を行うと、デフォルトの画像が割り当てられること" do
-        #fill_in "店名", with: "ひとやすみ"
-        #fill_in "所在地", with: "名古屋市中区栄１−１ー１"
-        #click_button "登録する"
-        #expect(page).to have_link(href: shop_path(Shop.first)) 
-     # end
-
-      #it "無効な情報でねこカフェ登録を行うとねこカフェ登録失敗のフラッシュが表示されること" do
-        #fill_in "店名", with: ""
-        #fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
-        #fill_in "所在地", with: "名古屋市中区栄１−１−１"
-        #fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
-        #fill_in "WEBページ", with: "http://google.com"
-        #fill_in "shop[rating]", with: 5
-        #click_button "登録する"
-        #expect(page).to have_content "店名を入力してください"
-      #end
     end
   end
 
@@ -74,6 +56,11 @@ RSpec.describe "Shops", type: :system do
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title("#{shop.name}")
       end
+      
+      it "編集と削除が表示されていることを確認" do
+        expect(page).to have_link '削除', href: shop_path(shop)
+        expect(page).to have_link '編集', href: edit_shop_path(shop)
+      end
 
       it "ねこカフェの情報が表示されることを確認" do
         expect(page).to have_content shop.name
@@ -83,18 +70,6 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_content shop.web_page
         expect(page).to have_content "★"
         expect(page).to have_link nil, href: shop_path(shop), class: 'shop-picture' # 投稿詳細ページで画像表示されているか
-      end
-    end
-
-    context "ねこカフェ投稿の削除", js: true do
-      it "削除成功のフラッシュが表示されること" do
-        login_for_system(user)
-        visit shop_path(shop)
-        within find('.change-shop') do
-          click_on '削除'
-        end
-        page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '投稿が削除されました！'
       end
     end
   end
@@ -122,21 +97,6 @@ RSpec.describe "Shops", type: :system do
         attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop2.jpg" # 画像添付して更新する
         click_button "更新する"
         expect(shop.reload.picture.url).to include "test-shop2.jpg"
-      end
-
-      #it "無効な更新" do
-        #fill_in "店名", with: ""
-        #click_button "更新する"
-        #expect(page).to have_content '店名を入力してください'
-        #expect(shop.reload.name).not_to eq ""
-      #end
-    end
-
-    context "投稿の削除処理", js: true do
-      it "削除成功のフラッシュが表示されること" do
-        click_on '削除'
-        page.driver.browser.switch_to.alert.accept #js
-        expect(page).to have_content '投稿が削除されました！'
       end
     end
 

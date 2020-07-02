@@ -1,3 +1,4 @@
+- provide(:title, "かんたんログイン")
 .cotainer
   .col-md-8.mx-auto.text-center
     .recruit-login.text-center
@@ -5,10 +6,11 @@
         |  採用担当者様
       h4.title-form-2
         |  専用ログインフォーム
-      h7.description-form
-        | 下記の「専用ログイン」ボタンから、
+      p
+      h6.description-form
+        | 下記の「専用ログイン」ボタンから
         br
-        | 専用アカウントでログインが可能です。
+        | 専用アカウントでログインが可能です
       p
       .col-md-8.col-md-offset-2.mx-auto
         = form_for(:session, url: login_path, local: true) do |f|
@@ -24,14 +26,4 @@
               span
                 | ログインしたままにする
           = f.submit '専用ログイン', class: 'btn btn-info'
-        .recruit-account
           p
-            | ＜採用担当者様　専用アカウント＞
-          p
-            | メールアドレス：recruit1@example.com
-          p
-            | パスワード：foobar
-          p
-            | ※フォームに予め入力済
-
-              

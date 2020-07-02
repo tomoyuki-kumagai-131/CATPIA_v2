@@ -1,7 +1,7 @@
 - provide(:title, "ねこカフェ情報の編集")
 .container
   .row
-    .card.card-body.bg-light.col-md-7.mx-auto
+    .card-body.col-md-8
       = form_for(@shop) do |f|
         = render 'shared/error_messages', object: f.object
         span.picture
@@ -10,15 +10,15 @@
         span.input-unneed
           | ※任意
         = f.file_field :picture, accept: 'image/jpg,image/png', class: 'form-control', id: 'shop-picture'
-        = link_to((image_tag @shop.picture.thumb600.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
-        p
-        h3.text-center
+        = link_to((image_tag @shop.picture.thumb600.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present? 
+        h3
           | ねこカフェ情報の編集
+        p
         .form-group
           = f.label :name
           |　
           span.input-need
-            |　※必須
+            | ※必須
         = f.text_field :name, class: 'form-control', id: 'shop_name'
         .form-group
           = f.label :description
@@ -30,7 +30,7 @@
           = f.label :address
           |  
           span.input-need
-            | 　※必須
+            | ※必須
           = f.text_field :address, class: 'form-control', id: 'shop_address'
         .form-group
           = f.label :recommended_points

@@ -5,7 +5,7 @@ p
     = form_for(@user) do |f|
       = render 'shared/error_messages', object: f.object
       .gravatar_edit
-        = gravatar_for(@user, size: 60)
+        = gravatar_for(@user, size: 70)
         p
         h5
           = @user.name
@@ -20,7 +20,7 @@ p
         = f.label :email
         = f.text_field :email, class: 'form-control', id: 'user_email'
 
-      = f.submit "更新する", class: "btn btn-primary"
+      = f.submit "更新する", class: "btn btn-info"
       ul
       = link_to "アカウントを削除する", user_path(@user), method: :delete,
                                               data: { confirm: "本当に削除しますか？" }

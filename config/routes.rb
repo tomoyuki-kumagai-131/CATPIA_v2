@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'static_pages#about'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
+  get 'recruit_login' => 'sessions#new2' # かんたんログインページ https://cat-pia.com/recruit_login/
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users do  # フォロー機能について追記

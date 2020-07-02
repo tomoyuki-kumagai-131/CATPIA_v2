@@ -1,25 +1,20 @@
 body {  
-  background-color: #ffffff;  
-  color: #5c5c5c;
-  font-family: Arial,
+  background-color: #ffffff; 
+  color: rgb(134, 134, 134);
+  font-weight: bolder;
+  font-family: Source Sans Pro,
+    "sans-serif",
     "ヒラギノ角ゴ Pro W3",
-    "Osaka,
-    "メイリオ,
-    "Meiryo,
-    "ＭＳ Ｐゴシック,
-    "MS PGothic,
-    sans-serif";
+    "メイリオ",
+    "Meiryo",
+    "Osaka",
+    "ＭＳ Ｐゴシック",
+    "MS PGothic",
 }
-
-a {
-  color:#5c5c5c;
-}
-
 
 a:hover {
   text-decoration: none;
 }
-
 
 .icon::before {
   display: inline-block;
@@ -90,11 +85,28 @@ input {
   padding-left: 150px;
 }
 
-//ログイン画面
+.catpia-header {
+  margin-top: 90px;
+  font-weight: bolder;
+}
 
+
+//-------------------------------☆
+// CATPIAカルーセル かんたんログイン |
+//-------------------------------☆
+
+.easy-login {
+  margin-top: -70px;
+}
+
+// CATPIA //
+.catpia {
+  margin-top: 50px;
+  font-weight: bolder;
+}
 
  //ユーザー編集画面
-t
+
 
 
 //ユーザー一覧ページ//
@@ -111,7 +123,7 @@ t
 }
 //ユーザー一覧ページ：プロフィール写真と名前の間隔調整//
 .img-name {
-  margin-left: 60px;
+  margin-left: 95px;
   margin-top: -35px;
   padding-bottom: 50px;
 }
@@ -128,7 +140,10 @@ h2-list {
   margin-bottom: 10px;
 }
 
-/* プロフィールページ：ネコカフェ一覧表示(Shop) */
+/*--------------------------------------|
+プロフィールページ：ネコカフェ一覧表示(Shop) */
+//*=-------------------------------------|
+
 .shops {
   list-style: none;
   padding: 0;
@@ -160,20 +175,6 @@ h2-list {
   }
 }
 
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
-
-span.picture {
-  margin-top: 10px;
-  input {
-    border: 0;
-  }
-}
-
 //// -----------------トップページ（ログイン後） -------------------- /////
 // 「ねこカフェを投稿する」ボタン
 .btn-record {
@@ -190,51 +191,36 @@ span.picture {
   font-size: 13px;
 }
 
-///ねこカフェ詳細ページ///
+//-------------------------------☆
+// ねこカフェ詳細ページ home/shops/* |
+//-------------------------------☆
 
-.shop-name-show {
-  margin-left: -18px;
-}
-
-.shop-user-name {
-  display: inline-block;
-}
-
-h2.shop-name {
+.shop-address-show {
   border-bottom: 1px solid #bbb;
-  font-size: 30px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  display: inline-block;
-}
-
-.shop-description {
-  font-size: 18px;
-  border-bottom: 1px solid #bbb;
-  margin-top: 20px;
 }
 
 .shop-web_page {
-  font-size: 18px;
   border-bottom: 1px solid #bbb;
-  margin-top: 20px;
+  margin-bottom: 7px;
 }
 
-.shop-address {
-  font-size: 18px;
+.shop-description {
   border-bottom: 1px solid #bbb;
-  margin-top: 20px;
+  margin-top: -24px;
 }
 
-.title-recommended_points {
-  font-size: 18px;
-  font-weight: bold;
+.shop-title-recommended_points {
+  margin-top: -29px;
+  border-bottom: 1px solid #bbb;
 }
 
-.points {
-  padding-top: -15px;
-  font-size: 18px;
-  margin-top: 5px;
+.shop-points {
+  padding-bottom: 6px;
+  border-bottom: 1px solid #bbb;
+}
+
+.shop-rating {
+  margin-top: -29px;
   padding-bottom: 6px;
   border-bottom: 1px solid #bbb;
 }
@@ -249,47 +235,27 @@ h2.shop-name {
   margin-bottom: 20px;
 }
 
-.shop-info {
-  border-bottom: 1px solid #bbb;
-  h5 {
-    font-size: 20px;
-    display: inline-block;
-  }
-  h4 {
-    font-size: 20px;
-    display: inline-block;
-  }
+.change-shop-show {
+  margin-top: -20px;
 }
 
-.web_page {
-  margin-top: -14px;
-}
-
-//ねこカフェフィード//
-
-.container-top-font {
-  font-size: 29px;
-  padding: 61px;          
-  color: white;
-  text-align:  center;
-  height: 100px; 
-}
-
-.card.bg-info.col-md-5.text-center.mx-auto {
-    color: white;
-  }
+//-------------------------------------☆
+//ねこカフェフィード画面(ログイン後ホーム画面  |
+//-------------------------------------☆
   
   .name-shop {
     font-size:20px;
+    padding-top: 10px;
+    padding-bottom: 2px;
   }
 
-
   .address-shop {
+    padding-top: -10px;
     margin-left: -150px;
   }
 
   .description-shop {
-    margin-top: -10px;
+    margin-top: -7px;
   }
 
   .change-shop {
@@ -300,11 +266,39 @@ h2.shop-name {
     font-size: 15px;
   }
 
+  .favorite-form {
+    margin-top: -5px;
+    padding-bottom: -30px;
+  }
+
+//-------------------------------☆
+// MY PAGE フォロー・フォロワー表示部 |
+//-------------------------------☆
+
+users.follow-user-show {
+  margin-left: 300px;
+}
+
+//-------------------------------☆
+// FAVORITEページ                  |
+//-------------------------------☆
+
+.fav-shop-name {
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+
+.fav-shop-user {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 // ねこカフェ投稿画像 //
   .shop-picture img {
     max-width: 100%;
     height: auto;
     box-sizing: border-box;
+    margin-bottom: -15px;
   }
 
 // フォロー・フォロワー数表示部 //
@@ -494,15 +488,225 @@ ol.main-use li:after {
   color: #ffffff;/*文字色*/
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
-  line-height: 1.3;/*行高*/
-  background: #a6d1d3;/*背景色*/
+  line-height: 0.8;/*行高*/
+  background: #bccfda;/*背景色*/
   vertical-align: middle;
   border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
-  margin-left: 92px;
+  margin-left: 25px;
 }
 
 .feed-home:before {
   content: '●';
   color: white;
   margin-right: 8px;
+}
+
+
+// トップページ //
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
+
+* {
+  outline: none;
+}
+
+strong {
+  font-weight: 600;
+}
+
+//.page {
+  //width: 100%;
+  //height: 100px;
+  //background: #fdfdfd;
+  //font-family: 'Encode Sans Condensed', sans-serif;
+  //font-weight: 600;
+  //letter-spacing: 0.5em;
+  //color: #212121;
+//}
+
+header {
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  background: #dbcfc7;
+  color: #fff;
+  margin-top: -70px;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#nav-container {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+#nav-container .bg {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 45px);
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+  background: #000;
+}
+#nav-container:focus-within .bg {
+  visibility: visible;
+  opacity: .5;
+}
+#nav-container * {
+  visibility: visible;
+}
+
+// ハンバーガーボタン //
+.button {
+  //z-index: 1500;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  border-radius: 1;
+  height: 16px;
+  width: 20px;
+  cursor: pointer;
+  pointer-events: auto;
+  top: 18px;
+  right: 15px;
+  width: 40px;
+  height: 28px;
+  padding-bottom: 7px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.icon-bar {
+  //z-index: 1000;
+  display: block;
+  width: 79%;
+  height: 20px;
+  background: rgb(255, 255, 255);
+  transition: .2s;
+}
+.icon-bar + .icon-bar {
+  margin-top: 3px;
+}
+
+#nav-container:focus-within .button {
+  pointer-events: none;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,8px,0) rotate(45deg);
+}
+#nav-container:focus-within .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+#nav-container:focus-within .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-8px,0) rotate(-45deg);
+}
+
+#nav-content {
+  margin-top: 25px;
+  padding: 20px;
+  width: 70%;
+  max-width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100% - 45px);
+  background: #f7c3bf;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  transform: translateX(-100%);
+  transition: transform .3s;
+  will-change: transform;
+  contain: paint;
+}
+
+#nav-content ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-content li a {
+  padding: 10px 5px;
+  display: block;
+  text-transform: uppercase;
+  transition: color .1s;
+}
+
+#nav-content li a:hover {
+  color: #5f909c;
+}
+
+#nav-content li:not(.small) + .small {
+  margin-top: auto;
+}
+
+.small {
+  display: flex;
+  align-self: center;
+  margin-bottom: 200px;
+}
+
+.small a {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgb(252, 252, 252);
+}
+.small a + a {
+  margin-left: 15px;
+}
+
+#nav-container:focus-within #nav-content {
+  transform: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: currentColor;
+  transition: .2s ease-in-out;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+span.user {
+  margin-left: 45px;
+}
+span.comment {
+  margin-left: 45px;
+}
+span.comment-create-at {
+  margin-left: 45px;
+}
+
+.user-name {
+  font-weight: lighter;
+  padding-bottom: 10px;
+}
+
+.container.show.html.slim {
+  background-color: rgb(255, 255, 255);
+  color: rgb(161, 161, 161);
+}
+
+.container.shop.html.slim {
+  background-color: rgb(255, 255, 255);
+  color: rgb(134, 134, 134);
+  height: 80px;
+  text-align: center;
 }

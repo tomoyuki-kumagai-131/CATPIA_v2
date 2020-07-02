@@ -2,52 +2,59 @@
 - @comments = @shop.feed_comment(@shop.id)
 - shop = Shop.find(params[:id])
 
-.container
-  .card.card-body
-    h5.name-shop
-      = link_to shop.name, shop_path(shop)
-    h8.user-name
-      |　Posted by :  
-      = link_to shop.user.name, user_path(shop.user)
-  br
-  .shop-image.text-center
-    = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
-  br
-  .favorite-form
-    = render 'users/favorite_form'
-  br
-  .address-shop
-    |  所在地：
-    = shop.address
-  br
-  .web_page
-    | WEBページ：
-    = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
-  br
-  .description-shop
-    | 店舗説明：
-    = shop.description
-  br
-  .recommended_points
-    | おすすめポイント：
-    = shop.recommended_points
-  br
-  .rating
-    | おすすめ度：
-    - if @shop.rating.present?
-      = "★" * shop.rating
-      = "☆" * (5 - shop.rating)
-  br
-    //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
-  .change-shop
-    - if current_user.admin? || (current_user == shop.user)
+.container.shop.html.slim
+  h5.name-shop
+    = link_to shop.name, shop_path(shop)
+  h8.user-name
+    |　Posted by :  
+    = link_to shop.user.name, user_path(shop.user)
+  p
+  .card.card-body.col-lg-20.text-left
+    .shop-image.text-center
+      = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+    p
+    p
+    .shop-favorite-form
+      = render 'users/favorite_form'
+    p
+    .shop-address-show
+      |  所在地：
+      = shop.address
+    p
+    .shop-web_page
+      | WEBページ：
+      = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
+    br
+    .shop-description
+      | 店舗説明：
+      = shop.description
+    p
+    br
+    .shop-title-recommended_points
+      | おすすめポイント：
+      = shop.recommended_points
+    p
+    br
+    ul.shop-rating
+      | おすすめ度：
+      - if @shop.rating.present?
+        = "★" * shop.rating
+        = "☆" * (5 - shop.rating)
+    p
+    br
+      //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
+    .change-shop-show
+      - if current_user.admin? || (current_user == shop.user)
         = link_to "編集", edit_shop_path(shop)
         |　|　
         = link_to "削除", shop_path(shop), method: :delete,
                         data: { confirm: "本当に削除しますか？" }                  
-  br
-  .timestamp.text-right
-    = time_ago_in_words(shop.created_at)
-    | 前に投稿 
+    .timestamp.text-right
+      = time_ago_in_words(shop.created_at)
+      | 前に投稿 
+    p
   p
-
+  .comment
+    = render "comments/feed_comments"
+    = render "comments/new"
+p
