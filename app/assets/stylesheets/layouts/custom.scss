@@ -2,14 +2,7 @@ body {
   background-color: #ffffff; 
   color: rgb(134, 134, 134);
   font-weight: bolder;
-  font-family: Source Sans Pro,
-    "sans-serif",
-    "ヒラギノ角ゴ Pro W3",
-    "メイリオ",
-    "Meiryo",
-    "Osaka",
-    "ＭＳ Ｐゴシック",
-    "MS PGothic",
+  font-family: pixel;
 }
 
 a:hover {
@@ -492,7 +485,6 @@ ol.main-use li:after {
   background: #bccfda;/*背景色*/
   vertical-align: middle;
   border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
-  margin-left: 25px;
 }
 
 .feed-home:before {
@@ -709,4 +701,53 @@ span.comment-create-at {
   color: rgb(134, 134, 134);
   height: 80px;
   text-align: center;
+}
+
+//*----------------------*
+//ユーザーページ(MYPAGE)    *
+//*----------------------*
+
+// 投稿したねこカフェ部分のスラッシュ //
+.user-show-post {
+  position: relative;
+  display: inline-block;
+  padding: 0 45px;
+}
+
+.user-show-post:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 35px;
+  height: 2px;
+  background-color:#dbcfc7;
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.user-show-post:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 35px;
+  height: 2px;
+  background-color:#dbcfc7;
+  -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}
+.user-show-post:before {
+  left:0;
+}
+.user-show-post:after {
+  right: 0;
+}
+
+//フォント読み込み用//
+@font-face {
+  font-family: 'pixel';
+  src: font-url('PixelMplus10-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
