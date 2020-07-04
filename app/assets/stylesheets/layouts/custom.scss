@@ -103,20 +103,11 @@ input {
 
 
 //ユーザー一覧ページ//
-.users {
-  list-style: none;
-  margin: 0;
-  padding-left: 20px;
-  li {
-    overflow: auto;
-    margin: 20px;
-    padding: 12px 0;
-    border-bottom: 1px solid;
-  }
-}
+
+
 //ユーザー一覧ページ：プロフィール写真と名前の間隔調整//
 .img-name {
-  margin-left: 95px;
+  margin-left: 100px;
   margin-top: -35px;
   padding-bottom: 50px;
 }
@@ -267,9 +258,8 @@ h2-list {
 //-------------------------------☆
 // MY PAGE フォロー・フォロワー表示部 |
 //-------------------------------☆
-
 users.follow-user-show {
-  margin-left: 300px;
+  text-align: center;
 }
 
 //-------------------------------☆
@@ -278,7 +268,7 @@ users.follow-user-show {
 
 .fav-shop-name {
   margin-top: 35px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .fav-shop-user {
@@ -299,6 +289,14 @@ users.follow-user-show {
      margin: 5px 0;
    }
 
+   h4.profile-stats {
+    display: inline-block;
+    background: #ddb1b1; /*背景色*/
+    padding: 0.4em;/*文字周りの余白*/
+    color: white;/*文字を白に*/
+    border-radius: 0.5em;/*角の丸み*/
+   }
+
 
 // フィード画面・お気に入り登録部分 //
 .favorite-form {
@@ -313,7 +311,7 @@ a.like, a.unlike {
 .favorites {
   list-style: none;
   li {
-    padding: 10px 0;
+    padding: 10px;
     border-top: 1px solid #e8e8e8;
   }
 }
@@ -368,17 +366,16 @@ ul.navbar-nav.icons {
   left: 0;
 }
 
-/// ABOPUT ページ ////
-// CATPIAとは？
+//---------------*
+// ABOPUT ページ  |
+//---------------*
+
 .title-about {
+  font: 'arial narrow', sans-serif;
   position: relative;
   color: white;
   background: #a6d1d3;
   padding: 0.5em 0.5em 0.5em 1.5em;
-}
-.title-about-text {
-  font: 14px/1.6 'arial narrow', sans-serif;
-  font-size: 15px;
 }
 
 .title-about:before {
@@ -386,7 +383,7 @@ ul.navbar-nav.icons {
   content: "\f14a";
   font-weight: 900;
   position: absolute;
-  left : 0.3em; /*左端からのアイコンまでの距離*/
+  left : 0.6em; /*左端からのアイコンまでの距離*/
 }
 
 // HOW TO USE
@@ -402,7 +399,7 @@ ul.navbar-nav.icons {
   content: "\f14a";
   font-weight: 900;
   position: absolute;
-  left : 0.3em; /*左端からのアイコンまでの距離*/
+  left : 0.6em; /*左端からのアイコンまでの距離*/
 }
 
 // 使い方A、B
@@ -484,7 +481,7 @@ ol.main-use li:after {
   line-height: 0.8;/*行高*/
   background: #bccfda;/*背景色*/
   vertical-align: middle;
-  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+  border-radius: 25px
 }
 
 .feed-home:before {
@@ -707,6 +704,14 @@ span.comment-create-at {
 //ユーザーページ(MYPAGE)    *
 //*----------------------*
 
+.profile {
+  display: inline-block;
+  background: #b1cbdd; /*背景色*/
+  padding: 0.4em;/*文字周りの余白*/
+  color: white;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+}
+
 // 投稿したねこカフェ部分のスラッシュ //
 .user-show-post {
   position: relative;
@@ -744,10 +749,24 @@ span.comment-create-at {
   right: 0;
 }
 
+img {
+  border-radius: 40px;
+}
+
 //フォント読み込み用//
 @font-face {
   font-family: 'pixel';
-  src: font-url('PixelMplus10-Regular.ttf') format('truetype');
+  src: font-url('PixelMplus12-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+.nav-link {
+  font-family: pixel;
+  font-size: 20px;
+  letter-spacing: 0.3em;
+}
+
+.gravatar-user-stats {
+  margin-left: -190px;
 }
