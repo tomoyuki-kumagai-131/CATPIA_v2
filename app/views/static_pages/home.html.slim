@@ -1,9 +1,9 @@
-- if logged_in?
+- if logged_in? # 自分の投稿とフォロー中ユーザ投稿のみカウント
   .container
     .text-center
       h4.feed-home
-        | みんなの猫カフェ　
-        = @feed_items.count
+        | みんなの猫カフェ 
+        = @feed_items.total_count
         | 件
       br
       p
@@ -18,7 +18,7 @@
           
         .carousel-inner
           .carousel-item.active
-            = image_tag('/newcat2.jpeg')
+            = image_tag('/images/newcat2.jpeg')
             .carousel-caption
               .easy-login
                 a.btn.btn-lg.btn-outline-light[href="/recruit_login" role="button"]
@@ -33,7 +33,7 @@
               a.btn.btn-lg.btn-outline-light[href="/signup" role="button"]
                 | はじめる
           .carousel-item
-            img[src="/top3.jpg".alt="猫cafe" width="200%"]
+            img[src="/images/top3.jpg".alt="猫cafe" width="200%"]
             .container
               .carousel-caption.text-center
                 h1

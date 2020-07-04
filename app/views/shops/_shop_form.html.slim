@@ -7,7 +7,7 @@
           =  f.label :picture
           | 　
           span.input-unneed
-            |  ※任意 (投稿写真がない場合はデフォルトの写真が割り当てられます)
+            |  ※任意 (なしの場合はデフォルトの写真が割り当てられます)
           = f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'shop_picture'
         .form-group
           = f.label :name

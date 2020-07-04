@@ -1,33 +1,34 @@
 - provide(:title, "プロフィール")
-.container.mx-auto
-  br
-  .row.justify-content-center
-    h4.title-profile
-      | P R O F I L E
+.container
+  br 
+    .text-center
+      h4.profile
+        | P R O F I L E
     p
-    .col-md-2.text-center
-      .user-picture-box
-        = gravatar_for @user, size: 70, cl: "gravatar user-picture"
-      p
-    .col-md-4.text-center
-      h5.show-user-name
+    p.user-picture-box.text-center
+      = gravatar_for @user, size: 70, cl: "gravatar user-picture"
+    p
+      h5.show-user-name.text-center
         = @user.name
-      .stats
+      .stats.text-center
         = render 'shared/stats'
       p  
         - if current_user == @user
-          .account-edit.btn.btn-outline-dark
-            = link_to "PROFILE EDIT", edit_user_path(@user)
-        p.follow-button    
-        = render 'follow_form' if logged_in?
-  p
+          .text-center
+            .account-edit.btn.btn-outline-dark
+              = link_to "PROFILE EDIT", edit_user_path(@user)
+      p
+      .text-center
+        follow-button.text-center   
+          = render 'follow_form' if logged_in?
   .card-body
-    .col-md-10
+    .col-md-7.mx-auto
     - if @user.shops.any?
-      h5.user-show-post
-        | 投稿したねこカフェ　 
-        = @user.shops.count
-        | 件
+      .span.text.center
+        h5.user-show-post
+          | 投稿したねこカフェ　 
+          = @user.shops.count
+          | 件
       p
       ol.shops
         = render @user.shops

@@ -2,18 +2,17 @@
 - @shop = Shop.find(favorite.shop_id)
 - user = @shop.user
 li id = "favorite = favorite.id"
-.row.favorite-shop
-  .col-md-2
-    = link_to((image_tag @shop.picture.url), shop_path(@shop), class: 'shop-picture')
-  p
-  p
-  .col-md-7
-    p
+.favorite-shop
+  .col-md-8.mx-auto
+    .fav-shop-image.text-center
+      = link_to((image_tag @shop.picture.url), shop_path(@shop), class: 'shop-picture')
     h6.fav-shop-name
+      | 店舗名 : 
       = link_to @shop.name, shop_path(@shop)
       p
+      | 説　明 : 
       = @shop.description
       p
       .fav-shop-user
-      | 投稿者  ：  
+      | 投稿者 ：
       = link_to user.name, user_path(user)

@@ -21,16 +21,17 @@
     p
     li
     .address-shop
-      |  所在地：
+      | 所在地：
       = shop.address
     p
     li
     .web_page
-      | WEBページ：
+      | WEB ：
       = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
+      |
     li
     .description-shop
-      | 店舗説明：
+      | 説明：
       = shop.description
     p
     li

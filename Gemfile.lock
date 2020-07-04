@@ -209,7 +209,6 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    pagy (3.8.1)
     parallel (1.19.1)
     parser (2.7.1.2)
       ast (~> 2.4.0)
@@ -409,7 +408,6 @@ DEPENDENCIES
   mini_magick (>= 4.9.4)
   mini_racer
   mysql2 (>= 0.4.4, < 0.6.0)
-  pagy
   pry-rails
   puma (~> 3.11)
   rails (~> 5.2.2)

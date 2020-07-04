@@ -1,11 +1,10 @@
 .container
-  .col-md-8
-    h5.text-left
-      | お気に入りのねこカフェ 
+  br
+    h5
+      |　　　お気に入りのねこカフェ 
       = @favorites.count
       | 件
-  p
   - if @favorites.present?
-    ul.favorites
+    .favorites
       = render @favorites
   p

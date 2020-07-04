@@ -1,8 +1,9 @@
 .cotainer
-  = gravatar_for user, size: 45
+  .gravatar-user-stats
+    = gravatar_for user, size: 45
   .img-name
     = link_to user.name, user 
     | 　 | 　 
     - if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user) 
-      = link_to "削除", user_path(user), method: :delete, class: 'btn btn-outline-dark',
+      = link_to "削除", user_path(user), method: :delete, class: 'btn btn-dark',
                                   data: { confirm: "本当に削除しますか？" }
