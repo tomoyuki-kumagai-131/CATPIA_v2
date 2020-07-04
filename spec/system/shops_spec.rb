@@ -21,6 +21,14 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_title full_title('ねこカフェ投稿')
       end
 
+      it "「※必須」の文字が表示されること" do
+        expect(page).to have_content '※必須'
+      end
+
+      it " 「任意」の文字が表示されることを確認" do
+        expect(page).to  have_content '任意'
+      end
+
       it "入力部分に適切なフォームラベルが表示されること" do
         expect(page).to have_content '店名'
         expect(page).to have_content '説明'
@@ -135,27 +143,7 @@ RSpec.describe "Shops", type: :system do
         visit root_path
       end
 
-      it "ログイン後の各ページに検索フォームが表示されていることを確認" do
-        expect(page).to have_css 'form#shop_search'
-        visit about_path
-        expect(page).to have_css 'form#shop_search'
-        visit users_path
-        expect(page).to have_css 'form#shop_search'
-        visit user_path(user)
-        expect(page).to have_css 'form#shop_search'
-        visit edit_user_path(user)
-        expect(page).to have_css 'form#shop_search'
-        visit following_user_path(user)
-        expect(page).to have_css 'form#shop_search'
-        visit followers_user_path(user)
-        expect(page).to have_css 'form#shop_search'
-        visit shops_path
-        expect(page).to have_css 'form#shop_search'
-        visit shop_path(shop)
-        expect(page).to have_css 'form#shop_search'
-        visit new_shop_path
-        expect(page).to have_css 'form#shop_search'
-        visit edit_shop_path(shop)
+      it "ログイン後に検索フォームが表示されていることを確認" do
         expect(page).to have_css 'form#shop_search'
       end
     end
