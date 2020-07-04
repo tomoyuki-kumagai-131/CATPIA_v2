@@ -39,25 +39,25 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      - run:
-          name: Rspec
-          command: bundle exec rspec
+      #- run:
+          #name: Rspec
+          #command: bundle exec rspec
 
-      - run: sudo apt update && sudo apt install -y python-dev python-pip
-      - run: sudo pip install awscli --ignore-installed six
+      #- run: sudo apt update && sudo apt install -y python-dev python-pip
+      #- run: sudo pip install awscli --ignore-installed six
 
-      - run:
-          name: "authorize-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 authorize-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
+      #- run:
+        #  name: "authorize-security-group-ingress"
+        #  command: |
+        #    IP=`curl -s ifconfig.me`
+        #    echo "#!/bin/bash" > ./sg.sh
+        #    echo "aws configure set region ap-northeast-1" >> ./sg.sh
+        #    echo "aws ec2 authorize-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+        #    bash ./sg.sh
 
-      - run:
-          name: Rubocop
-          command: bundle exec rubocop
+      #- run:
+          #name: Rubocop
+          #command: bundle exec rubocop
 
       - add_ssh_keys:
           fingerprints:
@@ -67,11 +67,11 @@ jobs:
           name: Capistrano deploy
           command: bundle exec cap production deploy
             
-      - run:
-          name: "revoke-security-group-ingress"
-          command: |
-            IP=`curl -s ifconfig.me`
-            echo "#!/bin/bash" > ./sg.sh
-            echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 revoke-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
-            bash ./sg.sh
+      #- run:
+         # name: "revoke-security-group-ingress"
+         # command: |
+          #  IP=`curl -s ifconfig.me`
+          #  echo "#!/bin/bash" > ./sg.sh
+          #  echo "aws configure set region ap-northeast-1" >> ./sg.sh
+          #  echo "aws ec2 revoke-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+          #  bash ./sg.sh
