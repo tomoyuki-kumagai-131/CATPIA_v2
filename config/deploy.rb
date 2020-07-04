@@ -99,7 +99,7 @@ namespace :deploy do
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/master.key', "#{shared_path}/config/master.key")
+      # upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
 
