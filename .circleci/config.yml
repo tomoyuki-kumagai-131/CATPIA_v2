@@ -65,11 +65,7 @@ jobs:
   
       - deploy:
           name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+          command: bundle exec cap production deploy
             
       - run:
           name: "revoke-security-group-ingress"
