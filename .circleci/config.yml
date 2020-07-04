@@ -17,6 +17,9 @@ jobs:
 
     steps:
       - checkout
+      - add_ssh_keys:
+        fingerprints:
+          - "fb:ea:9d:8b:65:f5:12:20:80:fd:ca:c7:8a:3b:14:f1s"
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
