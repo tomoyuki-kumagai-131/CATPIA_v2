@@ -4,4 +4,5 @@ set :ssh_options, {
   keys: %w(~/.ssh/catpia_v4.pem),
   forward_agent: true,
   auth_methods: %w(publickey)
+  port: 22
 }
