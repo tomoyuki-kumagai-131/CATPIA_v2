@@ -26,7 +26,7 @@ RSpec.describe "Shops", type: :system do
       end
 
       it " 「任意」の文字が表示されることを確認" do
-        expect(page).to  have_content '任意'
+        expect(page).to have_content '任意'
       end
 
       it "入力部分に適切なフォームラベルが表示されること" do
