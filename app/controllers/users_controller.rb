@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @shops = Shop.page(params[:page]).per(5)
+    @shops = Shop.page(params[:page]).per(15)
   end
 
   def create
