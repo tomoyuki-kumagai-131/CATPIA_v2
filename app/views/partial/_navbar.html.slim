@@ -17,25 +17,25 @@
           .no_notification.header-link
         = render 'layouts/search' if logged_in?
         .nav-item
-          = link_to "\uf0f3 NOTIFICATIONS", notifications_path, class: "nav-link fa"
+          = link_to "NOTIFICATIONS", notifications_path, class: "nav-link"
         .nav-item
-          = link_to "\uf015 HOME", root_path, class: "nav-link fa"
+          = link_to "HOME", root_path, class: "nav-link"
         .nav-item
-          = link_to "\uf05a ABOUT", about_path, class: "nav-link fa"
+          = link_to "ABOUT", about_path, class: "nav-link"
         .nav-item
-          = link_to "\uf004 FAVORITES", favorites_path, class: "nav-link fa"
+          = link_to "FAVORITES", favorites_path, class: "nav-link"
         .nav-item
-          = link_to "\uf0c0 MEMBERS", users_path, class: "nav-link fa"
+          = link_to "MEMBERS", users_path, class: "nav-link"
         .nav-item
-          = link_to "\uf2f5 LOG OUT", logout_path, method: :delete, class: "nav-link fa"
+          = link_to "LOG OUT", logout_path, method: :delete, class: "nav-link"
         .nav-item
-          = link_to "\uf118 MY PAGE", user_path(@current_user), class: "nav-link fa"
+          = link_to "MY PAGE", user_path(@current_user), class: "nav-link"
         .nav-item
-          = link_to "\uf013 EDIT", edit_user_path(@current_user), class: "nav-link fa"
+          = link_to "EDIT", edit_user_path(@current_user), class: "nav-link"
       - else
         .nav-item
-          = link_to "\uf015 ホーム", root_path, class: "nav-link fa"
+          = link_to "ホーム", root_path, class: "nav-link"
         .nav-item
-          = link_to "\uf2f6 ログイン", login_path, class: "nav-link fa"
+          = link_to "ログイン", login_path, class: "nav-link"
         .nav-item
-          = link_to "\uf234 新規登録", signup_path, class: "nav-link fa"
+          = link_to "新規登録", signup_path, class: "nav-link"
