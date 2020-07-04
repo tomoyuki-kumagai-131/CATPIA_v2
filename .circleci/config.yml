@@ -64,8 +64,12 @@ jobs:
             - "fb:ea:9d:8b:65:f5:12:20:80:fd:ca:c7:8a:3b:14:f1"
   
       - deploy:
-          name: Capistrano deploy
-          command: bundle exec cap production deploy
+           name: Capistrano deploy
+           command: |
+             if [ "${CIRCLE_BRANCH}" != "master" ]; then
+               exit 0
+             fi
+             bundle exec cap production deploy
             
       #- run:
          # name: "revoke-security-group-ingress"
