@@ -52,7 +52,7 @@ jobs:
             IP=`curl -s ifconfig.me`
             echo "#!/bin/bash" > ./sg.sh
             echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 authorize-security-group-ingress --group-id sg-01d465274e92078a5 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+            echo "aws ec2 authorize-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
             bash ./sg.sh
 
       - run:
@@ -77,5 +77,5 @@ jobs:
             IP=`curl -s ifconfig.me`
             echo "#!/bin/bash" > ./sg.sh
             echo "aws configure set region ap-northeast-1" >> ./sg.sh
-            echo "aws ec2 revoke-security-group-ingress --group-id sg-01d465274e92078a5 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
+            echo "aws ec2 revoke-security-group-ingress --group-id sg-093c91a7b7f4bc7e7 --protocol tcp --port 22 --cidr ${IP}/32" >> ./sg.sh
             bash ./sg.sh
