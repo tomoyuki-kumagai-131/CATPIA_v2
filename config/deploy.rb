@@ -104,7 +104,6 @@ namespace :deploy do
   end
 
   before :starting, 'deploy:upload'
-  before :starting,     :confirm
-  after  :finishing,    :compile_assets
+z  after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
 end
