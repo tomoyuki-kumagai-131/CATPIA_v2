@@ -9,10 +9,11 @@
 開発初期(Initial Commit時)からDockerによる環境構築(docker-compose)、
 開発途中からCircleCIを導入することで、自動テストを走らせて安全性を図るなど、現時点でモダンな技術を導入するようにしました。
 <p>
-[![Image from Gyazo](https://i.gyazo.com/1600330df1791e8e864bda32c8c885e5.png)](https://gyazo.com/1600330df1791e8e864bda32c8c885e5)
-<p>
-[![Image from Gyazo](https://i.gyazo.com/113d8be13581aefc42a6b3619ebde240.png)](https://gyazo.com/113d8be13581aefc42a6b3619ebde240)
-  
+<a href="https://gyazo.com/b9cfa592f5a81eb589817d8daf9044f6"><img src="https://i.gyazo.com/b9cfa592f5a81eb589817d8daf9044f6.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/32d86f26b46bd4f372990364e226c4b4"><img src="https://i.gyazo.com/32d86f26b46bd4f372990364e226c4b4.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/50b8946c3d2fede1ee823bc5f0626fba"><img src="https://i.gyazo.com/50b8946c3d2fede1ee823bc5f0626fba.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/8e9bdcb537207256852390d2967baa75"><img src="https://i.gyazo.com/8e9bdcb537207256852390d2967baa75.png" alt="Image from Gyazo" width="450"/></a>
+ 
 ## 制作背景
 <p>
 私は6歳になる黒猫を一匹飼っているのですが、生まれて２〜３ヶ月という幼い頃に、
