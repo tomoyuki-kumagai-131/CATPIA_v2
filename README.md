@@ -42,10 +42,10 @@
 <p>
 長くなってしまいましたが、WEBアプリを作成した要旨としましては以下の3つのポイントになります。
   
-##
 * 猫の魅力の再発見
 * 保護猫の良質な引き取り手の増加
 * 猫カフェへの売り上げの貢献
+* アクセスによる広告収入等の
 
 ## URL
 https://cat-pia.com/
@@ -62,7 +62,11 @@ https://cat-pia.com/
 * DB:MySQL
 * AWS EC2, ALB, ACM, Route53, 
 <p>
-  
+ 
+## AWS構成図
+ <a href="https://gyazo.com/5f32edf7415bcda21b0bd8156bf1e873"><img src="https://i.gyazo.com/5f32edf7415bcda21b0bd8156bf1e873.png" alt="Image from Gyazo" width="1461"/></a>
+<p>
+ 
 ## 機能一覧
 * ユーザー登録・ログイン機能
 * ログイン保持機能(RememberMe)
