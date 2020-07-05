@@ -9,10 +9,9 @@
 開発初期(Initial Commit時)からDockerによる環境構築(docker-compose)、
 開発途中からCircleCIを導入することで、自動テストを走らせて安全性を図るなど、現時点でモダンな技術を導入するようにしました。
 <p>
+[![Image from Gyazo](https://i.gyazo.com/1600330df1791e8e864bda32c8c885e5.png)](https://gyazo.com/1600330df1791e8e864bda32c8c885e5)
 <p>
-<a href="https://gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8"><img src="https://i.gyazo.com/e34c1a05eae96da73a0ddf9dbb9f58c8.jpg" alt="Image from Gyazo" width="1412"/></a>
-<p>
-<a href="https://gyazo.com/78d28b7f5ac8783cc865d71fda8a8cf5"><img src="https://i.gyazo.com/78d28b7f5ac8783cc865d71fda8a8cf5.jpg" alt="Image from Gyazo" width="462"/></a>
+[![Image from Gyazo](https://i.gyazo.com/113d8be13581aefc42a6b3619ebde240.png)](https://gyazo.com/113d8be13581aefc42a6b3619ebde240)
   
 ## 制作背景
 <p>
