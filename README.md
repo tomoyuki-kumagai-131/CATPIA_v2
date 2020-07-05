@@ -12,7 +12,7 @@
 <a href="https://gyazo.com/b9cfa592f5a81eb589817d8daf9044f6"><img src="https://i.gyazo.com/b9cfa592f5a81eb589817d8daf9044f6.jpg" alt="Image from Gyazo" width="400"/></a>
 <a href="https://gyazo.com/32d86f26b46bd4f372990364e226c4b4"><img src="https://i.gyazo.com/32d86f26b46bd4f372990364e226c4b4.jpg" alt="Image from Gyazo" width="400"/></a>
 <a href="https://gyazo.com/50b8946c3d2fede1ee823bc5f0626fba"><img src="https://i.gyazo.com/50b8946c3d2fede1ee823bc5f0626fba.jpg" alt="Image from Gyazo" width="400"/></a>
-<a href="https://gyazo.com/8e9bdcb537207256852390d2967baa75"><img src="https://i.gyazo.com/8e9bdcb537207256852390d2967baa75.png" alt="Image from Gyazo" width="450"/></a>
+<a href="https://gyazo.com/8e9bdcb537207256852390d2967baa75"><img src="https://i.gyazo.com/8e9bdcb537207256852390d2967baa75.png" alt="Image from Gyazo" width="400"/></a>
  
 ## 制作背景
 <p>
