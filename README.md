@@ -40,27 +40,36 @@
 <p> 
 お気に入りの猫カフェとして紹介することで、少しでも売り上げの貢献、結果的に保護猫の引き取り手が増えるのではないか、という想いもあります。
 <p>
-長くなってしまいましたが、WEBアプリを作成した要旨としましては以下の3つのポイントになります。
+長くなってしまいましたが、このWEBアプリのコンセプトを纏めますと以下のポイントになります。
   
 * 猫の魅力の再発見
-* 保護猫の良質な引き取り手の増加
+* 保護猫の良質な引き取り手を増加させる
 * 猫カフェへの売り上げの貢献
-* アクセスによる広告収入等の
+* SNS口コミ奨励し、アクセスを増加させる
+* アクセスによる広告収入等の収益を得る仕組み作り(実際にサービスとして展開した場合)
 
 ## URL
 https://cat-pia.com/
 
-* トップページに採用担当者様用ログインフォームを配置しております。
+* トップページのカルーセル内にかんたんログインボタンを配置しております。
 
 ## 使用技術
-* Ruby 2.5.3
-* Rails 5.2.2
-* Docker,docker-compose
-* RSpec
-* Slim記法,JQuery
-* CircleCi
-* DB:MySQL
-* AWS EC2, ALB, ACM, Route53, 
+* HTML
+* CSS
+* Javascript
+* Ruby 2.5.3 / Slim記法
+* Ruby on Rails 5.2.2 (RSpec / Rubocopによる動的静的テスト等も含む)
+* MySQL
+* Linux (各種コマンド操作)
+* Nginx 
+* Puma
+* Git / GitHub (pull request, Issues 等による擬似チーム開発)
+* Docker / docker-compose
+* AWS各種サービス
+* CircleCI
+* Capistrano 
+* AWS
+<br>  EC2 ( Amazon Linux 2 ) / RDS / S3 / VPC / IAM / Route53 / ACM / ALB
 <p>
  
 ## AWS構成図
