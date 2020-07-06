@@ -3,7 +3,40 @@
     = link_to "/" do
       h5.catpia-header
         | C A T P I A
-  #nav-container
+
+  input#menu-cb[type="checkbox" value="off"]
+  label#menu-icon[for="menu-cb"]
+    | ≡
+  label#menu-background[for="menu-cb"]
+  #ham-menu
+    ul
+    - if logged_in?
+      = render 'layouts/search' if logged_in?
+      .nav-item
+        = link_to "NOTIFICATIONS", notifications_path, class: "nav-link"
+      .nav-item
+        = link_to "HOME", root_path, class: "nav-link"
+      .nav-item
+        = link_to "ABOUT", about_path, class: "nav-link"
+      .nav-item
+        = link_to "FAVORITES", favorites_path, class: "nav-link"
+      .nav-item
+        = link_to "MEMBERS", users_path, class: "nav-link"
+      .nav-item
+        = link_to "LOG OUT", logout_path, method: :delete, class: "nav-link"
+      .nav-item
+        = link_to "MY PAGE", user_path(@current_user), class: "nav-link"
+      .nav-item
+        = link_to "EDIT", edit_user_path(@current_user), class: "nav-link"
+    - else
+      .nav-item
+        = link_to "ホーム", root_path, class: "nav-link"
+      .nav-item
+        = link_to "ログイン", login_path, class: "nav-link"
+      .nav-item
+        = link_to "新規登録", signup_path, class: "nav-link"
+
+  //#nav-container
     .bg
     .button[tabindex="0"]
       span.icon-bar
