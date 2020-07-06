@@ -21,7 +21,7 @@ html
     .container
       - flash.each do |message_type, message|
         = content_tag(:div, message, class: "alert alert-#{message_type}")
-
+      
     - if logged_in?
       = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
           
