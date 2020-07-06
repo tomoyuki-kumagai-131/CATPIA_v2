@@ -42,7 +42,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :keep_releases, 2
-set :linked_files, %w{ config/master.key }
+#set :linked_files, %w{ config/master.key }
 set :linked_files, %w{ config/credentials.yml.enc }
 
 set :default_env, {
@@ -99,7 +99,7 @@ namespace :deploy do
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/master.key', "#{shared_path}/config/master.key")
+      #upload!('config/master.key', "#{shared_path}/config/master.key")
     end
   end
 
