@@ -7,6 +7,10 @@ body {
   -webkit-animation: fadeIn 2s ease 0s 1 normal;
 }
 
+a {
+  pointer-events: auto;
+}
+
 @keyframes fadeIn {
   0% {opacity: 0}
   100% {opacity: 1}
@@ -362,7 +366,7 @@ ul.navbar-nav.icons {
 //トップページのねこ//
 
 .image_cat {
-  z-index: 100;
+  z-index: 1100;
   height: 180px;
   width: 180px;
   position: fixed;
@@ -587,7 +591,7 @@ header {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 .icon-bar {
-  //z-index: 1000;
+  z-index: 1000;
   display: block;
   width: 79%;
   height: 20px;
@@ -983,4 +987,70 @@ img {
 
 .pace.pace-inactive {
   display: none;
+}
+
+//-----------------*
+//ハンバーガーメニュー *
+//-----------------*
+
+#ham-menu {
+  background-color: rgb(224, 203, 203); /*メニュー背景色*/
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px 40px; /*メニュー内左右上下余白*/
+  position: fixed;
+  right: -300px; /*メニュー横幅 width と合わせる*/
+  top: 0;
+  transition: transform 0.3s linear 0s; /*0.3s はアニメーションにかかる時間*/
+  width: 300px; /*メニュー横幅*/
+  z-index: 1000;
+  //pointer-events: none;
+}
+
+#menu-background {
+  background-color: #333; /*黒背景*/
+  display: block;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.3s linear 0s; /*0.3s はアニメーションにかかる時間*/
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+#menu-icon {
+  background-color: #dbcfc7; /*アイコン部分背景色*/
+  border-radius: 0 0 0 10px; /*左下角丸*/
+  color: rgb(255, 255, 255); /*アイコン（フォント）色*/
+  cursor: pointer;
+  display: block;
+  font-size: 35px; /*アイコン（フォント）サイズ*/
+  height: 54px; // 出っ張っている部分の色/
+  line-height: 50px; /*縦位置中央化*/
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 50px; /*アイコン横幅*/
+  transition: all 0.3s linear 0s; /*0.3s はアニメーションにかかる時間*/
+  z-index: 1000;
+  //pointer-events: none;
+}
+
+#menu-cb {
+  display: none; /*チェックボックス本体は消しておく*/
+}
+
+#menu-cb:checked ~ #ham-menu,
+#menu-cb:checked ~ #menu-icon {
+  transform: translate(-300px); /*メニュー本体横幅 width と合わせる*/
+}
+
+#menu-cb:checked ~ #menu-background {
+  opacity: 0.5;
+  z-index: 999;
+  pointer-events: none;
 }
