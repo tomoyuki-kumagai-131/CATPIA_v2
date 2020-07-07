@@ -89,7 +89,8 @@ https://cat-pia.com/
 <p>
  
 ## AWS構成図
- <a href="https://gyazo.com/5f32edf7415bcda21b0bd8156bf1e873"><img src="https://i.gyazo.com/5f32edf7415bcda21b0bd8156bf1e873.png" alt="Image from Gyazo" width="1461"/></a>
+<a href="https://gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0"><img src="https://i.gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0.png" alt="Image from Gyazo" width="1528"/></a>
+
 <p>
  
 ## 機能一覧
