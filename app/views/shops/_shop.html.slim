@@ -2,14 +2,14 @@
 
 | <li id="shop-
 = shop.id
-| "> 
+| ">
 
 .container.shop.html.slim
   .card
     h5.name-shop
       = link_to shop.name, shop_path(shop)
     h8.user-name
-      |　Posted by :  
+      |　Posted by :
       = link_to shop.user.name, user_path(shop.user)
   li
     .shop-image.text-center
@@ -49,13 +49,13 @@
     li
       //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
     .change-shop
-      - if current_user.admin? || (current_user == shop.user)
+      - if current_user.admin? # || (current_user == shop.user)
         = link_to "編集", edit_shop_path(shop)
         |　|　
         = link_to "削除", shop_path(shop), method: :delete,
-                        data: { confirm: "本当に削除しますか？" } 
-                                        
+                        data: { confirm: "本当に削除しますか？" }
+
     .timestamp.text-right
       = time_ago_in_words(shop.created_at)
-      | 前に投稿 
+      | 前に投稿
     p
