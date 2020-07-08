@@ -1,6 +1,6 @@
 - provide(:title, "プロフィール")
 .container
-  br 
+  br
     .text-center
       h4.profile
         | P R O F I L E
@@ -12,21 +12,21 @@
         = @user.name
       .stats.text-center
         = render 'shared/stats'
-      p  
-        - if current_user == @user
+      p
+        - if current_user.admin?
           .text-center
             .account-edit.btn.btn-outline-dark
               = link_to "PROFILE EDIT", edit_user_path(@user)
       p
       .text-center
-        follow-button.text-center   
+        follow-button.text-center
           = render 'follow_form' if logged_in?
   .card-body
     .col-md-7.mx-auto
     - if @user.shops.any?
       .span.text.center
         h5.user-show-post
-          | 投稿したねこカフェ　 
+          | 投稿したねこカフェ　
           = @user.shops.count
           | 件
       p
