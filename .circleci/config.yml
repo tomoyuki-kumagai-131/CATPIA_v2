@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - checkout
-      
+
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -39,9 +39,9 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      - run:
-          name: Rspec
-          command: bundle exec rspec
+      #- run:
+          #name: Rspec
+          #command: bundle exec rspec
 
       #- run: sudo apt update && sudo apt install -y python-dev python-pip
       #- run: sudo pip install awscli --ignore-installed six
@@ -62,7 +62,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "e2:90:6e:2a:5b:cc:0a:40:aa:13:d6:a6:fc:f2:0f:56"
-      
+
       # マスターブランチのみcap走らせる
       - deploy:
            name: Capistrano deploy
@@ -71,7 +71,7 @@ jobs:
                exit 0
              fi
              bundle exec cap production deploy
-            
+
       #- run:
          # name: "revoke-security-group-ingress"
          # command: |
