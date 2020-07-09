@@ -1,5 +1,5 @@
-body {  
-  background-color: #ffffff; 
+body {
+  background-color: #ffffff;
   color: rgb(134, 134, 134);
   font-weight: bolder;
   font-family: pixel;
@@ -238,7 +238,7 @@ h2-list {
 //-------------------------------------☆
 //ねこカフェフィード画面(ログイン後ホーム画面  |
 //-------------------------------------☆
-  
+
   .name-shop {
     font-size:20px;
     padding-top: 10px;
@@ -354,7 +354,7 @@ ul.navbar-nav.icons {
   padding: 0;
 }
 
-//タイトル// 
+//タイトル//
 .title-head {
   padding-top: 5px;
 }
@@ -850,4 +850,11 @@ img {
   opacity: 0.5;
   z-index: 999;
   pointer-events: none;
+}
+
+.breadcrumbs {
+  margin-left: 20px;
+  text-align: center;
+  display: inline-block;
+  content : normal;
 }

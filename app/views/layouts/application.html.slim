@@ -9,23 +9,33 @@ html
     meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
     script[src="//code.jquery.com/jquery-1.11.3.min.js"]
     script[src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.js"]
-    
+
   body
     script[src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"]
     script[src="https://kit.fontawesome.com/84eeecacff.js" crossorigin="anonymous"]
 
-  header
-  
-    = render 'partial/navbar'
-    
-    .container
-      .flash-messages
-        - flash.each do |message_type, message|
-          = content_tag(:div, message, class: "alert alert-#{message_type}")
-          
-    - if logged_in?
-      = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
-          
-  == yield
 
-  = render 'partial/footer'
+    header
+
+      = render 'partial/navbar'
+
+      .breadcrumbs
+       == breadcrumbs
+
+      .container
+        script[type="text/javascript"]
+          - flash.each do |key, value|
+            - key = "success" if key == "notice"
+            - key = "danger" if key == "alert"
+            |  toastr['
+            = key
+            | ']('
+            = value
+            | ');
+
+      - if logged_in?
+        = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
+
+    == yield
+
+    = render 'partial/footer'

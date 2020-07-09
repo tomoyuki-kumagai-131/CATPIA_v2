@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
   def create
     @shop = current_user.shops.build(shop_params)
     if @shop.save
-      flash[:success] = "ねこカフェの投稿が完了しました！"
+      flash[:success] = "投稿が完了しました！"
       redirect_to shop_path(@shop) # 投稿後、投稿詳細画面へ遷移
     else
       render 'shops/new'

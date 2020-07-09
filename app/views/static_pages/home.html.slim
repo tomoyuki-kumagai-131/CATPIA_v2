@@ -1,21 +1,22 @@
 - if logged_in? # 自分の投稿とフォロー中ユーザ投稿のみカウント
+  - breadcrumb :shops
   .container
     .text-center
       h4.feed-home
-        | みんなの猫カフェ 
+        | みんなの猫カフェ
         = @feed_items.total_count
         | 件
       br
       p
     = render 'shared/feed'
-- else    
+- else
   .container
     main[role="main"]
       #myCarousel.carousel.slide[data-ride="carousel"]
         ol.carousel-indicators
           li.active[data-target="#myCarousel" data-slide-to="0"]
           li[data-target="#myCarousel" data-slide-to="1"]
-          
+
         .carousel-inner
           .carousel-item.active
             = image_tag "newcat2.jpeg"
@@ -27,7 +28,7 @@
                 | C A T P I A
               br
               | あなたの街にある、心やすらぐ猫カフェ。
-              p  
+              p
               | 素敵なお店をみんなにシェアしてみませんか？
               p
               a.btn.btn-lg.btn-outline-light[href="/signup" role="button"]

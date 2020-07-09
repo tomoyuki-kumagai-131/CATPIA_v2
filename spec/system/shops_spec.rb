@@ -49,7 +49,7 @@ RSpec.describe "Shops", type: :system do
         fill_in "shop[rating]", with: 5
         attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop.jpg"
         click_button "登録する"
-        expect(page).to have_content "ねこカフェの投稿が完了しました！"
+        expect(page).to have_content "投稿が完了しました！"
       end
     end
   end
