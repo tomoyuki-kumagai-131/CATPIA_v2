@@ -7,9 +7,15 @@ crumb :about do
 end
 
 crumb :notifications do
-  link "お知らせ", notifications_path
+  link "通知", notifications_path
   parent :root
 end
+
+crumb :favorites do
+  link "お気に入り", favorites_path
+  parent :root
+end
+
 
 crumb :shops do
   link "SHOPS", shops_path
