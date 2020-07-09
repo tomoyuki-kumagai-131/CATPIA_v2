@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
           @user.update_attribute(:notification, true)
         end
       else
-        flash[:danger] = "空のコメントは投稿できません。"
+        flash[:error] = "空のコメントはできません！"
       end
       redirect_to request.referrer || root_url
     end
