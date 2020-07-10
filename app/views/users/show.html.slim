@@ -13,7 +13,7 @@
       .stats.text-center
         = render 'shared/stats'
       p
-        - if current_user.admin?
+        - if current_user.admin? || (current_user == @user)
           .text-center
             .account-edit.btn.btn-outline-dark
               = link_to "PROFILE EDIT", edit_user_path(@user)
