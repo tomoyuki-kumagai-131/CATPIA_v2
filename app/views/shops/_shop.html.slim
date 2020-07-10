@@ -49,7 +49,7 @@
     li
       //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
     .change-shop
-      - if current_user.admin? # || (current_user == shop.user)
+      - if current_user.admin? || (current_user == shop.user)
         = link_to "編集", edit_shop_path(shop)
         |　|　
         = link_to "削除", shop_path(shop), method: :delete,
