@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # ログインが必要
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
-  # 他人の操作は不可にする
+  # 他人の操作は不可
   before_action :correct_user,   only: [:edit, :update]
 
   def new
