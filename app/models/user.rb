@@ -22,6 +22,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+  validates :introduction, presence: false, length: { maximum: 50 } # 自己紹介の最高文字数は50文字
 
   class << self
     # 渡された文字列のハッシュ値を返すメソッド
