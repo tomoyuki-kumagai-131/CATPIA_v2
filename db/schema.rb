@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_122432) do
+ActiveRecord::Schema.define(version: 2020_07_12_005652) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "shop_id"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_122432) do
     t.string "remember_digest"
     t.boolean "admin", default: false
     t.boolean "notification", default: false
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
