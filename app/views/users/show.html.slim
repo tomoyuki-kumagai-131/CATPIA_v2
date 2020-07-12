@@ -13,6 +13,10 @@
       .stats.text-center
         = render 'shared/stats'
       p
+      .introduce-show
+        .text-center
+          = @user.introduction
+      p
         - if current_user.admin? || (current_user == @user)
           .text-center
             .account-edit.btn.btn-outline-dark
@@ -21,6 +25,7 @@
       .text-center
         follow-button.text-center
           = render 'follow_form' if logged_in?
+
   .card-body
     .col-md-7.mx-auto
     - if @user.shops.any?
