@@ -17,6 +17,9 @@ p
         = f.label :name
         = f.text_field :name, class: 'form-control', id: 'user_name'
       .form-group
+        = f.label :introduction
+        = f.text_area :introduction, class: 'form-control', id: 'user_introduction'
+      .form-group
         = f.label :email
         = f.text_field :email, class: 'form-control', id: 'user_email'
 
