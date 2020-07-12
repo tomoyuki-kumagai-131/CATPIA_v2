@@ -23,11 +23,13 @@
       .nav-item
         = link_to "MEMBERS", users_path, class: "nav-link"
       .nav-item
-        = link_to "LOG OUT", logout_path, method: :delete, class: "nav-link"
-      .nav-item
         = link_to "MY PAGE", user_path(@current_user), class: "nav-link"
       .nav-item
         = link_to "EDIT", edit_user_path(@current_user), class: "nav-link"
+      p
+      .nav-item
+        = link_to "LOG OUT", logout_path, method: :delete, class: "nav-link"
+
     - else
       .nav-item
         = link_to "ホーム", root_path, class: "nav-link"
