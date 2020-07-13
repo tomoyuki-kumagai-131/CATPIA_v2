@@ -4,6 +4,7 @@ FactoryBot.define do
     sequence(:email) { |n| "example#{n}@examle.com" }
     password { "foobar" }
     password_confirmation { "foobar" }
+    introduction { "よろしくお願いします" }
     # テスト用にadmin属性を追加する
     trait :admin do
       admin { true }
