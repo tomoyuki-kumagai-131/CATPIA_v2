@@ -118,10 +118,10 @@ RSpec.describe "Shops", type: :system do
           expect(page).to have_selector 'span', text: user.name
           expect(page).to have_selector 'span', 'かわいいネコがいますよね'
         end
-        #expect(page).to have_content "コメントを投稿しました！"
+        # expect(page).to have_content "コメントを投稿しました！"
         click_link "削除", href: comment_path(Comment.last)
         expect(page).not_to have_selector 'span', text: 'かわいいネコがいますよね'
-        #expect(page).to have_content "コメントを削除しました！"
+        # expect(page).to have_content "コメントを削除しました！"
       end
 
       it "別ユーザーのねこカフェのコメントには削除リンクがないこと" do

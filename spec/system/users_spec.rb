@@ -45,14 +45,14 @@ RSpec.describe "Users", type: :system do
     end
 
     context "ユーザー登録処理" do
-      #it "有効なユーザーでユーザー登録を行うとユーザー登録成功のフラッシュが表示されること" do
-        #fill_in "ユーザー名", with: "Example User"
-        #fill_in "メールアドレス", with: "user@example.com"
-        #fill_in "パ#スワード", with: "password"
-        #fill_in "パスワード(確認)", with: "password"
-        #click_button "登録する"
-        #expect(page).to have_content "CATPIAへようこそ！"
-      #end
+      # it "有効なユーザーでユーザー登録を行うとユーザー登録成功のフラッシュが表示されること" do
+      # fill_in "ユーザー名", with: "Example User"
+      # fill_in "メールアドレス", with: "user@example.com"
+      # fill_in "パ#スワード", with: "password"
+      # fill_in "パスワード(確認)", with: "password"
+      # click_button "登録する"
+      # expect(page).to have_content "CATPIAへようこそ！"
+      # end
 
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
         fill_in "ユーザー名", with: ""
