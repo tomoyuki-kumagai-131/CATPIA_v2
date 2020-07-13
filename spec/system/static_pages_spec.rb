@@ -31,8 +31,8 @@ RSpec.describe "StaticPages", type: :system do
       visit about_path
     end
 
-    it "みんなとねこカフェを共有するの文字列が存在することを確認" do
-      expect(page).to have_content 'みんなとねこカフェを共有する'
+    it "ねこカフェを共有するの文字列が存在することを確認" do
+      expect(page).to have_content 'ねこカフェを共有する'
     end
 
     it "正しいタイトルが表示されることを確認" do
