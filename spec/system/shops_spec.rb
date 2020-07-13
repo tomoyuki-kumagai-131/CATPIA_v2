@@ -40,8 +40,8 @@ RSpec.describe "Shops", type: :system do
     end
 
     context "ねこカフェ登録処理" do
-      it "有効な情報でねこカフェ登録を行うとねこカフェ登録成功のフラッシュが表示されること" do
-        fill_in "店名", with: "ひとやすみ"
+      it "有効な情報でねこカフェ登録を行うとねこカフェ詳細ページに飛ぶこと" do
+        fill_in "店名", with: "ひとやすみ。"
         fill_in "説明", with: "世界中の珍しいねこが集まるカフェです。"
         fill_in "所在地", with: "名古屋市中区栄１−１−１"
         fill_in "おすすめポイント", with: "お洒落なカフェが併設されています。"
@@ -49,7 +49,7 @@ RSpec.describe "Shops", type: :system do
         fill_in "shop[rating]", with: 5
         attach_file "shop[picture]", "#{Rails.root}/spec/fixtures/test-shop.jpg"
         click_button "登録する"
-        expect(page).to have_content "投稿が完了しました！"
+        expect(page).to have_title full_title("#{shop.name}")
       end
     end
   end
@@ -118,10 +118,10 @@ RSpec.describe "Shops", type: :system do
           expect(page).to have_selector 'span', text: user.name
           expect(page).to have_selector 'span', 'かわいいネコがいますよね'
         end
-        expect(page).to have_content "コメントを投稿しました！"
+        #expect(page).to have_content "コメントを投稿しました！"
         click_link "削除", href: comment_path(Comment.last)
         expect(page).not_to have_selector 'span', text: 'かわいいネコがいますよね'
-        expect(page).to have_content "コメントを削除しました！"
+        #expect(page).to have_content "コメントを削除しました！"
       end
 
       it "別ユーザーのねこカフェのコメントには削除リンクがないこと" do
