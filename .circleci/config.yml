@@ -39,9 +39,9 @@ jobs:
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
-      #- run:
-          #name: Rspec
-          #command: bundle exec rspec
+      - run:
+          name: Rspec
+          command: bundle exec rspec
 
       #- run: sudo apt update && sudo apt install -y python-dev python-pip
       #- run: sudo pip install awscli --ignore-installed six
