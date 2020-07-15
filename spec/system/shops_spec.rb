@@ -4,7 +4,7 @@ RSpec.describe "Shops", type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:shop) { create(:shop, :picture, user: user) }
-  let!(:comment) { create(:comment, user_id: user.id, shop: shop) } # コメント機能作成により追記
+  let!(:comment) { create(:comment, user_id: user.id, shop: shop) }
 
   describe "ねこカフェ登録ページ" do
     before do
