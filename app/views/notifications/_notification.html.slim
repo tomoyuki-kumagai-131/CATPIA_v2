@@ -1,8 +1,7 @@
 - user = User.find(notification.from_user_id)
 - shop = Shop.find(notification.shop_id)
-|  <li id="notification-
-= notification.id
-| ">
+  <li id="notification- = notification.id">
+
 - if notification.variety == 1 # お気に入り登録の通知
   p
     = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
@@ -11,6 +10,7 @@
     | あなたのねこカフェ投稿が「
     = link_to user.name, user_path(user)
     | 」さんにお気に入り登録されました。
+
 - elsif notification.variety == 2 # コメントの通知
   p
     = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
