@@ -59,13 +59,32 @@
     = render "comments/new"
   p
 
-  #map style="width: 200px; height: 200px;"
+div id='map' style='height: 300px; width: 90%;'
 
-    javascript:
-      handler = Gmaps.build('Google');
-      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-        markers = handler.addMarkers(#{raw @hash.to_json});
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(16);
-      });
+= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDzGSDEEbmPELGDc93uGJ2yBw8zSWtMEmc1&callback=initMap", async: true, defer: true
+
+javascript:
+  function initMap() {
+    var test ={ lat: #{@shop.latitude}, lng: #{@shop.longitude} };
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = "住所：#{@shop.address} ";
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+      position:test,
+      map: map,
+      title: contentString
+    });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
