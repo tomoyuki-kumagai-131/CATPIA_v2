@@ -145,8 +145,10 @@ GEM
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
     formatador (0.2.5)
+    geocoder (1.6.3)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     gretel (3.0.9)
       rails (>= 3.1.0)
     hpricot (0.8.6)
@@ -406,6 +408,8 @@ DEPENDENCIES
   faker
   fog-aws
   font-awesome-sass
+  geocoder
+  gmaps4rails
   gretel
   html2slim
   jbuilder (~> 2.5)

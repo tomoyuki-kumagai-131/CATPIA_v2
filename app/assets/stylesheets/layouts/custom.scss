@@ -2,7 +2,7 @@ body {
   background-color: #ffffff;
   color: rgb(134, 134, 134);
   font-weight: bolder;
-  font-family: pixel;
+  font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
   -webkit-animation: fadeIn 1s ease 0s 1 normal;
 }
@@ -765,16 +765,8 @@ img {
   border-radius: 40px;
 }
 
-//フォント読み込み用//
-@font-face {
-  font-family: 'pixel';
-  src: font-url('PixelMplus12-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .nav-link {
-  font-family: pixel;
   font-size: 20px;
   letter-spacing: 0.3em;
 }

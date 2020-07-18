@@ -6,7 +6,7 @@
   h5.name-shop
     = link_to shop.name, shop_path(shop)
   h8.user-name
-    |　Posted by :  
+    |　Posted by :
     = link_to shop.user.name, user_path(shop.user)
   p
   .card.card-body.col-lg-20.text-left
@@ -48,13 +48,22 @@
         = link_to "編集", edit_shop_path(shop)
         |　|　
         = link_to "削除", shop_path(shop), method: :delete,
-                        data: { confirm: "本当に削除しますか？" }                  
+                        data: { confirm: "本当に削除しますか？" }
     .timestamp.text-right
       = time_ago_in_words(shop.created_at)
-      | 前に投稿 
+      | 前に投稿
     p
   p
   .comment
     = render "comments/feed_comments"
     = render "comments/new"
-p
+  p
+  #map style="width: 600px; height: 400px;"
+
+    javascript:
+      handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(#{raw @hash.to_json});
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });

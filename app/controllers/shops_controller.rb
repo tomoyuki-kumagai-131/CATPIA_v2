@@ -27,6 +27,11 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @comment = Comment.new # コメント機能
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow shop.name
+    end
   end
 
   # ねこカフェ投稿編集処理
@@ -62,7 +67,7 @@ class ShopsController < ApplicationController
 
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
-      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture)
+      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture, :latitude, :longitude)
     end
 
     # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
