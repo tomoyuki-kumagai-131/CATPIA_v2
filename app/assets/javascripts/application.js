@@ -18,6 +18,6 @@
 //= require activestorage
 //= require turbolinks
 //= require toastr
-//= require underscore
+// require underscore
 //= require gmaps/google
 //= require_tree .
