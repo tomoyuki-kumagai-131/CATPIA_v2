@@ -3,14 +3,14 @@
 - user = @shop.user
 li id = "favorite = favorite.id"
 .favorite-shop
-  .col-md-8.mx-auto
+  .col-md-6.mx-auto
     .fav-shop-image.text-center
       = link_to((image_tag @shop.picture.url), shop_path(@shop), class: 'shop-picture')
     h6.fav-shop-name
-      | 店舗名 : 
+      | 店舗名 :
       = link_to @shop.name, shop_path(@shop)
       p
-      | 説　明 : 
+      | 説　明 :
       = @shop.description
       p
       .fav-shop-user

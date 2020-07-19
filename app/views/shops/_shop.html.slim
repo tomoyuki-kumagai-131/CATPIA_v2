@@ -5,7 +5,7 @@
 | ">
 
 .container.shop.html.slim
-  .card
+  .col-md-8.mx-auto
     h5.name-shop
       = link_to shop.name, shop_path(shop)
     h8.user-name
@@ -15,6 +15,7 @@
   .shop-image.text-center
     = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
   p
+  br
   li.feed_shops
   .favorite-form
     = render 'users/favorite_form'
