@@ -30,6 +30,7 @@ ja:
         web_page: WEBページ
         rating: おすすめ度
         picture: ねこカフェの写真
+        tag_list: タグ
       comment:
         user_id: コメント投稿者のID
         shop_id: コメントされたねこカフェのID
