@@ -19,6 +19,7 @@ class Shop < ApplicationRecord
   validate :picture_size
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  acts_as_taggable
 
   # ねこカフェ投稿に附するコメントのフィードを作成 #
   def feed_comment(shop_id)

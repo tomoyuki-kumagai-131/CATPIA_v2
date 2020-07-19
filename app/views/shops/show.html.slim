@@ -41,6 +41,8 @@
         = "★" * shop.rating
         = "☆" * (5 - shop.rating)
     p
+      = render 'shops/tag_list', tag_list: shop.tag_list
+
     br
       //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
     .change-shop-show
