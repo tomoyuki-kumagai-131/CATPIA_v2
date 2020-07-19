@@ -7,7 +7,7 @@
           =  f.label :picture
           | 　
           span.input-unneed
-            | 　※任意
+            | 　任意
           = f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'shop_picture'
         .form-group
           = f.label :name
@@ -48,7 +48,7 @@
         .form-group
           = f.label :tag_list
           span.input-unneed
-            |　任意　(カンマで複数のタグ付けが可能です)
+            |　任意　※半角スペースで複数のタグ付けが可能です
           = f.text_field :tag_list, value: @shop.tag_list.join(","), class: "form-control"
         br
           = f.submit nil, class: 'btn btn-info'
