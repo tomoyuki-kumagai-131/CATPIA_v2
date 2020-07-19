@@ -17,7 +17,9 @@
   p.notification-message
     | あなたのねこカフェ投稿に「
     = link_to user.name, user_path(user)
-    | 」さんがコメントしました。「
+    | 」さんがコメントしました。
+    br
+    |「
     = notification.content
     | 」
 .row

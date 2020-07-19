@@ -1,7 +1,7 @@
 body {
   background-color: #ffffff;
   color: rgb(134, 134, 134);
-  font-weight: bolder;
+  //font-weight: bolder;
   font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
   -webkit-animation: fadeIn 1s ease 0s 1 normal;
@@ -92,7 +92,7 @@ input {
 
 .catpia-header {
   margin-top: 90px;
-  font-weight: bolder;
+  //font-weight: bolder;
 }
 
 
@@ -106,7 +106,7 @@ input {
 
 // CATPIA //
 .catpia {
-  margin-top: 50px;
+  margin-top: 45px;
   font-weight: bolder;
 }
 
@@ -767,7 +767,7 @@ img {
 
 
 .nav-link {
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 0.3em;
 }
 
@@ -845,7 +845,8 @@ img {
 }
 
 .breadcrumbs {
-  margin-left: 15px;
+  //margin-left: 15px;
+  font-size: 12px;
   text-align: center;
   display: inline-block;
   content : normal;
