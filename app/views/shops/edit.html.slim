@@ -54,7 +54,7 @@
           = f.label :tag_list
           span.input-unneed
             |　※半角スペースで複数のタグ付けが可能です
-          = f.text_field :tag_list, value: @shop.tag_list.join(","), class: "form-control"
+          = f.text_field :tag_list, value: @shop.tag_list.join(" "), class: "form-control"
 
         = f.submit "更新する", class: "btn btn-info"
         = link_to "投稿を削除", shop_path(@shop), method: :delete,
