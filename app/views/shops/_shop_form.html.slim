@@ -11,7 +11,7 @@
           = f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'shop_picture'
         .form-group
           = f.label :name
-          | 
+          |
           span.input-need
             |　※必須
           = f.text_field :name, class: 'form-control', id: 'shop_name'
@@ -19,7 +19,7 @@
           = f.label :description
           |　
           span.input-unneed
-            | 　任意
+            | 任意
           = f.text_field :description, size: "60x4", class: 'form-control', id: 'shop_description'
         .form-group
           = f.label :address
@@ -35,7 +35,7 @@
           = f.text_field :recommended_points, size: "30x4", class: 'form-control', id: 'shop_recommended_points'
         .form-group
           = f.label :web_page
-          | 
+          |
           span.input-unneed
             | 　任意
           = f.text_field :web_page, class: 'form-control', id: 'shop_web_page'
@@ -45,13 +45,18 @@
           span.input-unneed
             |　 任意
           = f.text_field :rating, class: 'form-control', id: 'rating'
+        .form-group
+          = f.label :tag_list
+          span.input-unneed
+            |　任意　(カンマで複数のタグ付けが可能です)
+          = f.text_field :tag_list, value: @shop.tag_list.join(","), class: "form-control"
         br
           = f.submit nil, class: 'btn btn-info'
-      p
+
       javascript:
         $('#shop_picture').bind('change', function() {
           var size_in_megabytes = this.files[0].size/1024/1024;
           if (size_in_megabytes > 5) {
             alert('アップロードできる写真の最大サイズは5MBです。5MB以下の画像を選択してください');
           }
-        }); 
+        });
