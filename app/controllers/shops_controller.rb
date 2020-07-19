@@ -18,6 +18,9 @@ class ShopsController < ApplicationController
   end
 
   def index
+    if params[:tag_name]
+      @shops = Shop.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def search
@@ -67,7 +70,7 @@ class ShopsController < ApplicationController
 
     # 登録できる項目をshop_paramsメソッドで定義する
     def shop_params
-      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture, :latitude, :longitude)
+      params.require(:shop).permit(:name, :description, :address, :recommended_points, :web_page, :rating, :picture, :latitude, :longitude, :tag_list)
     end
 
     # 現在のユーザーが更新対象のねこカフェ投稿を保有しているかどうか確認する
