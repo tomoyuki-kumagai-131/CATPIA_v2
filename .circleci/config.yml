@@ -61,7 +61,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "e2:90:6e:2a:5b:cc:0a:40:aa:13:d6:a6:fc:f2:0f:56"
+            - "ac:f1:d8:de:57:a9:41:27:7f:f3:e2:0a:19:10:04:84"
 
       # マスターブランチのみcap走らせる
       - deploy:
