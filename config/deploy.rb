@@ -42,8 +42,8 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 set :keep_releases, 2
-#set :linked_files, %w{ config/master.key }
-set :linked_files, %w{ config/credentials.yml.enc }
+set :linked_files, %w{ config/master.key }
+#set :linked_files, %w{ config/credentials.yml.enc }
 
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
