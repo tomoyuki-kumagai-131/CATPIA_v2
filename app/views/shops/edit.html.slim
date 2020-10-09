@@ -53,7 +53,7 @@
         .form-group
           = f.label :tag_list
           span.input-unneed
-            |　※半角スペースで複数のタグ付けが可能です
+            |　※,(カンマ)で複数のタグ付けが可能です
           = f.text_field :tag_list, value: @shop.tag_list.join(" "), class: "form-control"
 
         = f.submit "更新する", class: "btn btn-info"
