@@ -30,7 +30,7 @@
           = f.label :address
           |
           span.input-need
-            |　※必須
+            |　※必須　(都道府県から入力)
           = f.text_field :address, class: 'form-control', id: 'shop_address'
         .form-group
           = f.label :recommended_points
@@ -53,7 +53,7 @@
         .form-group
           = f.label :tag_list
           span.input-unneed
-            |　※,(カンマ)で複数のタグ付けが可能です
+            |　※ 半角スペースで複数のタグ付けが可能です
           = f.text_field :tag_list, value: @shop.tag_list.join(" "), class: "form-control"
 
         = f.submit "更新する", class: "btn btn-info"
