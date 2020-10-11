@@ -1,1 +1,1 @@
-#ActsAsTaggableOn.default_parser = ' '
+ActsAsTaggableOn.delimiter = ' '
