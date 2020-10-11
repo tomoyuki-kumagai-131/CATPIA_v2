@@ -4,6 +4,16 @@
       h5.catpia-header
         | C A T P I A
 
+- if logged_in?
+  - if current_user.notification == true
+    li.new_notification.header-link
+
+  - else
+    li.no_notification.header-link
+
+  = link_to notifications_path do
+    | 通知
+
   input#menu-cb[type="checkbox" value="off"]
   label#menu-icon[for="menu-cb"]
     | ≡
