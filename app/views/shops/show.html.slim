@@ -61,12 +61,12 @@
       = render "comments/feed_comments"
       = render "comments/new"
     p
-    p
-    .google_map
-      | 店舗地図
-    p
+      p
+      .google_map
+        | 店舗地図
+      p
 
-div id='map' style='height: 300px; width: 80%;'
+div id='map' style='height: 300px; width: 100%;'
 
 = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAh_mxXXCr5aAy-KrOHfg_q3SZsxNiwHPg&callback=initMap", async: true, defer: true
 
