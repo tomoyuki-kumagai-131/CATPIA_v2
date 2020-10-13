@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  color: rgb(134, 134, 134);
+  //color: rgb(134, 134, 134);
   //font-weight: bolder;
   font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
@@ -850,4 +850,40 @@ img {
   text-align: center;
   display: inline-block;
   content : normal;
+}
+
+.new_notification.header-link::after {
+  content: "●";
+  font-family: 'Courier New', Courier, monospace;
+  color: #008489;
+  position: relative;
+  top: -10px;
+  right: -40px;
+  font-size: 6px;
+  text-shadow: 0px 0px 2px #008489;
+  list-style: none;
+}z
+
+//li.new_notification.header-link {
+  //color: red;
+//}
+
+.notifications {
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .gravatar {
+    margin-right: 10px;
+    margin-top: -5px;
+  }
+}
+
+.notification-message {
+  font-size: 16px;
+}
+
+.fas.fa-bell {
+  margin-left: 20px;
 }

@@ -6,13 +6,12 @@
 
 - if logged_in?
   - if current_user.notification == true
-    li.new_notification.header-link
-
+    .new_notification.header-link
   - else
-    li.no_notification.header-link
-
+    .no_notification.header-link
   = link_to notifications_path do
-    | 通知
+    .fas.fa-bell
+      .span
 
   input#menu-cb[type="checkbox" value="off"]
   label#menu-icon[for="menu-cb"]
