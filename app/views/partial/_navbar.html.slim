@@ -12,6 +12,10 @@
   = link_to notifications_path do
     .fas.fa-bell
       .span
+  = link_to user_path(@current_user) do
+    .fas.fa-user
+  = link_to new_shop_path do
+    .fas.fa-plus-square
 
   input#menu-cb[type="checkbox" value="off"]
   label#menu-icon[for="menu-cb"]
