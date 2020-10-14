@@ -23,7 +23,7 @@ GitHubのIssues,Milestone機能,pull request等を利活用し、擬似チーム
 
 https://cat-pia.com/
 
-* 常時SSL化
+* 常時SSL化 (AWS ACM, Route53, ALB)
 * トップページのカルーセル内にかんたんログインボタンを配置しております。
 
 <p>
@@ -35,7 +35,7 @@ https://cat-pia.com/
 
 ## WEBページサンプル
 
-<a href="https://gyazo.com/d0c2b1e4e4b7295964864e4ff231311f"><img src="https://i.gyazo.com/d0c2b1e4e4b7295964864e4ff231311f.gif" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/06f5133bb16fcd7aa05d3106871d0e32"><img src="https://i.gyazo.com/06f5133bb16fcd7aa05d3106871d0e32.jpg" alt="Image from Gyazo" width="400"/></a>
 
 <a href="https://gyazo.com/d389ceba6492662781f158363593c1f2"><img src="https://i.gyazo.com/d389ceba6492662781f158363593c1f2.jpg" alt="Image from Gyazo" width="400"/></a>
 
