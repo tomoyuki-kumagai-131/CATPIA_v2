@@ -1,11 +1,13 @@
 # CATPIA
 
-就職活動用に、ポートフォリオとして制作した自作WEBアプリケーションです。
+「CATPIA」は、個人開発アプリケーションとして制作した自作WEBアプリケーションです。
 <p>
 お気に入りのねこカフェを共有し、コメントやいいねを送り合ってコミニュケーションを取ることが可能です。
 制作背景につきましては下に記しました。
 <p>
-機能としてはシンプルですが、特にRSpecによるテスト(model,request・system)を重視していて、約140近くのexampleをパスしています。
+Google Maps Apiを導入して投稿した住所情報から店舗地図の表示、通知機能の導入により、
+いいね！やコメントがあった際に左上のベルマークに赤丸を表示させる等、ストレスフリーな使用感を目指しました。
+RSpecによるテスト(model・request・system)を重視していて、約140近くのexampleをパスしました。
 <p>
 また、UI/UXにも配慮し、使っていて楽しくなるようなWEBアプリを目指し、フロントエンドもこだわりを持って作成しました。
 <p>
@@ -21,19 +23,25 @@ GitHubのIssues,Milestone機能,pull request等を利活用し、擬似チーム
 
 https://cat-pia.com/
 
+* 常時SSL化
 * トップページのカルーセル内にかんたんログインボタンを配置しております。
+
+<p>
+
+## AWS構成図
+<a href="https://gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0"><img src="https://i.gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0.png" alt="Image from Gyazo" width="1528"/></a>
 
 <p>
 
 ## WEBページサンプル
 
-<a href="https://gyazo.com/b9cfa592f5a81eb589817d8daf9044f6"><img src="https://i.gyazo.com/b9cfa592f5a81eb589817d8daf9044f6.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/d0c2b1e4e4b7295964864e4ff231311f"><img src="https://i.gyazo.com/d0c2b1e4e4b7295964864e4ff231311f.gif" alt="Image from Gyazo" width="400"/></a>
 
-<a href="https://gyazo.com/32d86f26b46bd4f372990364e226c4b4"><img src="https://i.gyazo.com/32d86f26b46bd4f372990364e226c4b4.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/d389ceba6492662781f158363593c1f2"><img src="https://i.gyazo.com/d389ceba6492662781f158363593c1f2.jpg" alt="Image from Gyazo" width="400"/></a>
 
-<a href="https://gyazo.com/50b8946c3d2fede1ee823bc5f0626fba"><img src="https://i.gyazo.com/50b8946c3d2fede1ee823bc5f0626fba.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/86f851bdd1fdeee933f4fc0efb134acb"><img src="https://i.gyazo.com/86f851bdd1fdeee933f4fc0efb134acb.jpg" alt="Image from Gyazo" width="400"/></a>
 
-<a href="https://gyazo.com/8e9bdcb537207256852390d2967baa75"><img src="https://i.gyazo.com/8e9bdcb537207256852390d2967baa75.png" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/718dca5c4969e51ea40c2803d6d657e1"><img src="https://i.gyazo.com/718dca5c4969e51ea40c2803d6d657e1.jpg" alt="Image from Gyazo" width="400"/></a>
 
 ## 制作背景
 <p>
@@ -88,11 +96,6 @@ https://cat-pia.com/
 <br>  EC2 ( Amazon Linux 2 ) / RDS(MySQL) / S3 / VPC / IAM / Route53 / ACM / ALB
 <p>
 
-## AWS構成図
-<a href="https://gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0"><img src="https://i.gyazo.com/fa75180a75bcc2812c07f67d2fbf1fa0.png" alt="Image from Gyazo" width="1528"/></a>
-
-<p>
-
 ## 機能一覧
 * ユーザー登録・ログイン機能
 * ログイン保持機能(RememberMe)
@@ -103,17 +106,18 @@ https://cat-pia.com/
 * 投稿編集機能
 * 右下のねこイラストから新規投稿が可能(自作のイラストです！)
 * ページネーション機能（gem: Kaminari）
-* パンんくずリスト機能 (gem: gretel)
 * Flash機能(gem: toastr)
 * いいね機能（Ajax / 非同期処理）
 * コメント機能（Ajax / 非同期処理）
 * フォロー・フォロワー機能(Ajax / 非同期処理)
+* Google Maps 地図表示機能(Google Maps API利用)
 * 検索機能（gem: Ransackを使用）
 * Rspec / Rubocop テスト機能
 * CircleCI/CD 自動ビルド・自動テスト・自動デプロイ
-* 通知機能(お気に入り登録・コメントがあった場合)
+* 通知機能 (お気に入り登録・コメントがあった場合、左上のベルマークに赤丸表示)
+* 通知一覧表示機能
 * モデルに対するバリデーション(文字数・メールアドレス・パスワードなど)
 
 ## 課題、今後実装したい機能
-* クラウド整備
-* 追加機能の実装(無限スクロール機能・パンくず機能など)
+* より使いやすいアプリケーションを目指し、UI/UXを改善する
+* 新機能の実装
