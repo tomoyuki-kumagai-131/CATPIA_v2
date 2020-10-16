@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  //color: rgb(134, 134, 134);
+  color: rgb(134, 134, 134);
   //font-weight: bolder;
   font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
@@ -491,7 +491,7 @@ ol.main-use li:after {
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
   line-height: 0.8;/*行高*/
-  background: #bccfda;/*背景色*/
+  background: linear-gradient(-135deg, #9dddc2, #e9bf65);/*背景色*/
   vertical-align: middle;
   border-radius: 25px
 }
@@ -905,4 +905,28 @@ img {
   margin-left: 50px;
   margin-top: -35px;
   float: left;
+}
+
+.rank-cat {
+  color: #ffffff;/*文字色*/
+  padding: 0.5em;/*文字周りの余白*/
+  display: inline-block;/*おまじない*/
+  line-height: 0.8;/*行高*/
+  background: linear-gradient(-135deg, #f1b882, #9941D8);/*背景色*/
+  vertical-align: middle;
+  border-radius: 25px
+}
+
+.rank-cat:before {
+  content: '●';
+  color: white;
+  margin-right: 8px;
+}
+
+h3.rank-cat {
+  text-align: center;
+}
+
+.user-name.rank {
+  font-size: 18px;
 }
