@@ -1,0 +1,25 @@
+.container
+  .text-center
+    h4.rank-cat
+      | 人気の猫カフェ
+    br
+    p
+  .row.text-center
+    br
+    p
+    - @all_ranks.each.with_index(1) do |shop, i|
+      h5.col-md-5
+        .card.shadow[style="width: 380px"]
+          p
+          |　第
+          = i
+          |位
+          |　
+          = link_to shop.name, shop_path(shop)
+          br
+          p
+            = link_to((image_tag shop.picture.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+          p
+          .user-name.rank
+                |　　　　　　　 　Posted by ：
+                = link_to shop.user.name, user_path(shop.user)
