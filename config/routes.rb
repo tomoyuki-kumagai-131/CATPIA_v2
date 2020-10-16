@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   get 'recruit_login' => 'sessions#new2' # かんたんログインページ https://cat-pia.com/recruit_login/
+  get 'rank' => 'shops#rank'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :users do  # フォロー機能について追記
