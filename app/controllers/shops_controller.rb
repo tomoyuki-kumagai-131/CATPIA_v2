@@ -26,6 +26,11 @@ class ShopsController < ApplicationController
   def search
   end
 
+  def rank
+    @all_ranks = Shop.find(Favorite.group(:id).order('count(shop_id) desc').limit(5).pluck(:shop_id))
+  end
+
+
   # ねこカフェ投稿詳細ページへ
   def show
     @shop = Shop.find(params[:id])
