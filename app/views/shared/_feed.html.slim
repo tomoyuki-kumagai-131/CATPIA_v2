@@ -1,7 +1,13 @@
 - if @feed_items.any?
   ol.shops
-    .col-md-8.mx-auto
-      = render @feed_items
+    /.row
+      /h5.col-md-6
+        /.card.shadow[style="width: 380px"]
+    = render @feed_items
   p
   .container
-    = paginate @feed_items
+    .row
+      .mx-auto
+        = paginate @feed_items
+
+//[style="width: 400px"]
