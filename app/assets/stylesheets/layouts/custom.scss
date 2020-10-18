@@ -5,6 +5,7 @@ body {
   font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
   -webkit-animation: fadeIn 1s ease 0s 1 normal;
+  margin: 0;
 }
 
 @keyframes fadeIn {
@@ -501,16 +502,19 @@ ol.main-use li:after {
 
 // ホーム画面 フィード
 .feed-home {
+  //position: relative;
   color: #ffffff;/*文字色*/
-  padding: 0.5em;/*文字周りの余白*/
+  padding: 0.3em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
-  line-height: 0.8;/*行高*/
+  line-height: 0.5;/*行高*/
+  //width: 600px;
+  height: 140px;
   background: linear-gradient(-135deg, #9dddc2, #e9bf65);/*背景色*/
+  margin-top: -10px;
   vertical-align: middle;
-  border-radius: 25px
+  border-radius: 15px;
+  margin-left: -3px;
 }
-
-
 
 // トップページ //
 @import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
@@ -966,24 +970,35 @@ h5.rank-cat {
 }
 
 .ranking_top img {
-  display: flex;
+  //display: flex;
   z-index: 10;
-  width: 100px;
-  height: 100px;
-  margin-top: -100px;
-  margin-left: 135px;
-  border-radius: 30px;
+  width: 120px;
+  height: 120px;
+  margin-top: -138px;
+  margin-left: 3px;
+  border-radius: 15px;
 }
 
-.allcat_top img {
-  display: flex;
+.allcat img {
+  //display: flex;
+  //text-align: center;
   z-index: 10;
-  width: 100px;
-  height: 100px;
-  margin-top: 20px;
-  margin-left: 15px;
-  border-radius: 30px;
+  width: 120px;
+  height: 120px;
+  margin-top: 3px;
+  margin-left: -250px;
+  border-radius: 15px;
 
+}
+
+.newpost_top img {
+  //display: flex;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
+  margin-top: -162px;
+  margin-left: 255px;
+  border-radius: 15px;
 }
 
 .logo-top img{
