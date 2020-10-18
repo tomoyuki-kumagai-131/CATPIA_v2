@@ -1,8 +1,7 @@
 .pagenav
   header[tabindex="0"]
-    = link_to "/" do
-      h5.catpia-header
-        | C A T P I A
+    .logo-top
+      = link_to image_tag("CATPIA.png", class:"logo_top"), root_path
 
 - if logged_in?
   - if current_user.notification == true
