@@ -7,6 +7,7 @@
 - if logged_in?
   - if current_user.notification == true
     .new_notification.header-link
+      i.fas.fa-exclamation-circle
   - else
     .no_notification.header-link
   = link_to notifications_path do

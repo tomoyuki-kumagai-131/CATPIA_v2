@@ -862,14 +862,23 @@ img {
 }
 
 .new_notification.header-link::after {
-  content: "●";
-  font-family: 'Courier New', Courier, monospace;
+  //font-family: 'Font Awesome 6 Free';
+  //content: "\f06a";
+  //font-weight: 400;
   color: #c01a1a;
+  position: relative;
+  top: -10px;
+  right: -34px;
+  font-size: 15px;
+  //list-style: none;
+}
+
+i.fas.fa-exclamation-circle {
+  color: red;
   position: relative;
   top: -10px;
   right: -38px;
   font-size: 15px;
-  list-style: none;
 }
 
 //li.new_notification.header-link {
