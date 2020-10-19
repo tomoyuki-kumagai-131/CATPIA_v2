@@ -18,6 +18,7 @@ class ShopsController < ApplicationController
   end
 
   def index
+    #@favorites_count = Favorite.where(shop_id: params[:shop_id]).count
     if params[:tag_name]
       @shops = Shop.tagged_with("#{params[:tag_name]}")
     end
@@ -40,6 +41,7 @@ class ShopsController < ApplicationController
       marker.lng shop.longitude
       marker.infowindow shop.name
     end
+    #@favorites_count = Favorite.where(shop_id: params[:shop_id]).count
   end
 
   # ねこカフェ投稿編集処理
