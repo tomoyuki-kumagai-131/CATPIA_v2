@@ -2,6 +2,15 @@
 - @comments = @shop.feed_comment(@shop.id)
 - shop = Shop.find(params[:id])
 
+.container
+  .text-center
+    h4.feed-home
+      .allcat
+        = link_to image_tag("allcat.png", class:"allcat_top"), root_path
+      .ranking_top
+        = link_to image_tag("ranking.png", class:"ranking_top"), rank_path
+      .newpost_top
+        = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
 .container.shop.html.slim
   .col-md-8.mx-auto
     h5.name-shop
@@ -10,6 +19,7 @@
       |　Posted by :
       = link_to shop.user.name, user_path(shop.user)
     p
+
     .card.card-body.col-lg-20.text-left
       .shop-image.text-center
         = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
