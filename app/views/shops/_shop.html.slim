@@ -1,8 +1,10 @@
 - @shop = shop
+- @favorites_count = Favorite.where(shop_id: params[:shop_id]).count
 
 | <li id="shop-
 = shop.id
 | ">
+
 .row
   /text-center
   .mx-auto[style="width: 700px;"]
@@ -22,6 +24,8 @@
           li.feed_shops
           .favorite-form
             = render 'users/favorite_form'
+              = @favorites_count
+
           p
           .comment-new.fa
             = link_to shop_path(shop, anchor: "form")
