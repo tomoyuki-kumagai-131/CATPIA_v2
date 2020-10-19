@@ -975,6 +975,7 @@ h5.rank-cat {
 
 .ranking_top img {
   //display: flex;
+  opacity: 0.9;
   z-index: 10;
   width: 120px;
   height: 120px;
@@ -986,6 +987,7 @@ h5.rank-cat {
 .allcat img {
   //display: flex;
   //text-align: center;
+  opacity: 0.9;
   z-index: 10;
   width: 120px;
   height: 120px;
@@ -998,6 +1000,7 @@ h5.rank-cat {
 .newpost_top img {
   //display: flex;
   z-index: 10;
+  opacity: 0.9;
   width: 120px;
   height: 120px;
   margin-top: -162px;
