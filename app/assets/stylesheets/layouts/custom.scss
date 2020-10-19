@@ -881,7 +881,7 @@ i.fas.fa-exclamation-circle {
   color: red;
   position: relative;
   top: -10px;
-  right: -38px;
+  right: -25px;
   font-size: 15px;
 }
 
@@ -906,7 +906,7 @@ i.fas.fa-exclamation-circle {
 }
 
 .fas.fa-bell {
-  margin-left: 20px;
+  margin-left: 5px;
 }
 
 .fas.fa-user {
@@ -924,6 +924,7 @@ i.fas.fa-exclamation-circle {
 
 .text-left.fav {
   margin-left: 17px;
+  padding-top: 10px;
 }
 
 .fab.fa-hotjar {
@@ -933,12 +934,14 @@ i.fas.fa-exclamation-circle {
 .comment-new.fa {
   text-decoration: none;
   margin-left: 27px;
-  margin-top: -36px;
+  margin-top: -52px;
   float: left;
 }
 
 .far.fa-comment-alt.fa-lg {
-  margin-left: 45px;
+  margin-left: 55px;
+  //margin-top: -200px;
+  margin-bottom: 60px;
 }
 
 .show.comment-new.fa.fa-lg {
@@ -1002,9 +1005,17 @@ h5.rank-cat {
 }
 
 .logo-top img{
+  align: left;
   //display: flex;
-  z-index: 10;
-  width: 69px;
-  height: 50px;
+  //z-index: 10;
+  width: 120px;
+  height: 30px;
   margin-top: 84px;
+  float:left;
+  //margin-left: -700px;
+}
+
+.count_fav {
+  font-size: 12px;
+  margin-left: 28px;
 }
