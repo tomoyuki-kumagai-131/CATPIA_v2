@@ -16,7 +16,7 @@
           h5.name-shop
             = link_to shop.name, shop_path(shop)
           h8.user-name
-            |　Posted by :
+            |　Posted by：
             = link_to shop.user.name, user_path(shop.user)
           li
           .shop-image.text-center
@@ -39,13 +39,12 @@
           li
             .text-center
               .web_page
-                | WEB ：
+                | WEB：
                 = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
               |
           li
           .description-shop
             |【説明】
-            br
             = shop.description
           p
           li
