@@ -1,11 +1,20 @@
 body {
   background-color: #ffffff;
   color: rgb(134, 134, 134);
-  //font-weight: bolder;
-  font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+  font-weight: bolder;
+  font-family: "Helvetica Neue", Arial, kiniro, "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans", Meiryo, sans-serif;
+  //font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
   -webkit-animation: fadeIn 1s ease 0s 1 normal;
   margin: 0;
+}
+
+@font-face {
+  font-family: 'kiniro';
+  src: font-url('font_1_kokumr_1.00_rls.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @keyframes fadeIn {
@@ -231,11 +240,17 @@ h2-list {
   margin-top: -20px;
 }
 
+.shop-favorite-form {
+  margin-top: 25px;
+  margin-left: -10px;
+}
+
 //-------------------------------------☆
 //ねこカフェフィード画面(ログイン後ホーム画面  |
 //-------------------------------------☆
 
-  .name-shop {
+  .name-
+  hop {
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 2px;
@@ -394,7 +409,7 @@ ul.navbar-nav.icons {
 }
 
 //---------------*
-// ABOPUT ページ  |
+// ABOUT ページ  |
 //---------------*
 
 .title-about {
@@ -544,11 +559,13 @@ header {
   position: fixed;
   width: 100%;
   height: 50px;
-  background: #dbcfc7;
+  background: white;
+  //background: #dbcfc7;
   color: #fff;
   margin-top: -70px;
   justify-content: center;
   align-items: center;
+  opacity: 0.9;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -634,7 +651,8 @@ header {
   top: 0;
   left: 0;
   height: calc(100% - 45px);
-  background: #f7c3bf;
+  background: white;
+  //background: #f7c3bf;
   pointer-events: auto;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   transform: translateX(-100%);
@@ -783,6 +801,7 @@ span.comment-create-at {
 .nav-link {
   font-size: 18px;
   letter-spacing: 0.3em;
+  color: #000;
 }
 
 .gravatar-user-stats {
@@ -798,7 +817,8 @@ span.comment-create-at {
 //-----------------*
 
 #ham-menu {
-  background-color: rgb(224, 203, 203); /*メニュー背景色*/
+  background-color: white;
+  //background-color: rgb(224, 203, 203); /*メニュー背景色*/
   box-sizing: border-box;
   height: 100%;
   padding: 10px 40px; /*メニュー内左右上下余白*/
@@ -826,9 +846,10 @@ span.comment-create-at {
 }
 
 #menu-icon {
-  background-color: #dbcfc7; /*アイコン部分背景色*/
+  background-color: white;
+  //background-color: #dbcfc7; /*アイコン部分背景色*/
   border-radius: 0 0 0 10px; /*左下角丸*/
-  color: rgb(255, 255, 255); /*アイコン（フォント）色*/
+  color: rgb(0, 0, 0); /*アイコン（フォント）色*/
   cursor: pointer;
   display: block;
   font-size: 35px; /*アイコン（フォント）サイズ*/
@@ -908,15 +929,18 @@ i.fas.fa-exclamation-circle {
 
 .fas.fa-bell {
   margin-left: 5px;
+  color: #000;
 }
 
 .fas.fa-user {
   margin-left: 25px;
+  color: #000;
 }
 
 .fas.fa-plus-square {
   position: relative;
   left: 25px;
+  color: #000;
 }
 
 .fa.fa-heart {
@@ -940,13 +964,15 @@ i.fas.fa-exclamation-circle {
 }
 
 .far.fa-comment-alt.fa-lg {
-  margin-left: 55px;
+  margin-left: 50px;
   //margin-top: -200px;
-  margin-bottom: 60px;
+  margin-top: 7px;
 }
 
 .show.comment-new.fa.fa-lg {
-  margin-left: 59px;
+  margin-left: 72px;
+  margin-top: -22px;
+
 }
 
 .rank-cat {
@@ -1020,6 +1046,7 @@ h5.rank-cat {
 }
 
 .count_fav {
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 28px;
+  margin-top: -5px;
 }
