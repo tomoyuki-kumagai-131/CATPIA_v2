@@ -21,7 +21,8 @@ class FavoritesController < ApplicationController
                                  from_user_id: current_user.id)
       @user.update_attribute(:notification, true) # デフォルトはfalse,通知ありだとtrueを返す
     end
-    @favorites_count = Favorite.where(shop_id: params[:shop_id]).count
+    #@favorites_count = Favorite.where(shop_id: params[:shop_id]).count
+    @favorites_count = Favorite.where(shop_id: @shop.id).count
   end
 
   # お気に入り登録解除(destroy)アクション
@@ -33,5 +34,6 @@ class FavoritesController < ApplicationController
       format.js
     end
     @favorites_count = Favorite.where(shop_id: params[:shop_id]).count
+    @favorites_count = Favorite.where(shop_id: @shop.id).count
   end
 end
