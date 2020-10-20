@@ -272,10 +272,12 @@ h2-list {
     text-align: center;
     font-size:15px;
     padding-top: -5px;
+    margin-left: 11px;
   }
 
   .recommended_points {
     font-size: 15px;
+    margin-left: 11px;
   }
 
   .change-shop {
@@ -980,16 +982,11 @@ i.fas.fa-exclamation-circle {
   padding: 0.5em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
   line-height: 0.8;/*行高*/
-  background: linear-gradient(-135deg, #f1b882, #9941D8);/*背景色*/
+  background: linear-gradient(-135deg, #9fc7d1, #e0cb9c);/*背景色*/
   vertical-align: middle;
   border-radius: 25px
 }
 
-.rank-cat:before {
-  content: '●';
-  color: white;
-  margin-right: 8px;
-}
 
 h5.rank-cat {
   text-align: center;
