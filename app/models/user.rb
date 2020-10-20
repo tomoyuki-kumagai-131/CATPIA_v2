@@ -11,6 +11,7 @@ class User < ApplicationRecord
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy # お気に入り機能実装により追記
+  has_many :favorited_shops, through: :favorites, source: :shop # いいねランキング実装により追記
   has_many :notifications, dependent: :destroy # 通知機能実装により追記
 
   attr_accessor :remember_token # 仮想の属性
