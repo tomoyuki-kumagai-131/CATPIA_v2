@@ -21,7 +21,7 @@ p
         = f.text_area :introduction, class: 'form-control', id: 'user_introduction'
       .form-group
         = f.label :email
-        = f.text_field :email, class: 'form-control', id: 'user_email'
+        = f.text_field :email, class: 'form-control', id: 'user_email', readonly: true
 
       = f.submit "更新する", class: "btn btn-info"
       ul

@@ -57,5 +57,6 @@
           = f.text_field :tag_list, value: @shop.tag_list.join(" "), class: "form-control"
 
         = f.submit "更新する", class: "btn btn-info"
-        = link_to "投稿を削除", shop_path(@shop), method: :delete,
+      .del_dis
+        = link_to "投稿を削除", shop_path(@shop), method: :delete, class: "disabled",
                               data: { confirm: "本当に削除してよろしいですか？"}
