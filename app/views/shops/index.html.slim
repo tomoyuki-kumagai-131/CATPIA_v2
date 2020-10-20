@@ -1,4 +1,4 @@
-- provide(:title, 'ねこカフェ投稿一覧')
+- provide(:title, '猫カフェ投稿一覧')
 .container
   - if @search_word.present?
     h3.text-center
@@ -10,7 +10,7 @@
     p
   - else
     h3
-      |　ねこカフェ一覧
+      |　猫カフェ一覧
   ul.shops
     .col-md-8
       = render @shops

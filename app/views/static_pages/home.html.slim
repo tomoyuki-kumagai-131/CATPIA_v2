@@ -11,10 +11,10 @@
         .newpost_top
           = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
       p
-      h5.catall
+      h4.catall
         | みんなの猫カフェ：
         = @feed_items.total_count
-        | 件
+        |  件
       p
     = render 'shared/feed'
 
@@ -38,7 +38,7 @@
               br
               |あなたの街の心やすらぐ猫カフェ。
               p
-              | 素敵なねこカフェをシェアしてみませんか？
+              | 素敵な猫カフェをシェアしてみませんか？
               p
               a.btn.btn-lg.btn-outline-light[href="/signup" role="button"]
                 | はじめる

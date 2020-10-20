@@ -1,4 +1,4 @@
-- provide(:title, "ねこカフェ情報の編集")
+- provide(:title, "猫カフェ情報の編集")
 .container
   .row
     .card-body.col-md-8
@@ -12,7 +12,7 @@
         = f.file_field :picture, accept: 'image/jpg,image/png', class: 'form-control', id: 'shop-picture'
         = link_to((image_tag @shop.picture.thumb600.url), shop_path(@shop.id), class: 'shop-picture') if @shop.picture.url.present?
         h3
-          | ねこカフェ情報の編集
+          | 猫カフェ情報の編集
         p
         .form-group
           = f.label :name

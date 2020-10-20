@@ -7,7 +7,7 @@
     = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
   .notification-message
   p
-    | あなたのねこカフェ投稿が「
+    | あなたの猫カフェ投稿が「
     = link_to user.name, user_path(user)
     | 」さんにお気に入り登録されました。
 
@@ -15,7 +15,7 @@
   p
     = notification.created_at.strftime("%Y/%m/%d(%a) %H:%M")
   p.notification-message
-    | あなたのねこカフェ投稿に「
+    | あなたの猫カフェ投稿に「
     = link_to user.name, user_path(user)
     | 」さんがコメントしました。
     br
