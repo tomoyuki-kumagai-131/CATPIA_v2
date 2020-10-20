@@ -7,6 +7,7 @@
         = link_to image_tag("ranking.png", class:"ranking_top"), rank_path
       .newpost_top
         = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
+p
 .container
   .text-center
     h4.rank-cat
@@ -17,7 +18,7 @@
     br
     p
     - @all_ranks.each.with_index(1) do |shop, i|
-      h5.col-md-5
+      h5.col-md-5.mx-auto
         .card.shadow[style="width: 380px"]
           p
           |　第
@@ -27,7 +28,7 @@
           = link_to shop.name, shop_path(shop)
           br
           p
-            = link_to((image_tag shop.picture.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+            = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
           p
           .user-name.rank
                 |　　　　　　　 　Posted by ：
