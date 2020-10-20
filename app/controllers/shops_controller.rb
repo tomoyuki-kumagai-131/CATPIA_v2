@@ -28,7 +28,8 @@ class ShopsController < ApplicationController
   end
 
   def rank
-    @all_ranks = Shop.find(Favorite.group(:id).order('count(shop_id) desc').limit(5).pluck(:shop_id))
+    #@all_ranks = Shop.find(Favorite.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
+    @all_ranks = Shop.all.sort {|a,b| b.favorited_users.count <=> a.favorited_users.count}
   end
 
 
