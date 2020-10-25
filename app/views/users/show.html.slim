@@ -33,9 +33,28 @@ p
               = link_to "PROFILE EDIT", edit_user_path(@user)
       p
       .text-center
-        follow-button.text-center
+        .follow-button.text-center
           = render 'follow_form' if logged_in?
 
+      .text-center
+        .container
+          .col-md-6.col-md-offset-3.mx-auto
+            - if current_user == @user
+            - else
+              - if @isRoom == true
+                .dm-already-start
+                  a.btn.btn-info.w-auto[href="/rooms/#{@roomId}" role="button"]
+                    | DM
+                /ul.mt-4.ml-4[style="float: left;list-style: none;"]
+                  .li
+                    a.btn.btn-info.ml-4 href="/rooms/#{@roomId}"
+              - else
+                = form_with model: @room, local: true do |f|
+                  = fields_for @entry do |e|
+                    = e.hidden_field :user_id, :value => @user.id
+                  p
+                  .dm-start
+                    = f.submit "DMを送る" ,class: 'btn btn-outline-info w-auto'
   .card-body
     .col-md-7.mx-auto
     - if @user.shops.any?
