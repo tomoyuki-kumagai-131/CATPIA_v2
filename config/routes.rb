@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   delete "favorites/:shop_id/destroy" => "favorites#destroy"
   resources :comments, only: [:create, :destroy] # Commentsコントローラ・create・destroyアクション追記
   resources :notifications, only: :index # Notificationsコントローラ追記
+  resources :messages, :only => [:create] # Messagesコントローラ追記
+  resources :rooms, :only => [:create, :show, :index] # Roomsコントローラ追記
 end
