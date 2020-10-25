@@ -26,6 +26,9 @@
             - if m.user.name == current_user.name
               p.text-right
                 = m.content
+                = form_with(model: @message, url: message_path(m.id), class: "room-show__item__right--btn", local: true, method: :delete, data: { confirm: '削除してよろしいですか？' }) do |f|
+                  = f.hidden_field :room_id, value: @room.id
+                  = f.submit "削除", class: "btn rounded-pill"
               p.text-right
                 | by
                 a href="/users/#{m.user_id}"
