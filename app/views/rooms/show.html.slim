@@ -1,0 +1,54 @@
+.container
+  .row
+    .col-md-6.mx-auto
+      h2.text-center
+        | DM
+        /h5.text-center
+          | 参加者
+        - @entries.each do |e|
+          h5.col-md-5.mx-auto
+            .card.shadow.text-center
+              p
+              a href="/users/#{e.user.id}"
+                p.dm-picture-box.text-center
+                  = gravatar_for e.user, cl: "gravatar user-picture"
+                - if e.user.name == current_user.name
+                  = + "あなた：" + e.user.name
+                  p
+                - else
+                  = + "相手：" + e.user.name + "さん"
+                  p
+      hr
+    .container
+      .col-md-6.col-md-offset-3.mx-auto
+        - if @messages.present?
+          - @messages.each do |m|
+            - if m.user.name == current_user.name
+              p.text-right
+              = m.content
+              p.text-right
+                | by
+                a href="/users/#{m.user_id}"
+                  = + " " + m.user.name
+            - else
+              p
+              = m.content
+              p.dm.name
+                | by
+                a href="/users/#{m.user_id}"
+                  = + " " + m.user.name + "さん"
+            hr
+        - else
+          h5.text-center
+            | メッセージはまだありません
+
+  .container
+    .col-md-6.col-md-offset-3.mx-auto
+      = form_with model: @message, local: true do |f|
+        = f.text_field :content, class: 'form-control', :placeholder => "メッセージを入力して下さい" , :size => 50
+        = f.hidden_field :room_id, :value => @room.id
+        p
+        = f.submit "投稿", class: 'btn btn-info mt-2'
+    .text-center
+      = link_to "ユーザ一覧", users_path, class: 'btn btn-primary mt-2'
+  p
