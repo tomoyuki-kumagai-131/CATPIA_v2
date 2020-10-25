@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :favorited_shops, through: :favorites, source: :shop # いいねランキング実装により追記
   has_many :notifications, dependent: :destroy # 通知機能実装により追記
 
+  has_many :messages, dependent: :destroy # DM機能実装により追記
+  has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries
+
   attr_accessor :remember_token # 仮想の属性
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 50 }
