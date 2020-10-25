@@ -25,7 +25,7 @@
           - @messages.each do |m|
             - if m.user.name == current_user.name
               p.text-right
-              = m.content
+                = m.content
               p.text-right
                 | by
                 a href="/users/#{m.user_id}"
