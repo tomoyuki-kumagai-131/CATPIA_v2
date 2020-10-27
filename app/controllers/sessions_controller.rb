@@ -23,4 +23,11 @@ class SessionsController < ApplicationController
     flash[:info] = "ログアウトしました！" # ログイン時のみログアウト可能
     redirect_to root_url
   end
+
+  def recruit_login # かんたんログイン機能(直接遷移)
+    user = User.find_by(email: 'recruit1@example.com')
+    log_in user
+    flash[:info] = 'ゲストユーザーとしてログインしました！'
+    redirect_to root_path
+  end
 end
