@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'recruit_login' => 'sessions#new2' # かんたんログインページ https://cat-pia.com/recruit_login/
   get 'rank' => 'shops#rank'
   post 'login' => 'sessions#create'
+  post '/static_pages/guest_sign_in' => 'static_pages#new_guest'
   delete 'logout' => 'sessions#destroy'
   resources :users do  # フォロー機能について追記
     member do
