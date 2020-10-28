@@ -1,7 +1,5 @@
 - if logged_in?
   .container
-    .topback
-      /= image_tag "topback.jpg"
     .text-center
       h4.feed-home
         .allcat
@@ -17,6 +15,7 @@
         |  件
       p
     = render 'shared/feed'
+      br
 
 - else
   .container
