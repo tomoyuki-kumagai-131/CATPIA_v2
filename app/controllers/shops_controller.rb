@@ -32,7 +32,6 @@ class ShopsController < ApplicationController
     @all_ranks = Shop.all.sort {|a,b| b.favorited_users.count <=> a.favorited_users.count}
   end
 
-
   # ねこカフェ投稿詳細ページへ
   def show
     @shop = Shop.find(params[:id])
@@ -71,6 +70,15 @@ class ShopsController < ApplicationController
     else
       flash[:danger] = "他人の投稿は削除できません！"
       redirect_to root_url
+    end
+  end
+
+  def mapindex
+    @shops = Shop.all
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow shop.name
     end
   end
 
