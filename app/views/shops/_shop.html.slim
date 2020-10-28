@@ -69,7 +69,7 @@
             - if current_user.admin? || (current_user == shop.user)
               = link_to "編集", edit_shop_path(shop)
               |　|　
-              = link_to "削除", shop_path(shop), method: :delete, class: 'del_dis',
+              = link_to "削除", shop_path(shop), method: :delete, #, class: 'del_dis',
                               data: { confirm: "本当に削除しますか？" }
 
           .timestamp.text-right
