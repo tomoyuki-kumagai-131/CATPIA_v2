@@ -746,6 +746,10 @@ span.comment-create-at {
   text-align: center;
 }
 
+h6.shop.html.slim {
+  margin-left: 40px;
+}
+
 //*----------------------*
 //ユーザーページ(MYPAGE)    *
 //*----------------------*
@@ -968,7 +972,7 @@ i.fas.fa-exclamation-circle {
 .far.fa-comment-alt.fa-lg {
   margin-left: 50px;
   //margin-top: -200px;
-  margin-top: 7px;
+  margin-top: 12px;
 }
 
 .show.comment-new.fa.fa-lg {
