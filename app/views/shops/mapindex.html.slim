@@ -1,0 +1,18 @@
+#map.gmap-mapindex
+div id='map' style='height: 500px; width: 100%;'
+
+= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAh_mxXXCr5aAy-KrOHfg_q3SZsxNiwHPg&callback=initMap", async: true, defer: true
+
+javascript:
+  handler = Gmaps.build('Google');
+  handler.buildMap({
+    provider: {hyblid},
+    internal: {id: 'map'}},
+    function(){
+    markers = handler.addMarkers(#{raw @hash.to_json});
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
+    handler.getMap().setZoom(10);
+    }
+  );
