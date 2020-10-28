@@ -55,15 +55,23 @@ p
                   p
                   .dm-start
                     = f.submit "DMを送る" ,class: 'btn btn-outline-info w-auto'
-  .card-body
-    .col-md-7.mx-auto
+
+    /.col-md-7.mx-auto
     - if @user.shops.any?
-      .span.text.center
+      .span.text-center
         h5.user-show-post
           | 投稿した猫カフェ　
           = @user.shops.count
           | 件
       p
-      ol.shops
-        = render @user.shops
+      .container
+        .text-center
+          ol.shops
+            .row
+              h5.col-xs-12
+                .card.shadow
+                  /.d-flex.flex-row
+                  .usershow.row
+                    /.col-xs-8
+                    = render @user.shops
       = paginate @shops
