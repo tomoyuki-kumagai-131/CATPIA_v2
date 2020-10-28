@@ -1,13 +1,16 @@
 - if @feed_items.any?
-  ol.shops
-    /.row
-      /h5.col-md-6
-        /.card.shadow[style="width: 380px"]
-    = render @feed_items
+  .container
+    ol.shops
+      .row
+        h5.col-xs-12
+          /card.shadow
+          .d-flex.flex-row
+            .row
+              = render @feed_items
   p
   .container
     .row
       .mx-auto
         = paginate @feed_items
 
-//[style="width: 400px"]
+  //[style="width: 400px"]
