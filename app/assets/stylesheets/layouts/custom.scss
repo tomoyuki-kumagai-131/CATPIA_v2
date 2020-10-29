@@ -168,6 +168,7 @@ h2-list {
     color: gray-light;
     display: block;
     margin-right: 10px;
+    margin-top: -33px;
   }
   .gravatar {
     float: left;
@@ -282,6 +283,7 @@ h2-list {
 
   .change-shop {
     font-size: 15px;
+    margin-left: -138px;
     display: inline-block;
   }
 
@@ -1085,3 +1087,8 @@ p.dm-picture-box.text-center img {
   //margin-left: -115px;
   //margin-top: 10px;
 //}
+
+.detail-shop {
+  margin-top: -55px;
+  margin-left: 95px;
+}
