@@ -538,7 +538,7 @@ ol.main-use li:after {
 }
 
 // トップページ //
-@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
+//@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:400,600');
 
 * {
   outline: none;
@@ -1039,7 +1039,7 @@ h5.rank-cat {
 }
 
 .logo-top img{
-  align: left;
+  //align: left;
   //display: flex;
   //z-index: 10;
   width: 120px;
@@ -1125,6 +1125,3 @@ p.dm-picture-box.text-center img {
 .shop-image.text-center:hover + .fukidasi {
   display: block;
 }
-
-@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
-
