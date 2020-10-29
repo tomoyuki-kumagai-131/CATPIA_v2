@@ -51,39 +51,3 @@ ul
               p
               br
             p
-              /li
-                  .address-shop.text-left
-                    |
-                    = shop.address
-                  p
-                  li
-                    .text-center
-                      .web_page.text-left
-                        | WEB：
-                        = link_to "#{@shop.web_page}", @shop.web_page, target: "_blank"
-                      |
-                  li
-                  .description-shop.text-left
-                    |【説明】
-                    = shop.description
-                  p
-                  li
-                  .recommended_points.text-left
-                    | おすすめポイント：
-                    = shop.recommended_points
-                  p
-                  li
-                  .rating
-                    | おすすめ度：
-                    - if @shop.rating.present?
-                      .i.fas
-                      = "⭐️" * shop.rating
-                      = "☆" * (5 - shop.rating)
-                  p
-                  li
-                    = render 'shops/tag_list', tag_list: shop.tag_list
-
-
-                        //管理者ユーザーまたは投稿作成ユーザー以外には削除を表示させない
-
-
