@@ -15,6 +15,7 @@ ul
               h8.user-name
                 |　Posted by：
                 = link_to shop.user.name, user_path(shop.user)
+              p
               li
               .shop-image.text-center
                 = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
@@ -29,15 +30,18 @@ ul
                 = link_to shop_path(shop, anchor: "form")
                   .far.fa-comment-alt.fa-lg
               li
-              .detail-shop
-                = link_to "詳細", shop_path(shop)
+                .detail-shop
+                  = link_to "詳細", shop_path(shop)
+
+              = render 'shops/tag_list', tag_list: shop.tag_list
               p
+
               .change-shop
-                  - if current_user.admin? || (current_user == shop.user)
-                    = link_to "編集", edit_shop_path(shop)
-                    |　|　
-                    = link_to "削除", shop_path(shop), method: :delete, #, class: 'del_dis',
-                                    data: { confirm: "本当に削除しますか？" }
+              - if current_user.admin? || (current_user == shop.user)
+                = link_to "編集", edit_shop_path(shop)
+                |　|　
+                = link_to "削除", shop_path(shop), method: :delete, #, class: 'del_dis',
+                                data: { confirm: "本当に削除しますか？" }
               p
               .timestamp.text-right
                 = time_ago_in_words(shop.created_at)
