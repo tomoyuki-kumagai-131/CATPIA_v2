@@ -1,8 +1,6 @@
 /- @all_ranks = Shop.find(Favorite.group(:shop_id).order('count(shop_id) desc').limit(3).pluck(:shop_id))
  - @all_ranks = Shop.all.sort {|a,b| b.favorited_users.count <=> a.favorited_users.count}
 
-
-
 .container
   .text-center
     h4.feed-home
