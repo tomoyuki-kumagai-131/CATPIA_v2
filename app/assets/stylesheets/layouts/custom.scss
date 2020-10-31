@@ -7,7 +7,7 @@ body {
   //font-family: "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "Meiryo UI" , "メイリオ" , Meiryo , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
   animation: fadeIn 2s ease 0s 1 normal;
   -webkit-animation: fadeIn 1s ease 0s 1 normal;
-  margin: 0;
+  //margin: 0;
 }
 
 
@@ -526,15 +526,15 @@ ol.main-use li:after {
   color: #ffffff;/*文字色*/
   padding: 0.3em;/*文字周りの余白*/
   display: inline-block;/*おまじない*/
-  line-height: 0.5;/*行高*/
-  //width: 600px;
-  height: 140px;
-  background: linear-gradient(-135deg, #9dddc2, #e9bf65);/*背景色*/
+  line-height: 1.3;/*行高*/
+  max-width: 100%;
+  //height: auto;
+  //background: linear-gradient(-135deg, #9dddc2, #e9bf65);/*背景色*/
   margin-top: -10px;
   vertical-align: middle;
   border-radius: 15px;
   margin-left: -3px;
-  background: url(topback.jpg) center center / cover no-repeat;
+  //background: url(topback.jpg) center center / cover no-repeat;
 }
 
 // トップページ //
@@ -991,12 +991,8 @@ i.fas.fa-exclamation-circle {
   line-height: 0.8;/*行高*/
   background: linear-gradient(-135deg, #9fc7d1, #e0cb9c);/*背景色*/
   vertical-align: middle;
-  border-radius: 25px
-}
-
-
-h5.rank-cat {
-  text-align: center;
+  border-radius: 25px;
+  margin-top: -50px;
 }
 
 .user-name.rank {
@@ -1007,11 +1003,12 @@ h5.rank-cat {
   //display: flex;
   opacity: 0.9;
   z-index: 10;
-  width: 120px;
-  height: 120px;
-  margin-top: -138px;
+  width: 90px;
+  height: 90px;
+  margin-top: -128px;
   margin-left: 3px;
   border-radius: 15px;
+  outline: 2px solid #bbb;
 }
 
 .allcat img {
@@ -1019,23 +1016,63 @@ h5.rank-cat {
   //text-align: center;
   opacity: 0.9;
   z-index: 10;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin-top: 3px;
   margin-left: -250px;
   border-radius: 15px;
-
+  outline: 2px solid #bbb;
 }
 
 .newpost_top img {
   //display: flex;
   z-index: 10;
   opacity: 0.9;
-  width: 120px;
-  height: 120px;
-  margin-top: -162px;
+  width: 90px;
+  height: 90px;
+  margin-top: -82px;
+  margin-bottom: -99px;
+  margin-left: 255px;
+  outline: 2px solid #bbb;
+  border-radius: 15px;
+}
+
+.maps_top img {
+  //display: flex;
+  z-index: 10;
+  opacity: 0.9;
+  width: 90px;
+  height: 90px;
+  margin-top: -252px;
   margin-left: 255px;
   border-radius: 15px;
+  outline: 2px solid #bbb;
+}
+
+.today_top img {
+  //display: flex;
+  opacity: 0.9;
+  z-index: 10;
+  width: 90px;
+  height: 90px;
+  margin-top: -108px;
+  //paddin-bottom: -110px;
+  margin-left: 3px;
+  border-radius: 15px;
+  outline: 2px solid #bbb;
+}
+
+.member_top img {
+  //display: flex;
+  opacity: 0.9;
+  z-index: 10;
+  width: 90px;
+  height: 90px;
+  margin-top: -169px;
+  //paddin-bottom: -110px;
+  margin-left: -250px;
+  border-radius: 15px;
+  outline: 2px solid #bbb;
 }
 
 .logo-top img{
@@ -1057,6 +1094,7 @@ h5.rank-cat {
 
 .catall {
   color: #000;
+  margin-top: -45px;
 }
 
 .del_dis {
