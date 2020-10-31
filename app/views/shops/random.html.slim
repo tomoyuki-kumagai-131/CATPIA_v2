@@ -1,0 +1,42 @@
+.container
+  .text-center
+    h4.feed-home
+      .allcat
+        = link_to image_tag("allcat.png", class:"allcat_top"), root_path
+      .ranking_top
+        = link_to image_tag("ranking.png", class:"ranking_top"), rank_path
+      .newpost_top
+        = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
+      .maps_top
+        = link_to image_tag("maps.png", class:"maps_top"), mapindex_path
+      .today_top
+        = link_to image_tag("today.png", class:"today_top"), random_path
+      .member_top
+        = link_to image_tag("member.png", class:"member_top"), users_path
+.container
+  .text-center
+    h4.rank-cat
+      | 今日の猫カフェ
+    brbr
+      | あなたにオススメの今日の猫カフェです
+    br
+    p
+  .row.text-center
+    br
+    p
+    - @random.each.with_index(1) do |shop, i|
+      h5.col-md-5.mx-auto
+        .card.shadow[style="width: 380px"]
+          p
+          |　第
+          = i
+          |位
+          |　
+          = link_to shop.name, shop_path(shop)
+          br
+          p
+            = link_to((image_tag shop.picture.thumb400.url), shop_path(shop.id), class: 'shop-picture') if shop.picture.url.present?
+          p
+          .user-name.rank
+                |　　　　　　　 　Posted by ：
+                = link_to shop.user.name, user_path(shop.user)
