@@ -752,16 +752,26 @@ h6.shop.html.slim {
   margin-left: 40px;
 }
 
+.members {
+  position: relative;
+  background: #b1cbdd; /*背景色*/
+  padding: 0.4em;/*文字周りの余白*/
+  color: white;/*文字を白に*/
+  border-radius: 0.5em;/*角の丸み*/
+  margin-top: 0px;
+}
+
 //*----------------------*
 //ユーザーページ(MYPAGE)    *
 //*----------------------*
 
 .profile {
-  display: inline-block;
+  position: relative;
   background: #b1cbdd; /*背景色*/
   padding: 0.4em;/*文字周りの余白*/
   color: white;/*文字を白に*/
   border-radius: 0.5em;/*角の丸み*/
+  margin-top: -50px;
 }
 
 // 投稿したねこカフェ部分のスラッシュ //
