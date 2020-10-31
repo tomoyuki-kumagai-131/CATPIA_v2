@@ -73,14 +73,18 @@ class ShopsController < ApplicationController
     end
   end
 
-  #def mapindex
-    #@shops = Shop.all
-    #@hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
-      #marker.lat shop.latitude
-      #marker.lng shop.longitude
-      #marker.infowindow shop.name
-    #end
-  #end
+  def mapindex
+    @shops = Shop.all
+    @hash = Gmaps4rails.build_markers(@shop) do |shop, marker|
+      marker.lat shop.latitude
+      marker.lng shop.longitude
+      marker.infowindow shop.name
+    end
+  end
+
+  def random
+    @random = Shop.order("RAND()").all
+  end
 
   private
 
