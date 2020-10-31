@@ -6,16 +6,11 @@
 .container
   .text-center
     h4.feed-home
-      .allcat
-        = link_to image_tag("allcat.png", class:"allcat_top"), root_path
-      .ranking_top
-        = link_to image_tag("ranking.png", class:"ranking_top"), rank_path
-      .newpost_top
-        = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
-p
+      = render 'shops/icon'
+
 .container.shop.html.slim
   .col-md-8.mx-auto
-    h5.name-shop
+    h4.name-shop
       = link_to shop.name, shop_path(shop)
     h8.user-name
       |　Posted by :
