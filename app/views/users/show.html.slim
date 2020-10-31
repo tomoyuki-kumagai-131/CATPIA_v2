@@ -2,18 +2,13 @@
 .container
   .text-center
     h4.feed-home
-      .allcat
-        = link_to image_tag("allcat.png", class:"allcat_top"), root_path
-      .ranking_top
-        = link_to image_tag("ranking.png", class:"ranking_top"), rank_path
-      .newpost_top
-        = link_to image_tag("newpost.png", class:"newpost_top"), new_shop_path
-p
+      = render 'shops/icon'
 .container
   br
     .text-center
-      h4.profile
-        | P R O F I L E
+      .d-flex.justify-content-center
+        h4.profile
+          | P R O F I L E
     p
     p.user-picture-box.text-center
       = gravatar_for @user, size: 70, cl: "gravatar user-picture"
