@@ -77,7 +77,9 @@ p
   .google_map
     | 店舗地図
 
-div id='map' style='height: 300px; width: 100%;'
+div id='map' style='height: 500px; width: 100%;'
+
+= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAh_mxXXCr5aAy-KrOHfg_q3SZsxNiwHPg&callback=initMap", async: true, defer: true
 
 javascript:
   function initMap() {
@@ -88,18 +90,19 @@ javascript:
     });
     var transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
+
     var contentString = "所在地：#{@shop.address} ";
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
+
     var marker = new google.maps.Marker({
       position:test,
       map: map,
       title: contentString
     });
+
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
   }
-
-= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAh_mxXXCr5aAy-KrOHfg_q3SZsxNiwHPg&callback=initMap", async: true, defer: true
