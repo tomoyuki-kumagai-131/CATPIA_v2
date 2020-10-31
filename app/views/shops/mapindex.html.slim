@@ -1,18 +1,73 @@
 #map.gmap-mapindex
-div id='map' style='height: 500px; width: 100%;'
+div id='map2' style='height: 800px; width: 100%;'
 
 = javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAh_mxXXCr5aAy-KrOHfg_q3SZsxNiwHPg&callback=initMap", async: true, defer: true
 
 javascript:
-  handler = Gmaps.build('Google');
-  handler.buildMap({
-    provider: {hyblid},
-    internal: {id: 'map'}},
-    function(){
-    markers = handler.addMarkers(#{raw @hash.to_json});
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.getMap().setCenter(new google.maps.LatLng(35.681298, 139.7640582));
-    handler.getMap().setZoom(10);
-    }
-  );
+  var map;
+  var marker = [];
+  var infoWindow = [];
+  var markerData = [ // マーカーを立てる場所名・緯度・経度
+    {
+          name: 'てまりのおうち',
+          lat: 35.705170,
+          lng: 139.577048,
+  }, {
+          name: 'miagolare',
+          lat: 35.697623,
+          lng: 139.671462,
+
+          name: '要にゃんこ亭',
+          lat: 35.734815,
+          lng: 139.700470,
+  }, {
+          name: 'いやし亭 ほご猫茶屋',
+          lat: 35.694788,
+          lng: 139.696402
+  }, {
+          name: '保護猫カフェ ヘミングウェイ',
+          lat: 35.169221,
+          lng: 136.940240,
+  }, {
+          name: 'ひとやすみ',
+          lat: 35.173258,
+          lng: 136.902393,
+  }
+  ];
+
+  function initMap() {
+  // 地図の作成
+      var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+    map = new google.maps.Map(document.getElementById('map2'), { // #sampleに地図を埋め込む
+      center: mapLatLng, // 地図の中心を指定
+        zoom: 8 // 地図のズームを指定
+    });
+
+  // マーカー毎の処理
+  for (var i = 0; i < markerData.length; i++) {
+          markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+          marker[i] = new google.maps.Marker({ // マーカーの追加
+          position: markerLatLng, // マーカーを立てる位置を指定
+              map: map // マーカーを立てる地図を指定
+        });
+
+      infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+          content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+        });
+
+      markerEvent(i); // マーカーにクリックイベントを追加
+  }
+
+    marker[0].setOptions({// TAM 東京のマーカーのオプション設定
+          icon: {
+          url: markerData[0]['icon']// マーカーの画像を変更
+        }
+    });
+  }
+
+  // マーカーにクリックイベントを追加
+  function markerEvent(i) {
+      marker[i].addListener('click', function() { // マーカーをクリックしたとき
+        infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+    });
+  }
