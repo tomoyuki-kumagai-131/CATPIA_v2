@@ -5,7 +5,7 @@
         = render 'shops/icon'
       .header-bottom
         .header-bottom__list
-          - @tags = ["白猫","黒猫", "お洒落", "譲渡可能"]
+          - @tags = ["白猫","黒猫", "お洒落", "譲渡可能", "保護猫"]
           - @tags.each do |tag|
             li.header-bottom__list__item
                 = link_to tag, shops_path(tag_name: tag), class: "header-bottom__list--name"
