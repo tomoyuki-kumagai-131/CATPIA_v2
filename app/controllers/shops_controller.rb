@@ -86,6 +86,10 @@ class ShopsController < ApplicationController
     @random = Shop.order("RAND()").all
   end
 
+  def tags
+    @tags = Shop.includes(:taggings).tag_counts_on(:tags)
+  end
+
   private
 
     # 登録できる項目をshop_paramsメソッドで定義する
