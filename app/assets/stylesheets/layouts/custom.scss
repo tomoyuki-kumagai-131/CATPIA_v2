@@ -1101,9 +1101,13 @@ i.fas.fa-exclamation-circle {
   margin-top: -5px;
 }
 
-.catall {
+h4.catall {
   color: #000;
-  margin-top: -45px;
+  margin-top: -120px;
+}
+
+.feeding {
+  margin-top: 53px;
 }
 
 .del_dis {
@@ -1171,4 +1175,47 @@ p.dm-picture-box.text-center img {
 }
 .shop-image.text-center:hover + .fukidasi {
   display: block;
+}
+
+.container-int {
+  margin: 0 auto;
+  width: 350px;
+}
+
+#tabMenu {
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+}
+
+#tabMenu li {
+  width: auto;
+  padding: 10px 20px;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+#tabMenu li.active {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  transition: .7s;
+}
+
+.header_bottom {
+  margin-top: 140px;
+  border-bottom: #333;
+}
+
+.header-bottom__list {
+  padding-top: -100px;
+}
+
+li.header-bottom__list__item {
+  display: inline-block;
+  margin-left: 16px;
+  border-bottom: 1px solid rgb(126, 126, 126);
+  margin-top: -10px;
+  margin-bottom: 50px;
 }
