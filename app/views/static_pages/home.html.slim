@@ -3,12 +3,18 @@
     .text-center
       h4.feed-home
         = render 'shops/icon'
+      .header-bottom
+        .header-bottom__list
+          - @tags = ["白猫","黒猫", "お洒落", "譲渡可能"]
+          - @tags.each do |tag|
+            li.header-bottom__list__item
+                = link_to tag, shops_path(tag_name: tag), class: "header-bottom__list--name"
       h4.catall
         | みんなの猫カフェ：
         = @feed_items.total_count
         |  件
-      p
-    = render 'shared/feed'
+    .feeding
+      = render 'shared/feed'
       br
 
 - else
