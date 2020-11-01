@@ -12,7 +12,6 @@ template#app
     slide
       .images.img4
         = image_tag "ca-cat4.jpg"
-    //hooper-navigation[slot="hooper-addons"]
 
 script src="https://cdn.jsdelivr.net/npm/vue"
 link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hooper@0.2.1/dist/hooper.css"
@@ -26,14 +25,14 @@ javascript:
           Slide: window.Hooper.Slide,
       },
       data() {
-          return {
-              hooperSettings: {
-                  infiniteScroll: true,
-                  centerMode: true,
-                  autoPlay: true,
-                  playSpeed: 1800,
-                  touchDrag: true
-              }
+        return {
+          hooperSettings: {
+              infiniteScroll: true,
+              centerMode: true,
+              autoPlay: true,
+              playSpeed: 1800,
+              touchDrag: true
           }
+        }
       }
   })
