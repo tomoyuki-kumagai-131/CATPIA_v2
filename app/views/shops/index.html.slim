@@ -11,6 +11,11 @@
   - else
     h3
       |　猫カフェ一覧
-  ul.shops
-    .col-md-8
-      = render @shops
+    .container
+      ol.shops
+        .row
+          h5.col-xs-12
+            /card.shadow
+            .d-flex.flex-row
+              .row
+                = render @shops
