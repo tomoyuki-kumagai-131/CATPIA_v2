@@ -1103,11 +1103,11 @@ i.fas.fa-exclamation-circle {
 
 h4.catall {
   color: #000;
-  margin-top: -120px;
+  margin-top: -21px;
 }
 
 .feeding {
-  margin-top: 53px;
+  margin-top: 22px;
 }
 
 .del_dis {
@@ -1209,7 +1209,7 @@ p.dm-picture-box.text-center img {
 }
 
 .header-bottom__list {
-  padding-top: -100px;
+  padding-top: 50px;
 }
 
 li.header-bottom__list__item {
@@ -1218,4 +1218,46 @@ li.header-bottom__list__item {
   border-bottom: 1px solid rgb(126, 126, 126);
   margin-top: -10px;
   margin-bottom: 50px;
+}
+
+// カルーセル スラ
+
+#app {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+.hooper-slide {
+  height: 100px;
+  background-color: #62caaa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+.images.img1 img{
+  width: 100%;
+  height: 100%;
+}
+
+.images.img2 img{
+  width: 100%;
+  height: 100%;
+}
+
+.images.img3 img{
+  width: 100%;
+  height: 100%;
+}
+
+.images.img4 img{
+  width: 100%;
+  height: 100%;
 }
