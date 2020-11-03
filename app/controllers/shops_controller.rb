@@ -20,8 +20,9 @@ class ShopsController < ApplicationController
   def index
     #@favorites_count = Favorite.where(shop_id: params[:shop_id]).count
     if params[:tag_name]
-      @shops = Shop.tagged_with("#{params[:tag_name]}")
+      @shops = Shop.tagged_with(params[:tag_name]).page(params[:page])
     end
+    @tags = Shop.tag_counts_on(:tags)
   end
 
   def search
