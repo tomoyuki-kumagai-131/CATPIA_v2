@@ -1101,13 +1101,14 @@ i.fas.fa-exclamation-circle {
   margin-top: -5px;
 }
 
-h4.catall {
-  color: #000;
-  margin-top: -21px;
+.catall {
+  color: rgb(70, 70, 70);
+  margin-top: 45px;
+  margin-bottom: 20px;
 }
 
 .feeding {
-  margin-top: 22px;
+  //margin-top: 45px;
 }
 
 .del_dis {
@@ -1204,20 +1205,21 @@ p.dm-picture-box.text-center img {
 }
 
 .header_bottom {
-  margin-top: 140px;
+  //margin-top: 200px;
   border-bottom: #333;
 }
 
 .header-bottom__list {
-  padding-top: 20px;
+  z-index: 10;
+  //padding-top: 30px;
 }
 
 li.header-bottom__list__item {
   display: inline-block;
   margin-left: 16px;
   border-bottom: 1px solid rgb(126, 126, 126);
-  margin-top: -10px;
-  margin-bottom: 50px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 // カルーセル スラ
@@ -1272,16 +1274,12 @@ li.header-bottom__list__item {
   border-style: none;
 }
 
-.seach-top-1 {
-  z-index: 10;
-}
-
 .search-form {
   display: inline-flex;
   //align-items: center;
   width: 100%;
   max-width: 400px;
-  margin-top: -80px;
+  margin-top: 100px;
   //margin-bottom: 20px;
   //padding: 0 10px;
 }
@@ -1289,8 +1287,9 @@ li.header-bottom__list__item {
 
 // TOP 猫カフェを探す。キャプション //
 h1.slide-cat-cap {
+  z-index: 500;
   font-family: "Hiragino Kaku Gothic ProN" ;
-  margin-top: -60px;
+  margin-top: -220px;
   font-size: 38px;
   white-space: nowrap;
   margin-bottom: 5px;
@@ -1300,7 +1299,7 @@ h1.slide-cat-cap {
 //検索バー//
 .se-cat-1 {
   position: relative;
-  margin-top: -26px;
+  margin-top: -126px;
 }
 
 .button-se {
