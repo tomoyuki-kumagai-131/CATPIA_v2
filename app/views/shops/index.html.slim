@@ -9,7 +9,16 @@
       | 件
     p
   - else
-    h3
+    - if params[:q].present? && params[:q][:name_cont].present?
+
+    h3.text-center
+      | ”
+      = params[:q][:name_or_address_cont]
+      | ”の検索結果：
+      = @shops.count
+      | 件
+    p
+    /h3
       |　猫カフェ一覧
     .container
       ol.shops
