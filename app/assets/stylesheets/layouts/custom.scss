@@ -1286,6 +1286,19 @@ li.header-bottom__list__item {
   //padding: 0 10px;
 }
 
-.se-cat1 {
-  margin-top: -10px;
+
+// TOP 猫カフェを探す。キャプション //
+h1.slide-cat-cap {
+  font-family: "Hiragino Kaku Gothic ProN" ;
+  margin-top: -60px;
+  font-size: 38px;
+  white-space: nowrap;
+  margin-bottom: 5px;
+  //margin-left: 4px;
+}
+
+
+.se-cat-1 {
+  position: relative;
+  margin-top: -26px;
 }
