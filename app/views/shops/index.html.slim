@@ -1,16 +1,6 @@
 - provide(:title, '猫カフェ投稿一覧')
 .container
-  - if @search_word.present?
-    h3.text-center
-      | ”
-      = @search_word
-      | ”の検索結果：
-      = @shops.count
-      | 件
-    p
-  - else
-    - if params[:q].present? && params[:q][:name_cont].present?
-
+  - if params[:q].present? && params[:q][:name_or_address_cont].present?
     h3.text-center
       | ”
       = params[:q][:name_or_address_cont]
@@ -18,13 +8,17 @@
       = @shops.count
       | 件
     p
-    /h3
-      |　猫カフェ一覧
-    .container
-      ol.shops
-        .row
-          h5.col-xs-12
-            /card.shadow
-            .d-flex.flex-row
-              .row
-                = render @shops
+  - else
+    h3.text-center
+      | 絞り込み結果
+    /- @tags.each do |tag|
+      = link_to tag, shops_path(:action => :tag, :tag => tag.name)
+    p
+  .container
+    ol.shops
+      .row
+        h5.col-xs-12
+          /card.shadow
+          .d-flex.flex-row
+            .row
+              = render @shops
