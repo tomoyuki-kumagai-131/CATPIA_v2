@@ -1,0 +1,27 @@
+#app
+  ul#tabMenu
+    .container-int.text-center
+      li v-bind:class=("{'active': active === 1}") v-on:click="change(1)" みんなの猫カフェ
+      li v-bind:class=("{'active': active === 2}") v-on:click="change(2)" 人気の猫カフェ
+      li v-bind:class=("{'active': active === 3}") v-on:click="change(3)" 今日の猫カフェ
+      p
+      p v-if=("active === 1")
+        = render 'shared/feed'
+      p v-else-if=("active === 2")
+      p v-else-if=("active === 3")  今日の猫カフェ
+
+
+script src="https://cdn.jsdelivr.net/npm/vue"
+
+javascript:
+    new Vue({
+    el: '#app',
+    data: {
+      active: 1
+    },
+    methods: {
+      change: function(num) {
+        this.active = num;
+      }
+    }
+  })
