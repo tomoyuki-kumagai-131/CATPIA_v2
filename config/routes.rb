@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'rank' => 'shops#rank' # ランキング機能
   get 'mapindex' => 'shops#mapindex' # 地図一覧表示機能
   get 'random' => 'shops#random' # ランダム表示機能
+  get 'introduce' => 'shops#introduce'
   post 'login' => 'sessions#create'
   post '/static_pages/guest_sign_in' => 'static_pages#new_guest'
   delete 'logout' => 'sessions#destroy'
