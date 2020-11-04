@@ -31,10 +31,22 @@ html
             | ']('
             = value
             | ');
-
-      - if logged_in?
-        = link_to image_tag("新規投稿ねこ.png", class:"image_cat"), new_shop_path
-
+      #app
+        <div class="Page-Btn" @click="scrollTop">
+        i.fas.fa-chevron-up.Page-Btn-Icon
     == yield
 
     = render 'partial/footer'
+
+javascript:
+  new Vue({
+    el: '#app',
+    methods: {
+      scrollTop: function(){
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    }
+  })
