@@ -1306,3 +1306,21 @@ h1.slide-cat-cap {
   margin-top: 5px;
   font-family: "Hiragino Kaku Gothic ProN" ;
 }
+
+// 上に戻るボタン(スクロール)  //
+.Page-Btn{
+  position: fixed;
+  right: 19px;
+  bottom: 14px;
+  width: 37px;
+  height: 37px;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  background: #5bc8ac;
+}
+.Page-Btn-Icon{
+  color: #fff;
+  font-size: 16px;
+}
+
