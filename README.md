@@ -38,13 +38,11 @@ https://cat-pia.com/
 
 ## WEBページサンプル
 
-<a href="https://gyazo.com/06f5133bb16fcd7aa05d3106871d0e32"><img src="https://i.gyazo.com/06f5133bb16fcd7aa05d3106871d0e32.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/fb852dd98af4e547fcc7b67b97e65d5e"><img src="https://i.gyazo.com/fb852dd98af4e547fcc7b67b97e65d5e.png" alt="Image from Gyazo" width="750"/></a>
 
-<a href="https://gyazo.com/d389ceba6492662781f158363593c1f2"><img src="https://i.gyazo.com/d389ceba6492662781f158363593c1f2.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/c58ac7c7ed45ce6c3063a953943356ff"><img src="https://i.gyazo.com/c58ac7c7ed45ce6c3063a953943356ff.png" alt="Image from Gyazo" width="750"/></a>
 
-<a href="https://gyazo.com/86f851bdd1fdeee933f4fc0efb134acb"><img src="https://i.gyazo.com/86f851bdd1fdeee933f4fc0efb134acb.jpg" alt="Image from Gyazo" width="400"/></a>
-
-<a href="https://gyazo.com/718dca5c4969e51ea40c2803d6d657e1"><img src="https://i.gyazo.com/718dca5c4969e51ea40c2803d6d657e1.jpg" alt="Image from Gyazo" width="400"/></a>
+<a href="https://gyazo.com/44c2a4d9bd6cb985d71ce3efc6ae1fe0"><img src="https://i.gyazo.com/44c2a4d9bd6cb985d71ce3efc6ae1fe0.png" alt="Image from Gyazo" width="750"/></a>
 
 ## 制作背景
 <p>
