@@ -17,6 +17,7 @@ class ShopsController < ApplicationController
     end
   end
 
+  # 猫カフェ検索後・タグ絞り込み
   def index
     #@favorites_count = Favorite.where(shop_id: params[:shop_id]).count
     if params[:tag_name]
