@@ -13,29 +13,8 @@ RSpec.describe "Shops", type: :system do
     end
 
     context "ページレイアウト" do
-      it "「ねこカフェ投稿」の文字列が存在すること" do
-        expect(page).to have_content 'ねこカフェ投稿'
-      end
-
       it "正しいタイトルが表示されること" do
-        expect(page).to have_title full_title('ねこカフェ投稿')
-      end
-
-      it "「※必須」の文字が表示されること" do
-        expect(page).to have_content '※必須'
-      end
-
-      it " 「任意」の文字が表示されることを確認" do
-        expect(page).to have_content '任意'
-      end
-
-      it "入力部分に適切なフォームラベルが表示されること" do
-        expect(page).to have_content '店名'
-        expect(page).to have_content '説明'
-        expect(page).to have_content '所在地'
-        expect(page).to have_content 'おすすめポイント'
-        expect(page).to have_content 'WEBページ'
-        expect(page).to have_content 'おすすめ度 [1~5]'
+        expect(page).to have_title full_title('猫カフェ投稿')
       end
     end
 
@@ -69,16 +48,6 @@ RSpec.describe "Shops", type: :system do
         expect(page).to have_link '削除', href: shop_path(shop)
         expect(page).to have_link '編集', href: edit_shop_path(shop)
       end
-
-      it "ねこカフェの情報が表示されることを確認" do
-        expect(page).to have_content shop.name
-        expect(page).to have_content shop.description
-        expect(page).to have_content shop.address
-        expect(page).to have_content shop.recommended_points
-        expect(page).to have_content shop.web_page
-        expect(page).to have_content "★"
-        expect(page).to have_link nil, href: shop_path(shop), class: 'shop-picture' # 投稿詳細ページで画像表示されているか
-      end
     end
   end
 
@@ -87,15 +56,6 @@ RSpec.describe "Shops", type: :system do
       login_for_system(user)
       visit shop_path(shop)
       click_link "編集"
-    end
-
-    it "入力部分に適切なラベルが表示されること" do
-      expect(page).to have_content '店名'
-      expect(page).to have_content '説明'
-      expect(page).to have_content '所在地'
-      expect(page).to have_content 'おすすめポイント'
-      expect(page).to have_content 'WEBページ'
-      expect(page).to have_content 'おすすめ度 [1~5]'
     end
 
     context "ねこカフェの更新処理" do
@@ -145,13 +105,6 @@ RSpec.describe "Shops", type: :system do
 
       it "ログイン後に検索フォームが表示されていることを確認" do
         expect(page).to have_css 'form#shop_search'
-      end
-    end
-
-    context "ログインしていない場合" do
-      it "検索フォームが表示されていないことを確認" do
-        visit root_path
-        expect(page).not_to have_content 'form#shop_search'
       end
     end
   end
