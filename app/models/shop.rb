@@ -1,4 +1,4 @@
-class Shop < ApplicationRecord
+class Shop < ApplicationRecord #コールバック call back・・・例として登録後の確認メール
   belongs_to :user
   has_many :favorites, dependent: :destroy # お気に入り機能実装により追記
   has_many :comments, dependent: :destroy # コメント機能実装による追記
