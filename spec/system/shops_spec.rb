@@ -108,4 +108,51 @@ RSpec.describe "Shops", type: :system do
       end
     end
   end
+
+  describe "ランキング機能" do
+    context "ログイン中の場合" do
+      before do
+        login_for_system(user)
+        visit rank_path
+      end
+
+      it "正常にランキング表示されていることを確認" do
+        expect(page).to have_css 'h5.col-md-4.mx-auto'
+      end
+
+      it "投稿者名が表示されていることを確認" do
+        expect(page).to have_css '.user-name.rank'
+      end
+    end
+  end
+
+  describe "ランダム表示機能" do
+    context "ログイン中の場合" do
+      before do
+        login_for_system(user)
+        visit random_path
+      end
+
+      it "正常にタイトル表示されていることを確認" do
+        expect( find('h4.rank-cat', visible: false).text(:all) ).to include '今日の猫カフェ'
+      end
+
+      it "正常にランダム表示されていることを確認" do
+        expect( find('h5.col-md-4.mx-auto', visible: false).text(:all) ).to include '第1位'
+      end
+    end
+  end
+
+  describe "マップ機能" do
+    context "ログイン中の場合" do
+      before do
+        login_for_system(user)
+        visit mapindex_path
+      end
+
+      it "正常にマップ表示されていることを確認" do
+        expect find('#map.gmap-mapindex', visible: false)
+      end
+    end
+  end
 end
