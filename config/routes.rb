@@ -19,7 +19,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :shops
+  # collection...全体のデータにアクセスする際に使用 resources以外のアクション
+  resources :shops # IDがあるかないかで決定される
   resources :relationships, only: [:create, :destroy] # create・destroyアクションのルーティング追記
   get :favorites, to: 'favorites#index' # お気に入り一覧表示アクション
   post   "favorites/:shop_id/create"  => "favorites#create" # shop_idを入れ、お気に入り登録の識別をする
