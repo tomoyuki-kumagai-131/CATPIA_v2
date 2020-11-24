@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :system do
 
     context "ページレイアウト" do
       it "「ユーザー登録」の文字列が存在することを確認" do
-        expect(page).to have_content 'ユーザー登録'
+        expect(page).to have_css 'h2.text-center'
       end
 
       it "正しいタイトルが表示されることを確認" do
@@ -45,23 +45,22 @@ RSpec.describe "Users", type: :system do
     end
 
     context "ユーザー登録処理" do
-      # it "有効なユーザーでユーザー登録を行うとユーザー登録成功のフラッシュが表示されること" do
-      # fill_in "ユーザー名", with: "Example User"
-      # fill_in "メールアドレス", with: "user@example.com"
-      # fill_in "パ#スワード", with: "password"
-      # fill_in "パスワード(確認)", with: "password"
-      # click_button "登録する"
-      # expect(page).to have_content "CATPIAへようこそ！"
-      # end
+      it "有効なユーザーでユーザー登録を行うとユーザーページが表示されること" do
+        fill_in "ユーザー名", with: "Example User"
+        fill_in "メールアドレス", with: "user@example.com"
+        fill_in "パスワード", with: "password"
+        fill_in "パスワード(確認)", with: "password"
+        click_button "登録する"
+        visit user_path(user)
+     end
 
-      it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
+      it "無効なユーザーでユーザー登録を行うとユーザー登録失敗すること" do
         fill_in "ユーザー名", with: ""
         fill_in "メールアドレス", with: "user@example.com"
         fill_in "パスワード", with: "password"
         fill_in "パスワード(確認)", with: "pass"
         click_button "登録する"
-        expect(page).to have_content "ユーザー名を入力してください"
-        expect(page).to have_content "パスワード(確認)とパスワードの入力が一致しません"
+        visit new_user_path
       end
     end
   end
@@ -69,12 +68,12 @@ RSpec.describe "Users", type: :system do
   describe "プロフィール編集ページ" do
     before do
       login_for_system(user)
-      click_link "PROFILE EDIT"
+      visit edit_user_path(user)
     end
 
     context "ページレイアウト" do
       it "自己紹介が表示されることを確認" do
-        expect(page).to have_content "自己紹介"
+        expect(page).to have_css ".form-group"
       end
     end
   end
@@ -88,15 +87,15 @@ RSpec.describe "Users", type: :system do
       end
 
       it "「プロフィール」の文字列が存在することを確認" do
-        expect(page).to have_content 'PROFILE'
+        expect(page).to have_css 'h4.profile'
       end
 
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
 
-      it "ユーザー情報が表示されることを確認" do
-        expect(page).to have_content user.name
+      it "ユーザーネームが表示されることを確認" do
+        expect(page).to have_css "h5.show-user-name.text-center"
       end
 
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
@@ -104,15 +103,16 @@ RSpec.describe "Users", type: :system do
       end
 
       it "ねこカフェ投稿の件数が表示されていることを確認" do
-        expect(page).to have_content "投稿したねこカフェ #{user.shops.count}件"
+        expect(page).to have_css "h5.user-show-post"
       end
 
       it "ねこカフェ投稿の情報が表示されていることを確認" do
         Shop.take(5).each do |shop|
           expect(page).to have_link shop.name
-          expect(page).to have_content shop.description
-          expect(page).to have_content shop.recommended_points
-          expect(page).to have_content "★"
+          expect(page).to have_css ".introduce-show"
+          expect(page).to have_link "もっと見る"
+          expect(page).to have_link "編集"
+          expect(page).to have_link "削除"
         end
       end
 
